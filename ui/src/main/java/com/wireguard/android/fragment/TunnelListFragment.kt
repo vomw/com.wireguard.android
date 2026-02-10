@@ -33,7 +33,6 @@ import com.wireguard.android.databinding.ObservableKeyedRecyclerViewAdapter.RowC
 import com.wireguard.android.databinding.TunnelListFragmentBinding
 import com.wireguard.android.databinding.TunnelListItemBinding
 import com.wireguard.android.model.ObservableTunnel
-import com.wireguard.android.updater.SnackbarUpdateShower
 import com.wireguard.android.util.ErrorMessages
 import com.wireguard.android.util.QrCodeFromFileScanner
 import com.wireguard.android.util.TunnelImporter
@@ -81,7 +80,7 @@ class TunnelListFragment : BaseFragment() {
         }
     }
 
-    private val snackbarUpdateShower = SnackbarUpdateShower(this)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -127,7 +126,7 @@ class TunnelListFragment : BaseFragment() {
                 bottomSheet.showNow(childFragmentManager, "BOTTOM_SHEET")
             }
             executePendingBindings()
-            snackbarUpdateShower.attach(mainContainer, createFab)
+
         }
         backPressedCallback = requireActivity().onBackPressedDispatcher.addCallback(this) { actionMode?.finish() }
         backPressedCallback?.isEnabled = false
