@@ -21,21 +21,24 @@ android {
     defaultConfig {
         minSdk = 24
 
-        val targetAbi: String? by project
-        if (targetAbi != null) {
+        project.findProperty("targetAbi")?.toString()?.let { abi ->
             ndk {
-                abiFilters.add(targetAbi)
+                abiFilters.clear()
+                abiFilters.add(abi)
             }
         }
     }
+
     externalNativeBuild {
         cmake {
             path("tools/CMakeLists.txt")
         }
     }
+
     testOptions.unitTests.all {
         it.testLogging { events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED) }
     }
+
     buildTypes {
         all {
             externalNativeBuild {
@@ -44,9 +47,9 @@ android {
                     arguments("-DGRADLE_USER_HOME=${project.gradle.gradleUserHomeDir}")
                     arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
 
-                    val targetAbi: String? by project
-                    if (targetAbi != null) {
-                        abiFilters.add(targetAbi)
+                    project.findProperty("targetAbi")?.toString()?.let { abi ->
+                        abiFilters.clear()
+                        abiFilters.add(abi)
                     }
                 }
             }

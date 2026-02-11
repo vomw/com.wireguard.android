@@ -28,21 +28,35 @@ android {
         versionName = providers.gradleProperty("wireguardVersionName").get()
         buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
 
-        val targetAbi: String? by project
-        versionCode = baseVersionCode * 10 + when (targetAbi) {
-            "x86" -> 1
-            "x86_64" -> 2
-            "armeabi-v7a" -> 3
-            "arm64-v8a" -> 4
-            else -> 0
-        }
-
-        if (targetAbi != null) {
+        project.findProperty("targetAbi")?.toString()?.let { abi ->
+            versionCode = baseVersionCode * 10 + when (abi) {
+                "x86" -> 1
+                "x86_64" -> 2
+                "armeabi-v7a" -> 3
+                "arm64-v8a" -> 4
+                else -> 0
+            }
             ndk {
-                abiFilters.set(listOf(targetAbi))
+                abiFilters.clear()
+                abiFilters.add(abi)
             }
         }
     }
+
+    packaging {
+        resources {
+            excludes += "DebugProbesKt.bin"
+            excludes += "kotlin-tooling-metadata.json"
+            excludes += "META-INF/*.version"
+        }
+        jniLibs {
+            project.findProperty("targetAbi")?.toString()?.let { abi ->
+                val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+                excludes.addAll(allAbis.filter { it != abi }.map { "lib/$it/*" })
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -53,46 +67,14 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles("proguard-android-optimize.txt")
-            packaging {
-                resources {
-                    excludes += "DebugProbesKt.bin"
-                    excludes += "kotlin-tooling-metadata.json"
-                    excludes += "META-INF/*.version"
-                }
-                jniLibs {
-                    val targetAbi: String? by project
-                    if (targetAbi != null) {
-                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
-                    }
-                }
-            }
         }
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            packaging {
-                jniLibs {
-                    val targetAbi: String? by project
-                    if (targetAbi != null) {
-                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
-                    }
-                }
-            }
         }
         create("googleplay") {
             initWith(getByName("release"))
             matchingFallbacks += "release"
-            packaging {
-                jniLibs {
-                    val targetAbi: String? by project
-                    if (targetAbi != null) {
-                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
-                    }
-                }
-            }
         }
     }
     androidResources {

@@ -1,482 +1,1377 @@
-﻿2026-02-11T02:58:06.5390666Z Current runner version: '2.331.0'
-2026-02-11T02:58:06.5414169Z ##[group]Runner Image Provisioner
-2026-02-11T02:58:06.5415065Z Hosted Compute Agent
-2026-02-11T02:58:06.5415880Z Version: 20260123.484
-2026-02-11T02:58:06.5416531Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
-2026-02-11T02:58:06.5417196Z Build Date: 2026-01-23T19:41:17Z
-2026-02-11T02:58:06.5417889Z Worker ID: {c74874e0-3073-4070-8a52-5565b59f01a6}
-2026-02-11T02:58:06.5418623Z Azure Region: westus
-2026-02-11T02:58:06.5419201Z ##[endgroup]
-2026-02-11T02:58:06.5420590Z ##[group]Operating System
-2026-02-11T02:58:06.5421214Z Ubuntu
-2026-02-11T02:58:06.5421693Z 24.04.3
-2026-02-11T02:58:06.5422274Z LTS
-2026-02-11T02:58:06.5422776Z ##[endgroup]
-2026-02-11T02:58:06.5423281Z ##[group]Runner Image
-2026-02-11T02:58:06.5423906Z Image: ubuntu-24.04
-2026-02-11T02:58:06.5424444Z Version: 20260201.15.1
-2026-02-11T02:58:06.5426022Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
-2026-02-11T02:58:06.5427559Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
-2026-02-11T02:58:06.5428562Z ##[endgroup]
-2026-02-11T02:58:06.5431308Z ##[group]GITHUB_TOKEN Permissions
-2026-02-11T02:58:06.5433706Z Actions: write
-2026-02-11T02:58:06.5434390Z ArtifactMetadata: write
-2026-02-11T02:58:06.5434971Z Attestations: write
-2026-02-11T02:58:06.5435618Z Checks: write
-2026-02-11T02:58:06.5436232Z Contents: write
-2026-02-11T02:58:06.5436796Z Deployments: write
-2026-02-11T02:58:06.5437369Z Discussions: write
-2026-02-11T02:58:06.5437883Z Issues: write
-2026-02-11T02:58:06.5438402Z Metadata: read
-2026-02-11T02:58:06.5438944Z Models: read
-2026-02-11T02:58:06.5439481Z Packages: write
-2026-02-11T02:58:06.5440003Z Pages: write
-2026-02-11T02:58:06.5440656Z PullRequests: write
-2026-02-11T02:58:06.5441249Z RepositoryProjects: write
-2026-02-11T02:58:06.5441849Z SecurityEvents: write
-2026-02-11T02:58:06.5442445Z Statuses: write
-2026-02-11T02:58:06.5442940Z ##[endgroup]
-2026-02-11T02:58:06.5444972Z Secret source: Actions
-2026-02-11T02:58:06.5446103Z Prepare workflow directory
-2026-02-11T02:58:06.5759419Z Prepare all required actions
-2026-02-11T02:58:06.5809883Z Getting action download info
-2026-02-11T02:58:07.0871601Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
-2026-02-11T02:58:07.1743067Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
-2026-02-11T02:58:08.2934315Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
-2026-02-11T02:58:09.7781335Z Download action repository 'r0adkll/sign-android-release@v1' (SHA:349ebdef58775b1e0d8099458af0816dc79b6407)
-2026-02-11T02:58:12.7363066Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
-2026-02-11T02:58:12.9715675Z Complete job name: build (x86_64, 31)
-2026-02-11T02:58:13.0371517Z ##[group]Run actions/checkout@v4
-2026-02-11T02:58:13.0372108Z with:
-2026-02-11T02:58:13.0372370Z   repository: WireGuard/wireguard-android
-2026-02-11T02:58:13.0372666Z   submodules: recursive
-2026-02-11T02:58:13.0373062Z   token: ***
-2026-02-11T02:58:13.0373263Z   ssh-strict: true
-2026-02-11T02:58:13.0373467Z   ssh-user: git
-2026-02-11T02:58:13.0373677Z   persist-credentials: true
-2026-02-11T02:58:13.0373908Z   clean: true
-2026-02-11T02:58:13.0374131Z   sparse-checkout-cone-mode: true
-2026-02-11T02:58:13.0374397Z   fetch-depth: 1
-2026-02-11T02:58:13.0374604Z   fetch-tags: false
-2026-02-11T02:58:13.0374822Z   show-progress: true
-2026-02-11T02:58:13.0375044Z   lfs: false
-2026-02-11T02:58:13.0375247Z   set-safe-directory: true
-2026-02-11T02:58:13.0376125Z ##[endgroup]
-2026-02-11T02:58:13.1474346Z Syncing repository: WireGuard/wireguard-android
-2026-02-11T02:58:13.1476150Z ##[group]Getting Git version info
-2026-02-11T02:58:13.1476727Z Working directory is '/home/runner/work/com.wireguard.android/com.wireguard.android'
-2026-02-11T02:58:13.1477389Z [command]/usr/bin/git version
-2026-02-11T02:58:13.1543889Z git version 2.52.0
-2026-02-11T02:58:13.1570431Z ##[endgroup]
-2026-02-11T02:58:13.1585054Z Temporarily overriding HOME='/home/runner/work/_temp/fcf5be76-1de5-4f62-95d1-b140a536733d' before making global git config changes
-2026-02-11T02:58:13.1586655Z Adding repository directory to the temporary git global config as a safe directory
-2026-02-11T02:58:13.1598847Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
-2026-02-11T02:58:13.1638216Z Deleting the contents of '/home/runner/work/com.wireguard.android/com.wireguard.android'
-2026-02-11T02:58:13.1641611Z ##[group]Initializing the repository
-2026-02-11T02:58:13.1645840Z [command]/usr/bin/git init /home/runner/work/com.wireguard.android/com.wireguard.android
-2026-02-11T02:58:13.1745660Z hint: Using 'master' as the name for the initial branch. This default branch name
-2026-02-11T02:58:13.1746886Z hint: will change to "main" in Git 3.0. To configure the initial branch name
-2026-02-11T02:58:13.1748022Z hint: to use in all of your new repositories, which will suppress this warning,
-2026-02-11T02:58:13.1748886Z hint: call:
-2026-02-11T02:58:13.1749188Z hint:
-2026-02-11T02:58:13.1749629Z hint: 	git config --global init.defaultBranch <name>
-2026-02-11T02:58:13.1750304Z hint:
-2026-02-11T02:58:13.1750955Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-2026-02-11T02:58:13.1751787Z hint: 'development'. The just-created branch can be renamed via this command:
-2026-02-11T02:58:13.1752329Z hint:
-2026-02-11T02:58:13.1752586Z hint: 	git branch -m <name>
-2026-02-11T02:58:13.1752889Z hint:
-2026-02-11T02:58:13.1753318Z hint: Disable this message with "git config set advice.defaultBranchName false"
-2026-02-11T02:58:13.1754212Z Initialized empty Git repository in /home/runner/work/com.wireguard.android/com.wireguard.android/.git/
-2026-02-11T02:58:13.1761208Z [command]/usr/bin/git remote add origin https://github.com/WireGuard/wireguard-android
-2026-02-11T02:58:13.1794105Z ##[endgroup]
-2026-02-11T02:58:13.1794688Z ##[group]Disabling automatic garbage collection
-2026-02-11T02:58:13.1798666Z [command]/usr/bin/git config --local gc.auto 0
-2026-02-11T02:58:13.1832921Z ##[endgroup]
-2026-02-11T02:58:13.1833526Z ##[group]Setting up auth
-2026-02-11T02:58:13.1833946Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-02-11T02:58:13.1862680Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-02-11T02:58:13.2210245Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-02-11T02:58:13.2240056Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-02-11T02:58:13.2467330Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-02-11T02:58:13.2499554Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-2026-02-11T02:58:13.2732327Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2026-02-11T02:58:13.2767921Z ##[endgroup]
-2026-02-11T02:58:13.2768897Z ##[group]Determining the default branch
-2026-02-11T02:58:13.2772161Z Retrieving the default branch name
-2026-02-11T02:58:13.7175240Z Default branch 'master'
-2026-02-11T02:58:13.7176793Z ##[endgroup]
-2026-02-11T02:58:13.7177513Z ##[group]Fetching the repository
-2026-02-11T02:58:13.7183028Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/master:refs/remotes/origin/master
-2026-02-11T02:58:14.5181953Z From https://github.com/WireGuard/wireguard-android
-2026-02-11T02:58:14.5183358Z  * [new branch]      master     -> origin/master
-2026-02-11T02:58:14.5217646Z ##[endgroup]
-2026-02-11T02:58:14.5218605Z ##[group]Determining the checkout info
-2026-02-11T02:58:14.5219895Z ##[endgroup]
-2026-02-11T02:58:14.5226018Z [command]/usr/bin/git sparse-checkout disable
-2026-02-11T02:58:14.5271853Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
-2026-02-11T02:58:14.5300806Z ##[group]Checking out the ref
-2026-02-11T02:58:14.5305296Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
-2026-02-11T02:58:14.5515122Z Reset branch 'master'
-2026-02-11T02:58:14.5517387Z branch 'master' set up to track 'origin/master'.
-2026-02-11T02:58:14.5525437Z ##[endgroup]
-2026-02-11T02:58:14.5526520Z ##[group]Setting up auth for fetching submodules
-2026-02-11T02:58:14.5532376Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2026-02-11T02:58:14.5573766Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
-2026-02-11T02:58:14.5606739Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
-2026-02-11T02:58:14.5638623Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-22770640@github.com:
-2026-02-11T02:58:14.5665042Z ##[endgroup]
-2026-02-11T02:58:14.5665656Z ##[group]Fetching submodules
-2026-02-11T02:58:14.5669843Z [command]/usr/bin/git submodule sync --recursive
-2026-02-11T02:58:14.5901570Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
-2026-02-11T02:58:14.6122277Z Submodule 'tunnel/tools/elf-cleaner' (https://github.com/termux/termux-elf-cleaner) registered for path 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:14.6124672Z Submodule 'tunnel/tools/wireguard-tools' (https://git.zx2c4.com/wireguard-tools) registered for path 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:14.6151775Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/elf-cleaner'...
-2026-02-11T02:58:15.6701754Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/wireguard-tools'...
-2026-02-11T02:58:18.2247727Z From https://github.com/termux/termux-elf-cleaner
-2026-02-11T02:58:18.2248736Z  * branch            7efc05090675ec6161b7def862728086a26c3b1f -> FETCH_HEAD
-2026-02-11T02:58:18.3404446Z Submodule path 'tunnel/tools/elf-cleaner': checked out '7efc05090675ec6161b7def862728086a26c3b1f'
-2026-02-11T02:58:21.0852263Z From https://git.zx2c4.com/wireguard-tools
-2026-02-11T02:58:21.0853746Z  * branch            e2ecaaa739144997ccff89d6ad6ec81698ea6ced -> FETCH_HEAD
-2026-02-11T02:58:21.0982335Z Submodule path 'tunnel/tools/wireguard-tools': checked out 'e2ecaaa739144997ccff89d6ad6ec81698ea6ced'
-2026-02-11T02:58:21.1023857Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
-2026-02-11T02:58:21.1255605Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:21.1293868Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:21.1339929Z ##[endgroup]
-2026-02-11T02:58:21.1340388Z ##[group]Persisting credentials for submodules
-2026-02-11T02:58:21.1351600Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
-2026-02-11T02:58:21.1571262Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:21.1613827Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:21.1669468Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
-2026-02-11T02:58:21.1877108Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:21.1916555Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
-2026-02-11T02:58:21.1935069Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:21.1973542Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
-2026-02-11T02:58:21.2022339Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
-2026-02-11T02:58:21.2243515Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:21.2282929Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:21.2334884Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-22770640@github.com:'
-2026-02-11T02:58:21.2582304Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T02:58:21.2619417Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T02:58:21.2666252Z ##[endgroup]
-2026-02-11T02:58:21.2703368Z [command]/usr/bin/git log -1 --format=%H
-2026-02-11T02:58:21.2726533Z 09b75c2bd37f749e2a8c85876394854113c74be7
-2026-02-11T02:58:21.2896662Z ##[group]Run echo $GITHUB_ENV
-2026-02-11T02:58:21.2897030Z [36;1mecho $GITHUB_ENV[0m
-2026-02-11T02:58:21.2931341Z shell: /usr/bin/bash -e {0}
-2026-02-11T02:58:21.2931692Z ##[endgroup]
-2026-02-11T02:58:21.3006040Z /home/runner/work/_temp/_runner_file_commands/set_env_bbaea13b-cfa1-439d-a907-2a2aa0923094
-2026-02-11T02:58:21.3118695Z ##[group]Run actions/setup-java@v4
-2026-02-11T02:58:21.3118987Z with:
-2026-02-11T02:58:21.3119181Z   java-version: 17
-2026-02-11T02:58:21.3119401Z   distribution: temurin
-2026-02-11T02:58:21.3119635Z   java-package: jdk
-2026-02-11T02:58:21.3119860Z   check-latest: false
-2026-02-11T02:58:21.3120078Z   server-id: github
-2026-02-11T02:58:21.3120300Z   server-username: GITHUB_ACTOR
-2026-02-11T02:58:21.3120571Z   server-password: GITHUB_TOKEN
-2026-02-11T02:58:21.3120837Z   overwrite-settings: true
-2026-02-11T02:58:21.3121075Z   job-status: success
-2026-02-11T02:58:21.3121418Z   token: ***
-2026-02-11T02:58:21.3121621Z ##[endgroup]
-2026-02-11T02:58:21.5163213Z ##[group]Installed distributions
-2026-02-11T02:58:21.5231186Z Resolved Java 17.0.18+8 from tool-cache
-2026-02-11T02:58:21.5232092Z Setting Java 17.0.18+8 as the default
-2026-02-11T02:58:21.5244990Z Creating toolchains.xml for JDK version 17 from temurin
-2026-02-11T02:58:21.5322030Z Writing to /home/runner/.m2/toolchains.xml
-2026-02-11T02:58:21.5322871Z 
-2026-02-11T02:58:21.5323165Z Java configuration:
-2026-02-11T02:58:21.5324035Z   Distribution: temurin
-2026-02-11T02:58:21.5324792Z   Version: 17.0.18+8
-2026-02-11T02:58:21.5325860Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T02:58:21.5326699Z 
-2026-02-11T02:58:21.5327384Z ##[endgroup]
-2026-02-11T02:58:21.5348843Z Creating settings.xml with server-id: github
-2026-02-11T02:58:21.5352073Z Writing to /home/runner/.m2/settings.xml
-2026-02-11T02:58:21.5601175Z ##[group]Run gradle/actions/setup-gradle@v3
-2026-02-11T02:58:21.5601483Z with:
-2026-02-11T02:58:21.5601675Z   cache-disabled: false
-2026-02-11T02:58:21.5601899Z   cache-read-only: false
-2026-02-11T02:58:21.5602117Z   cache-write-only: false
-2026-02-11T02:58:21.5602345Z   cache-overwrite-existing: false
-2026-02-11T02:58:21.5602661Z   gradle-home-cache-includes: caches
+﻿2026-02-11T08:27:48.9007108Z Current runner version: '2.331.0'
+2026-02-11T08:27:48.9034939Z ##[group]Runner Image Provisioner
+2026-02-11T08:27:48.9035902Z Hosted Compute Agent
+2026-02-11T08:27:48.9036480Z Version: 20260123.484
+2026-02-11T08:27:48.9037134Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-11T08:27:48.9037895Z Build Date: 2026-01-23T19:41:17Z
+2026-02-11T08:27:48.9038633Z Worker ID: {66bcf762-872d-43cf-85f4-09a248401146}
+2026-02-11T08:27:48.9039294Z Azure Region: northcentralus
+2026-02-11T08:27:48.9039932Z ##[endgroup]
+2026-02-11T08:27:48.9041581Z ##[group]Operating System
+2026-02-11T08:27:48.9042281Z Ubuntu
+2026-02-11T08:27:48.9042830Z 24.04.3
+2026-02-11T08:27:48.9043393Z LTS
+2026-02-11T08:27:48.9043906Z ##[endgroup]
+2026-02-11T08:27:48.9044509Z ##[group]Runner Image
+2026-02-11T08:27:48.9045064Z Image: ubuntu-24.04
+2026-02-11T08:27:48.9045629Z Version: 20260201.15.1
+2026-02-11T08:27:48.9047003Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-11T08:27:48.9049083Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-11T08:27:48.9050157Z ##[endgroup]
+2026-02-11T08:27:48.9052961Z ##[group]GITHUB_TOKEN Permissions
+2026-02-11T08:27:48.9055501Z Actions: write
+2026-02-11T08:27:48.9056051Z ArtifactMetadata: write
+2026-02-11T08:27:48.9056641Z Attestations: write
+2026-02-11T08:27:48.9057325Z Checks: write
+2026-02-11T08:27:48.9057878Z Contents: write
+2026-02-11T08:27:48.9058406Z Deployments: write
+2026-02-11T08:27:48.9059043Z Discussions: write
+2026-02-11T08:27:48.9059607Z Issues: write
+2026-02-11T08:27:48.9060186Z Metadata: read
+2026-02-11T08:27:48.9060711Z Models: read
+2026-02-11T08:27:48.9061252Z Packages: write
+2026-02-11T08:27:48.9062031Z Pages: write
+2026-02-11T08:27:48.9062681Z PullRequests: write
+2026-02-11T08:27:48.9063270Z RepositoryProjects: write
+2026-02-11T08:27:48.9063878Z SecurityEvents: write
+2026-02-11T08:27:48.9064479Z Statuses: write
+2026-02-11T08:27:48.9065080Z ##[endgroup]
+2026-02-11T08:27:48.9067356Z Secret source: Actions
+2026-02-11T08:27:48.9068396Z Prepare workflow directory
+2026-02-11T08:27:48.9411058Z Prepare all required actions
+2026-02-11T08:27:48.9450336Z Getting action download info
+2026-02-11T08:27:49.3557791Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-02-11T08:27:49.4643776Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+2026-02-11T08:27:49.9512360Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+2026-02-11T08:27:50.7303923Z Download action repository 'r0adkll/sign-android-release@v1' (SHA:349ebdef58775b1e0d8099458af0816dc79b6407)
+2026-02-11T08:27:52.9146128Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-02-11T08:27:53.1510492Z Complete job name: build (arm64-v8a, 31)
+2026-02-11T08:27:53.2165988Z ##[group]Run actions/checkout@v4
+2026-02-11T08:27:53.2166537Z with:
+2026-02-11T08:27:53.2166800Z   repository: WireGuard/wireguard-android
+2026-02-11T08:27:53.2167101Z   submodules: recursive
+2026-02-11T08:27:53.2167554Z   token: ***
+2026-02-11T08:27:53.2167770Z   ssh-strict: true
+2026-02-11T08:27:53.2167979Z   ssh-user: git
+2026-02-11T08:27:53.2168205Z   persist-credentials: true
+2026-02-11T08:27:53.2168454Z   clean: true
+2026-02-11T08:27:53.2201286Z   sparse-checkout-cone-mode: true
+2026-02-11T08:27:53.2201788Z   fetch-depth: 1
+2026-02-11T08:27:53.2202064Z   fetch-tags: false
+2026-02-11T08:27:53.2202287Z   show-progress: true
+2026-02-11T08:27:53.2202520Z   lfs: false
+2026-02-11T08:27:53.2202725Z   set-safe-directory: true
+2026-02-11T08:27:53.2203461Z ##[endgroup]
+2026-02-11T08:27:53.3325463Z Syncing repository: WireGuard/wireguard-android
+2026-02-11T08:27:53.3327013Z ##[group]Getting Git version info
+2026-02-11T08:27:53.3327580Z Working directory is '/home/runner/work/com.wireguard.android/com.wireguard.android'
+2026-02-11T08:27:53.3328222Z [command]/usr/bin/git version
+2026-02-11T08:27:53.3369191Z git version 2.52.0
+2026-02-11T08:27:53.3395537Z ##[endgroup]
+2026-02-11T08:27:53.3410764Z Temporarily overriding HOME='/home/runner/work/_temp/e7bf79ea-c15e-49f2-8a24-4a17983ae554' before making global git config changes
+2026-02-11T08:27:53.3411971Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T08:27:53.3425531Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T08:27:53.3466527Z Deleting the contents of '/home/runner/work/com.wireguard.android/com.wireguard.android'
+2026-02-11T08:27:53.3470036Z ##[group]Initializing the repository
+2026-02-11T08:27:53.3475063Z [command]/usr/bin/git init /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T08:27:53.3556519Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-11T08:27:53.3557430Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-11T08:27:53.3558133Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-11T08:27:53.3558719Z hint: call:
+2026-02-11T08:27:53.3559089Z hint:
+2026-02-11T08:27:53.3559541Z hint: 	git config --global init.defaultBranch <name>
+2026-02-11T08:27:53.3560009Z hint:
+2026-02-11T08:27:53.3560469Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-11T08:27:53.3561260Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-11T08:27:53.3562012Z hint:
+2026-02-11T08:27:53.3562283Z hint: 	git branch -m <name>
+2026-02-11T08:27:53.3562609Z hint:
+2026-02-11T08:27:53.3563014Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-11T08:27:53.3563723Z Initialized empty Git repository in /home/runner/work/com.wireguard.android/com.wireguard.android/.git/
+2026-02-11T08:27:53.3575402Z [command]/usr/bin/git remote add origin https://github.com/WireGuard/wireguard-android
+2026-02-11T08:27:53.3612235Z ##[endgroup]
+2026-02-11T08:27:53.3612859Z ##[group]Disabling automatic garbage collection
+2026-02-11T08:27:53.3617577Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-11T08:27:53.3648290Z ##[endgroup]
+2026-02-11T08:27:53.3648831Z ##[group]Setting up auth
+2026-02-11T08:27:53.3656370Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T08:27:53.3689227Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T08:27:53.4024159Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T08:27:53.4057069Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T08:27:53.4297135Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T08:27:53.4329888Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T08:27:53.4586349Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-11T08:27:53.4625518Z ##[endgroup]
+2026-02-11T08:27:53.4626185Z ##[group]Determining the default branch
+2026-02-11T08:27:53.4629646Z Retrieving the default branch name
+2026-02-11T08:27:53.7817271Z Default branch 'master'
+2026-02-11T08:27:53.7819162Z ##[endgroup]
+2026-02-11T08:27:53.7822515Z ##[group]Fetching the repository
+2026-02-11T08:27:53.7825596Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+2026-02-11T08:27:54.2402579Z From https://github.com/WireGuard/wireguard-android
+2026-02-11T08:27:54.2403306Z  * [new branch]      master     -> origin/master
+2026-02-11T08:27:54.2434562Z ##[endgroup]
+2026-02-11T08:27:54.2435003Z ##[group]Determining the checkout info
+2026-02-11T08:27:54.2436198Z ##[endgroup]
+2026-02-11T08:27:54.2441622Z [command]/usr/bin/git sparse-checkout disable
+2026-02-11T08:27:54.2484314Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-11T08:27:54.2512659Z ##[group]Checking out the ref
+2026-02-11T08:27:54.2516914Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-02-11T08:27:54.2733550Z Reset branch 'master'
+2026-02-11T08:27:54.2734984Z branch 'master' set up to track 'origin/master'.
+2026-02-11T08:27:54.2746343Z ##[endgroup]
+2026-02-11T08:27:54.2746935Z ##[group]Setting up auth for fetching submodules
+2026-02-11T08:27:54.2752534Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-11T08:27:54.2801930Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-02-11T08:27:54.2836579Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-02-11T08:27:54.2869627Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-22770640@github.com:
+2026-02-11T08:27:54.2900488Z ##[endgroup]
+2026-02-11T08:27:54.2901095Z ##[group]Fetching submodules
+2026-02-11T08:27:54.2904847Z [command]/usr/bin/git submodule sync --recursive
+2026-02-11T08:27:54.3169275Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-02-11T08:27:54.3424912Z Submodule 'tunnel/tools/elf-cleaner' (https://github.com/termux/termux-elf-cleaner) registered for path 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:54.3426704Z Submodule 'tunnel/tools/wireguard-tools' (https://git.zx2c4.com/wireguard-tools) registered for path 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:54.3455873Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/elf-cleaner'...
+2026-02-11T08:27:55.0998906Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/wireguard-tools'...
+2026-02-11T08:27:56.9058698Z From https://github.com/termux/termux-elf-cleaner
+2026-02-11T08:27:56.9059704Z  * branch            7efc05090675ec6161b7def862728086a26c3b1f -> FETCH_HEAD
+2026-02-11T08:27:57.0317709Z Submodule path 'tunnel/tools/elf-cleaner': checked out '7efc05090675ec6161b7def862728086a26c3b1f'
+2026-02-11T08:27:59.5936838Z From https://git.zx2c4.com/wireguard-tools
+2026-02-11T08:27:59.5937611Z  * branch            e2ecaaa739144997ccff89d6ad6ec81698ea6ced -> FETCH_HEAD
+2026-02-11T08:27:59.6071126Z Submodule path 'tunnel/tools/wireguard-tools': checked out 'e2ecaaa739144997ccff89d6ad6ec81698ea6ced'
+2026-02-11T08:27:59.6106003Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-02-11T08:27:59.6341058Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:59.6382768Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:59.6432396Z ##[endgroup]
+2026-02-11T08:27:59.6432865Z ##[group]Persisting credentials for submodules
+2026-02-11T08:27:59.6442821Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-02-11T08:27:59.6672902Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:59.6720862Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:59.6783146Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-02-11T08:27:59.7013275Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:59.7054111Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
+2026-02-11T08:27:59.7076832Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:59.7117982Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
+2026-02-11T08:27:59.7168316Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-02-11T08:27:59.7406667Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:59.7446519Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:59.7517782Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-22770640@github.com:'
+2026-02-11T08:27:59.7749343Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:27:59.7789792Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:27:59.7843313Z ##[endgroup]
+2026-02-11T08:27:59.7888016Z [command]/usr/bin/git log -1 --format=%H
+2026-02-11T08:27:59.7914806Z 09b75c2bd37f749e2a8c85876394854113c74be7
+2026-02-11T08:27:59.8097730Z ##[group]Run echo $GITHUB_ENV
+2026-02-11T08:27:59.8098125Z [36;1mecho $GITHUB_ENV[0m
+2026-02-11T08:27:59.8134528Z shell: /usr/bin/bash -e {0}
+2026-02-11T08:27:59.8134806Z ##[endgroup]
+2026-02-11T08:27:59.8209173Z /home/runner/work/_temp/_runner_file_commands/set_env_e0107b5b-546b-4c23-a30c-2bb21ea7668c
+2026-02-11T08:27:59.8308963Z ##[group]Run actions/setup-java@v4
+2026-02-11T08:27:59.8309261Z with:
+2026-02-11T08:27:59.8309460Z   java-version: 17
+2026-02-11T08:27:59.8309690Z   distribution: temurin
+2026-02-11T08:27:59.8309915Z   java-package: jdk
+2026-02-11T08:27:59.8310122Z   check-latest: false
+2026-02-11T08:27:59.8310319Z   server-id: github
+2026-02-11T08:27:59.8310528Z   server-username: GITHUB_ACTOR
+2026-02-11T08:27:59.8310782Z   server-password: GITHUB_TOKEN
+2026-02-11T08:27:59.8311023Z   overwrite-settings: true
+2026-02-11T08:27:59.8311241Z   job-status: success
+2026-02-11T08:27:59.8311797Z   token: ***
+2026-02-11T08:27:59.8311996Z ##[endgroup]
+2026-02-11T08:28:00.0312969Z ##[group]Installed distributions
+2026-02-11T08:28:00.0377697Z Resolved Java 17.0.18+8 from tool-cache
+2026-02-11T08:28:00.0378366Z Setting Java 17.0.18+8 as the default
+2026-02-11T08:28:00.0391143Z Creating toolchains.xml for JDK version 17 from temurin
+2026-02-11T08:28:00.0465705Z Writing to /home/runner/.m2/toolchains.xml
+2026-02-11T08:28:00.0466577Z 
+2026-02-11T08:28:00.0466716Z Java configuration:
+2026-02-11T08:28:00.0468333Z   Distribution: temurin
+2026-02-11T08:28:00.0468725Z   Version: 17.0.18+8
+2026-02-11T08:28:00.0469223Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:28:00.0469859Z 
+2026-02-11T08:28:00.0470717Z ##[endgroup]
+2026-02-11T08:28:00.0486621Z Creating settings.xml with server-id: github
+2026-02-11T08:28:00.0490743Z Writing to /home/runner/.m2/settings.xml
+2026-02-11T08:28:00.0749236Z ##[group]Run gradle/actions/setup-gradle@v3
+2026-02-11T08:28:00.0749539Z with:
+2026-02-11T08:28:00.0749742Z   cache-disabled: false
+2026-02-11T08:28:00.0749977Z   cache-read-only: false
+2026-02-11T08:28:00.0750213Z   cache-write-only: false
+2026-02-11T08:28:00.0750458Z   cache-overwrite-existing: false
+2026-02-11T08:28:00.0750789Z   gradle-home-cache-includes: caches
 notifications
 
-2026-02-11T02:58:21.5602983Z   gradle-home-cache-cleanup: false
-2026-02-11T02:58:21.5603229Z   add-job-summary: always
-2026-02-11T02:58:21.5603468Z   add-job-summary-as-pr-comment: never
-2026-02-11T02:58:21.5603731Z   dependency-graph: disabled
-2026-02-11T02:58:21.5603996Z   dependency-graph-continue-on-failure: true
-2026-02-11T02:58:21.5604277Z   build-scan-publish: false
-2026-02-11T02:58:21.5604515Z   validate-wrappers: false
-2026-02-11T02:58:21.5604750Z   generate-job-summary: true
-2026-02-11T02:58:21.5605000Z   gradle-home-cache-strict-match: false
-2026-02-11T02:58:21.5605366Z   workflow-job-context: {
-  "abi": "x86_64",
+2026-02-11T08:28:00.0751125Z   gradle-home-cache-cleanup: false
+2026-02-11T08:28:00.0751648Z   add-job-summary: always
+2026-02-11T08:28:00.0751912Z   add-job-summary-as-pr-comment: never
+2026-02-11T08:28:00.0752192Z   dependency-graph: disabled
+2026-02-11T08:28:00.0752471Z   dependency-graph-continue-on-failure: true
+2026-02-11T08:28:00.0752763Z   build-scan-publish: false
+2026-02-11T08:28:00.0753015Z   validate-wrappers: false
+2026-02-11T08:28:00.0753256Z   generate-job-summary: true
+2026-02-11T08:28:00.0753520Z   gradle-home-cache-strict-match: false
+2026-02-11T08:28:00.0753917Z   workflow-job-context: {
+  "abi": "arm64-v8a",
   "minSdk": 31
 }
-2026-02-11T02:58:21.5606029Z   github-token: ***
-2026-02-11T02:58:21.5606222Z env:
-2026-02-11T02:58:21.5606503Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T02:58:21.5606969Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T02:58:21.5607536Z ##[endgroup]
-2026-02-11T02:58:21.9499660Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
-2026-02-11T02:58:21.9503045Z ##[group]Restore Gradle state from cache
-2026-02-11T02:58:22.0331851Z ##[warning]Failed to restore gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1: Error: Cache service responded with 400
-2026-02-11T02:58:22.0383892Z Gradle User Home cache not found. Will initialize empty.
-2026-02-11T02:58:22.0384822Z ##[endgroup]
-2026-02-11T02:58:22.0517162Z ##[group]Run ./gradlew assembleRelease -PtargetAbi=x86_64 -PtargetMinSdk=31
-2026-02-11T02:58:22.0517921Z [36;1m./gradlew assembleRelease -PtargetAbi=x86_64 -PtargetMinSdk=31[0m
-2026-02-11T02:58:22.0550167Z shell: /usr/bin/bash -e {0}
-2026-02-11T02:58:22.0550480Z env:
-2026-02-11T02:58:22.0550955Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T02:58:22.0551629Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T02:58:22.0552190Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
-2026-02-11T02:58:22.0552619Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
-2026-02-11T02:58:22.0553040Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
-2026-02-11T02:58:22.0553602Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
-2026-02-11T02:58:22.0554260Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
-2026-02-11T02:58:22.0554694Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
-2026-02-11T02:58:22.0579638Z ##[endgroup]
-2026-02-11T02:58:22.2664129Z Downloading https://services.gradle.org/distributions/gradle-9.1.0-bin.zip
-2026-02-11T02:58:24.5831991Z ............10%.............20%.............30%.............40%.............50%............60%.............70%.............80%.............90%.............100%
-2026-02-11T02:58:26.1348061Z 
-2026-02-11T02:58:26.1349450Z Welcome to Gradle 9.1.0!
-2026-02-11T02:58:26.1349786Z 
-2026-02-11T02:58:26.1350740Z Here are the highlights of this release:
-2026-02-11T02:58:26.1357630Z  - Full Java 25 support
-2026-02-11T02:58:26.1358099Z  - Native task graph visualization
-2026-02-11T02:58:26.1358542Z  - Enhanced console output
-2026-02-11T02:58:26.1358726Z 
-2026-02-11T02:58:26.1358965Z For more details see https://docs.gradle.org/9.1.0/release-notes.html
-2026-02-11T02:58:26.1359491Z 
-2026-02-11T02:58:26.2340715Z Starting a Gradle Daemon (subsequent builds will be faster)
-2026-02-11T02:58:28.0345331Z Configuration on demand is an incubating feature.
-2026-02-11T02:59:35.8345109Z 
-2026-02-11T02:59:35.8355780Z > Configure project :tunnel
-2026-02-11T02:59:35.8357289Z Checking the license for package NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/licenses
-2026-02-11T02:59:35.8358537Z License for package NDK (Side by side) 27.0.12077973 accepted.
-2026-02-11T02:59:35.8360264Z Preparing "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973".
-2026-02-11T02:59:52.3340832Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" ready.
-2026-02-11T02:59:52.3342342Z Installing NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/ndk/27.0.12077973
-2026-02-11T02:59:52.3344075Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" complete.
-2026-02-11T02:59:52.6369380Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" finished.
-2026-02-11T02:59:57.3339446Z 
-2026-02-11T02:59:57.3348445Z > Task :tunnel:preBuild UP-TO-DATE
-2026-02-11T02:59:57.3376026Z > Task :ui:preBuild UP-TO-DATE
-2026-02-11T02:59:57.3377108Z > Task :ui:preReleaseBuild UP-TO-DATE
-2026-02-11T02:59:57.3377963Z > Task :tunnel:preReleaseBuild UP-TO-DATE
-2026-02-11T02:59:57.5342067Z > Task :ui:mergeReleaseJniLibFolders
-2026-02-11T02:59:57.5342631Z > Task :ui:buildKotlinToolingMetadata
-2026-02-11T03:00:00.8339704Z > Task :tunnel:checkReleaseAarMetadata
-2026-02-11T03:00:02.4343412Z 
-2026-02-11T03:00:02.4344806Z > Task :tunnel:configureCMakeRelWithDebInfo[arm64-v8a]
-2026-02-11T03:00:02.4347929Z Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
-2026-02-11T03:00:02.4349651Z License for package CMake 3.22.1 accepted.
-2026-02-11T03:00:02.4350473Z Preparing "Install CMake 3.22.1 v.3.22.1".
-2026-02-11T03:00:02.4351666Z "Install CMake 3.22.1 v.3.22.1" ready.
-2026-02-11T03:00:02.4352562Z Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
-2026-02-11T03:00:02.4354740Z "Install CMake 3.22.1 v.3.22.1" complete.
-2026-02-11T03:00:02.4355237Z "Install CMake 3.22.1 v.3.22.1" finished.
-2026-02-11T03:00:13.8338902Z 
-2026-02-11T03:00:13.8340795Z > Task :tunnel:buildCMakeRelWithDebInfo[arm64-v8a][libwg-go.so,libwg-quick.so,etc]
-2026-02-11T03:00:14.0340870Z > Task :tunnel:configureCMakeRelWithDebInfo[armeabi-v7a]
-2026-02-11T03:00:22.6340901Z > Task :tunnel:buildCMakeRelWithDebInfo[armeabi-v7a][libwg-go.so,libwg-quick.so,etc]
-2026-02-11T03:00:22.8367340Z > Task :tunnel:configureCMakeRelWithDebInfo[x86]
-2026-02-11T03:00:26.6342761Z > Task :ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
-2026-02-11T03:00:26.7354420Z > Task :ui:checkReleaseDuplicateClasses
-2026-02-11T03:00:29.1348570Z > Task :ui:dataBindingMergeDependencyArtifactsRelease
-2026-02-11T03:00:29.2365977Z > Task :ui:extractReleaseSupportedLocales
-2026-02-11T03:00:29.2367065Z > Task :ui:generateReleaseResources
-2026-02-11T03:00:29.2371256Z > Task :ui:dataBindingTriggerRelease
-2026-02-11T03:00:29.3340409Z > Task :ui:generateReleaseBuildConfig
-2026-02-11T03:00:29.3342451Z > Task :ui:extractDeepLinksRelease
-2026-02-11T03:00:31.6340051Z > Task :ui:javaPreCompileRelease
-2026-02-11T03:00:31.6400177Z > Task :ui:createReleaseCompatibleScreenManifests
-2026-02-11T03:00:31.6404335Z > Task :ui:extractProguardFiles
-2026-02-11T03:00:31.6405089Z > Task :ui:mergeReleaseStartupProfile
-2026-02-11T03:00:31.6405951Z > Task :ui:generateReleaseAssets UP-TO-DATE
-2026-02-11T03:00:31.7340275Z > Task :ui:extractReleaseVersionControlInfo
-2026-02-11T03:00:31.8350434Z > Task :ui:collectReleaseDependencies
-2026-02-11T03:00:32.0340210Z > Task :ui:sdkReleaseDependencyData
-2026-02-11T03:00:32.0350051Z > Task :ui:writeReleaseAppMetadata
-2026-02-11T03:00:32.1369130Z > Task :ui:writeReleaseSigningConfigVersions
-2026-02-11T03:00:33.5339945Z > Task :tunnel:buildCMakeRelWithDebInfo[x86][libwg-go.so,libwg-quick.so,etc]
-2026-02-11T03:00:33.7359810Z > Task :tunnel:configureCMakeRelWithDebInfo[x86_64]
-2026-02-11T03:00:42.4341325Z > Task :tunnel:buildCMakeRelWithDebInfo[x86_64][libwg-go.so,libwg-quick.so,etc]
-2026-02-11T03:00:42.4343156Z > Task :tunnel:mergeReleaseJniLibFolders
-2026-02-11T03:00:42.6339648Z > Task :tunnel:mergeReleaseNativeLibs
-2026-02-11T03:00:49.6352360Z > Task :tunnel:extractReleaseAnnotations
-2026-02-11T03:00:49.7341959Z > Task :tunnel:generateReleaseEmptyResourceFiles
-2026-02-11T03:00:49.7344090Z > Task :tunnel:generateReleaseAssets UP-TO-DATE
-2026-02-11T03:00:49.7359826Z > Task :tunnel:mergeReleaseAssets
-2026-02-11T03:00:49.8361373Z > Task :tunnel:javaPreCompileRelease
-2026-02-11T03:00:49.8362282Z > Task :tunnel:prepareLintJarForPublish
-2026-02-11T03:00:49.8363512Z > Task :tunnel:prepareReleaseArtProfile
-2026-02-11T03:00:49.8364243Z > Task :ui:processReleaseNavigationResources
-2026-02-11T03:00:49.9348932Z > Task :tunnel:stripReleaseDebugSymbols
-2026-02-11T03:00:50.0341362Z > Task :ui:mergeReleaseArtProfile
-2026-02-11T03:00:50.3340036Z > Task :ui:compileReleaseNavigationResources
-2026-02-11T03:00:55.9340876Z > Task :ui:mapReleaseSourceSetPaths
-2026-02-11T03:00:56.0344746Z > Task :tunnel:compileReleaseJavaWithJavac
-2026-02-11T03:00:56.0345367Z > Task :ui:expandReleaseL8ArtProfileWildcards
-2026-02-11T03:00:56.1348553Z > Task :tunnel:mergeReleaseGeneratedProguardFiles
-2026-02-11T03:00:56.1349705Z > Task :tunnel:mergeReleaseConsumerProguardFiles
-2026-02-11T03:00:56.1350563Z > Task :ui:mergeReleaseAssets
-2026-02-11T03:00:56.1351046Z > Task :ui:compressReleaseAssets
-2026-02-11T03:00:56.1351557Z > Task :tunnel:processReleaseJavaRes NO-SOURCE
-2026-02-11T03:00:56.1352090Z > Task :tunnel:writeReleaseAarMetadata
-2026-02-11T03:00:56.1352627Z > Task :tunnel:copyReleaseJniLibsProjectAndLocalJars
-2026-02-11T03:00:56.2340622Z > Task :tunnel:exportReleaseConsumerProguardFiles
-2026-02-11T03:00:56.2342255Z > Task :tunnel:bundleLibCompileToJarRelease
-2026-02-11T03:00:56.2353134Z > Task :tunnel:copyReleaseJniLibsProjectOnly
-2026-02-11T03:00:56.2357966Z > Task :tunnel:mergeReleaseJavaResource
-2026-02-11T03:00:56.2362102Z > Task :tunnel:bundleLibRuntimeToJarRelease
-2026-02-11T03:00:56.3369885Z > Task :tunnel:processReleaseManifest
-2026-02-11T03:00:56.3370903Z > Task :tunnel:syncReleaseLibJars
-2026-02-11T03:00:56.4339945Z > Task :ui:checkReleaseAarMetadata
-2026-02-11T03:00:56.7346451Z > Task :ui:mergeReleaseNativeLibs
-2026-02-11T03:00:56.9363593Z > Task :ui:processReleaseMainManifest
-2026-02-11T03:00:57.0339659Z > Task :ui:generateReleaseManifestClass
-2026-02-11T03:00:57.1339557Z > Task :ui:stripReleaseDebugSymbols
-2026-02-11T03:00:57.2339716Z > Task :ui:processReleaseManifest
-2026-02-11T03:00:57.3349930Z > Task :ui:processReleaseManifestForPackage
-2026-02-11T03:00:57.5343652Z > Task :tunnel:bundleReleaseAar
-2026-02-11T03:00:57.5402680Z > Task :tunnel:assembleRelease
-2026-02-11T03:00:57.5403267Z > Task :tunnel:extractReleaseSupportedLocales
-2026-02-11T03:00:57.5403819Z > Task :tunnel:extractProguardFiles
-2026-02-11T03:00:57.5404309Z > Task :ui:generateReleaseLocaleConfig
-2026-02-11T03:00:57.7339454Z > Task :tunnel:generateReleaseLintVitalModel
-2026-02-11T03:00:57.8361056Z > Task :tunnel:createFullJarRelease
-2026-02-11T03:00:57.8361640Z > Task :tunnel:generateReleaseLintModel
-2026-02-11T03:00:57.9349762Z > Task :tunnel:bundleReleaseLocalLintAar
-2026-02-11T03:00:58.0339496Z > Task :tunnel:writeReleaseLintModelMetadata
-2026-02-11T03:00:58.6339323Z > Task :ui:extractReleaseNativeSymbolTables
-2026-02-11T03:01:03.0366689Z > Task :ui:packageReleaseResources
-2026-02-11T03:01:03.3339258Z > Task :ui:parseReleaseLocalResources
-2026-02-11T03:01:03.5339239Z > Task :ui:generateReleaseRFile
-2026-02-11T03:01:03.9339705Z > Task :ui:mergeReleaseNativeDebugMetadata
-2026-02-11T03:01:04.1339618Z > Task :ui:mergeReleaseResources
-2026-02-11T03:01:04.6340883Z > Task :ui:dataBindingGenBaseClassesRelease
-2026-02-11T03:01:09.1339332Z > Task :tunnel:lintVitalAnalyzeRelease
-2026-02-11T03:01:13.5339449Z > Task :ui:processReleaseResources
-2026-02-11T03:01:33.2339245Z > Task :ui:kaptGenerateStubsReleaseKotlin
-2026-02-11T03:01:38.0340076Z > Task :ui:kaptReleaseKotlin
-2026-02-11T03:01:51.3339285Z > Task :ui:compileReleaseKotlin
-2026-02-11T03:01:53.9339371Z > Task :ui:compileReleaseJavaWithJavac
-2026-02-11T03:01:54.0369718Z > Task :ui:mergeReleaseGeneratedProguardFiles
-2026-02-11T03:01:54.1339327Z > Task :ui:processReleaseJavaRes
-2026-02-11T03:01:54.3339532Z > Task :ui:expandReleaseArtProfileWildcards
-2026-02-11T03:01:54.8366966Z > Task :ui:mergeReleaseJavaResource
-2026-02-11T03:01:55.9368525Z > Task :ui:generateReleaseLintVitalReportModel
-2026-02-11T03:02:25.9339647Z > Task :ui:minifyReleaseWithR8
-2026-02-11T03:02:26.2339784Z > Task :ui:lintVitalAnalyzeRelease
-2026-02-11T03:02:51.7366658Z > Task :ui:lintVitalReportRelease
-2026-02-11T03:02:51.7367561Z > Task :ui:lintVitalRelease
-2026-02-11T03:03:15.8341010Z > Task :ui:convertShrunkResourcesToBinaryRelease
-2026-02-11T03:03:16.1341074Z > Task :ui:optimizeReleaseResources
-2026-02-11T03:03:22.7345222Z > Task :ui:l8DexDesugarLibRelease
-2026-02-11T03:03:22.9352809Z > Task :ui:compileReleaseArtProfile
-2026-02-11T03:03:23.2339975Z > Task :ui:packageRelease
-2026-02-11T03:03:23.2344355Z > Task :ui:createReleaseApkListingFileRedirect
-2026-02-11T03:03:23.2348749Z > Task :ui:assembleRelease
-2026-02-11T03:03:23.3346148Z 
-2026-02-11T03:03:23.3351192Z [Incubating] Problems report is available at: file:///home/runner/work/com.wireguard.android/com.wireguard.android/build/reports/problems/problems-report.html
-2026-02-11T03:03:23.3353887Z 
-2026-02-11T03:03:23.3356188Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
-2026-02-11T03:03:23.3358039Z 
-2026-02-11T03:03:23.3359806Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-2026-02-11T03:03:23.3364451Z 
-2026-02-11T03:03:23.3366727Z For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-2026-02-11T03:03:23.3369193Z 
-2026-02-11T03:03:23.3370885Z BUILD SUCCESSFUL in 5m 1s
-2026-02-11T03:03:23.3373125Z 99 actionable tasks: 99 executed
-2026-02-11T03:03:23.3376078Z Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.1.0/userguide/configuration_cache_enabling.html
-2026-02-11T03:03:23.7618164Z ##[group]Run r0adkll/sign-android-release@v1
-2026-02-11T03:03:23.7618661Z with:
-2026-02-11T03:03:23.7619025Z   releaseDirectory: ui/build/outputs/apk/release
-2026-02-11T03:03:23.7653871Z   signingKeyBase64: ***
-2026-02-11T03:03:23.7654291Z   alias: ***
-2026-02-11T03:03:23.7654638Z   keyStorePassword: ***
-2026-02-11T03:03:23.7655021Z   keyPassword: ***
-2026-02-11T03:03:23.7655338Z env:
-2026-02-11T03:03:23.7655941Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T03:03:23.7656804Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
-2026-02-11T03:03:23.7657515Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
-2026-02-11T03:03:23.7658034Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
-2026-02-11T03:03:23.7658536Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
-2026-02-11T03:03:23.7659292Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
-2026-02-11T03:03:23.7660241Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
-2026-02-11T03:03:23.7660806Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
-2026-02-11T03:03:23.7661242Z ##[endgroup]
-2026-02-11T03:03:23.8148174Z Preparing to sign key @ ui/build/outputs/apk/release with signing key
-2026-02-11T03:03:23.8149008Z Found 1 release files.
-2026-02-11T03:03:23.8161137Z ##[error]Couldnt find the Android build tools @ /usr/local/lib/android/sdk/build-tools/29.0.3
-2026-02-11T03:03:23.8180236Z ##[error]Unable to locate executable file: /usr/local/lib/android/sdk/build-tools/29.0.3/zipalign. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also check the file mode to verify the file is executable.
-2026-02-11T03:03:23.8392166Z Post job cleanup.
-2026-02-11T03:03:24.0991031Z In post-action step
-2026-02-11T03:03:24.1000274Z Stopping all Gradle daemons before saving Gradle User Home state
-2026-02-11T03:03:24.1002896Z Stopping Gradle daemons for /home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0
-2026-02-11T03:03:24.1022043Z [command]/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0/bin/gradle --stop
-2026-02-11T03:03:25.2629658Z Stopping Daemon(s)
-2026-02-11T03:03:25.2633939Z 1 Daemon stopped
-2026-02-11T03:03:25.2814276Z ##[group]Caching Gradle state
-2026-02-11T03:03:25.3167603Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and cache key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3
-2026-02-11T03:03:25.3206802Z Caching wrapper-zips with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and cache key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87
-2026-02-11T03:03:25.3386894Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:25.3425762Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:26.0042407Z Caching dependencies with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f
-2026-02-11T03:03:26.0196896Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*/' and cache key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7
-2026-02-11T03:03:26.0818287Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:26.0944979Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
-2026-02-11T03:03:26.0946618Z /home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and cache key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d
-2026-02-11T03:03:26.2079929Z Caching groovy-dsl with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and cache key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0
-2026-02-11T03:03:26.2143874Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*/' and key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAAD2IsK9e6d2TJNOi4ytJ1l3UEFPRURHRTA1MTQARWRnZQ==
-2026-02-11T03:03:26.2751737Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:26.2764804Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAAC9Rx3ewlBzS7fGphRCe1E9UEFPRURHRTA1MTEARWRnZQ==
-2026-02-11T03:03:26.3231649Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAABY3nkqt7f5ToLGqrW/Cje7UEFPRURHRTA1MTUARWRnZQ==
-2026-02-11T03:03:26.3619176Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:26.4124762Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAADjVxK+Ea9jQJE1R0RDrvrPUEFPRURHRTA1MTAARWRnZQ==
-2026-02-11T03:03:26.4350146Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
-/home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAACvqm4AT+QESZRVGuzfiqXuUEFPRURHRTA1MTIARWRnZQ==
-2026-02-11T03:03:26.8453563Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:27.0418905Z Caching transforms with path '/home/runner/.gradle/caches/transforms-4/*/
-2026-02-11T03:03:27.0420097Z /home/runner/.gradle/caches/*/transforms/*/' and cache key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58
-2026-02-11T03:03:27.7483419Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:28.1031739Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gPGLaQAAAADLHvQpbGnySoZLkg/Bu6fEUEFPRURHRTA2MjEARWRnZQ==
-2026-02-11T03:03:28.9861317Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/transforms-4/*/
-/home/runner/.gradle/caches/*/transforms/*/' and key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gPGLaQAAAABT7bsnvuiEQI0rH3jO3+WBUEFPRURHRTA2MTUARWRnZQ==
-2026-02-11T03:03:29.6977048Z Caching Gradle User Home with cache key: gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1
-2026-02-11T03:03:29.7070766Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
-2026-02-11T03:03:29.9922201Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.setup-gradle' and key: gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gfGLaQAAAAALpr+zugr2RqD5khO7Y5KiUEFPRURHRTA2MTMARWRnZQ==
-2026-02-11T03:03:29.9927990Z ##[endgroup]
-2026-02-11T03:03:29.9928338Z Generating Job Summary
-2026-02-11T03:03:29.9936899Z Completed post-action step
-2026-02-11T03:03:30.0150962Z Post job cleanup.
-2026-02-11T03:03:30.1949017Z Post job cleanup.
-2026-02-11T03:03:30.2942876Z [command]/usr/bin/git version
-2026-02-11T03:03:30.2980392Z git version 2.52.0
-2026-02-11T03:03:30.3023992Z Temporarily overriding HOME='/home/runner/work/_temp/70b7a243-3a96-488f-85c7-5cb110bd13b0' before making global git config changes
-2026-02-11T03:03:30.3025768Z Adding repository directory to the temporary git global config as a safe directory
-2026-02-11T03:03:30.3029778Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
-2026-02-11T03:03:30.3067767Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2026-02-11T03:03:30.3103376Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-2026-02-11T03:03:30.3324024Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T03:03:30.3368584Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T03:03:30.3433516Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2026-02-11T03:03:30.3457138Z http.https://github.com/.extraheader
-2026-02-11T03:03:30.3468906Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2026-02-11T03:03:30.3500394Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-2026-02-11T03:03:30.3705366Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T03:03:30.3729692Z http.https://github.com/.extraheader
-2026-02-11T03:03:30.3763466Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T03:03:30.3787434Z http.https://github.com/.extraheader
-2026-02-11T03:03:30.3836037Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-2026-02-11T03:03:30.3867663Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-2026-02-11T03:03:30.4078853Z Entering 'tunnel/tools/elf-cleaner'
-2026-02-11T03:03:30.4098918Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
-2026-02-11T03:03:30.4117630Z Entering 'tunnel/tools/wireguard-tools'
-2026-02-11T03:03:30.4137577Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
-2026-02-11T03:03:30.4172575Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config --name-only --get-regexp ^includeIf\.gitdir:
-2026-02-11T03:03:30.4206453Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config --name-only --get-regexp ^includeIf\.gitdir:
-2026-02-11T03:03:30.4355063Z Cleaning up orphan processes
+2026-02-11T08:28:00.0754471Z   github-token: ***
+2026-02-11T08:28:00.0754681Z env:
+2026-02-11T08:28:00.0754991Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:28:00.0755484Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:28:00.0756064Z ##[endgroup]
+2026-02-11T08:28:00.4582087Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2026-02-11T08:28:00.4585011Z ##[group]Restore Gradle state from cache
+2026-02-11T08:28:00.5472678Z ##[warning]Failed to restore gradle-home-v1|Linux|build[b21053e1a6834cafdcbe1d34ef8105aa]-21785234286bce7b5792edd05970be2489f8a2e7: Error: Cache service responded with 400
+2026-02-11T08:28:00.5532565Z Gradle User Home cache not found. Will initialize empty.
+2026-02-11T08:28:00.5533639Z ##[endgroup]
+2026-02-11T08:28:00.5706796Z ##[group]Run ./gradlew assembleRelease -PtargetAbi=arm64-v8a -PtargetMinSdk=31
+2026-02-11T08:28:00.5707452Z [36;1m./gradlew assembleRelease -PtargetAbi=arm64-v8a -PtargetMinSdk=31[0m
+2026-02-11T08:28:00.5742096Z shell: /usr/bin/bash -e {0}
+2026-02-11T08:28:00.5742344Z env:
+2026-02-11T08:28:00.5742651Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:28:00.5743135Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:28:00.5743565Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T08:28:00.5743878Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T08:28:00.5744170Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T08:28:00.5744595Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T08:28:00.5745091Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T08:28:00.5745425Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T08:28:00.5745743Z ##[endgroup]
+2026-02-11T08:28:01.0011634Z Downloading https://services.gradle.org/distributions/gradle-9.1.0-bin.zip
+2026-02-11T08:28:03.5727708Z ............10%.............20%.............30%.............40%.............50%............60%.............70%.............80%.............90%.............100%
+2026-02-11T08:28:05.3232864Z 
+2026-02-11T08:28:05.3234557Z Welcome to Gradle 9.1.0!
+2026-02-11T08:28:05.3234796Z 
+2026-02-11T08:28:05.3235281Z Here are the highlights of this release:
+2026-02-11T08:28:05.3236297Z  - Full Java 25 support
+2026-02-11T08:28:05.3237370Z  - Native task graph visualization
+2026-02-11T08:28:05.3238469Z  - Enhanced console output
+2026-02-11T08:28:05.3238696Z 
+2026-02-11T08:28:05.3240972Z For more details see https://docs.gradle.org/9.1.0/release-notes.html
+2026-02-11T08:28:05.3241982Z 
+2026-02-11T08:28:05.4232455Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-02-11T08:28:07.4229563Z Configuration on demand is an incubating feature.
+2026-02-11T08:29:23.7231204Z 
+2026-02-11T08:29:23.7238499Z > Configure project :tunnel
+2026-02-11T08:29:23.7243901Z Checking the license for package NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/licenses
+2026-02-11T08:29:23.7248728Z License for package NDK (Side by side) 27.0.12077973 accepted.
+2026-02-11T08:29:23.7253978Z Preparing "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973".
+2026-02-11T08:29:39.1226134Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" ready.
+2026-02-11T08:29:39.1228567Z Installing NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/ndk/27.0.12077973
+2026-02-11T08:29:39.1229348Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" complete.
+2026-02-11T08:29:39.4249094Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" finished.
+2026-02-11T08:29:44.2224199Z 
+2026-02-11T08:29:44.2240017Z > Task :ui:preBuild UP-TO-DATE
+2026-02-11T08:29:44.2244648Z > Task :tunnel:preBuild UP-TO-DATE
+2026-02-11T08:29:44.2245764Z > Task :ui:preReleaseBuild UP-TO-DATE
+2026-02-11T08:29:44.2246558Z > Task :tunnel:preReleaseBuild UP-TO-DATE
+2026-02-11T08:29:44.4226928Z > Task :ui:mergeReleaseJniLibFolders
+2026-02-11T08:29:44.5224649Z > Task :ui:buildKotlinToolingMetadata
+2026-02-11T08:29:52.1225143Z > Task :tunnel:checkReleaseAarMetadata
+2026-02-11T08:29:54.0224097Z 
+2026-02-11T08:29:54.0227887Z > Task :tunnel:configureCMakeRelWithDebInfo[arm64-v8a]
+2026-02-11T08:29:54.0228583Z Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+2026-02-11T08:29:54.0229457Z License for package CMake 3.22.1 accepted.
+2026-02-11T08:29:54.0229762Z Preparing "Install CMake 3.22.1 v.3.22.1".
+2026-02-11T08:29:54.0230170Z "Install CMake 3.22.1 v.3.22.1" ready.
+2026-02-11T08:29:54.0230515Z Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+2026-02-11T08:29:54.0230867Z "Install CMake 3.22.1 v.3.22.1" complete.
+2026-02-11T08:29:54.0231130Z "Install CMake 3.22.1 v.3.22.1" finished.
+2026-02-11T08:30:06.0223523Z 
+2026-02-11T08:30:06.0224793Z > Task :tunnel:buildCMakeRelWithDebInfo[arm64-v8a][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T08:30:06.2243085Z > Task :tunnel:configureCMakeRelWithDebInfo[armeabi-v7a]
+2026-02-11T08:30:14.5224920Z > Task :tunnel:buildCMakeRelWithDebInfo[armeabi-v7a][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T08:30:14.5227321Z > Task :ui:checkReleaseDuplicateClasses
+2026-02-11T08:30:14.8256061Z > Task :tunnel:configureCMakeRelWithDebInfo[x86]
+2026-02-11T08:30:23.2225651Z > Task :tunnel:buildCMakeRelWithDebInfo[x86][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T08:30:23.5262674Z > Task :tunnel:configureCMakeRelWithDebInfo[x86_64]
+2026-02-11T08:30:32.3225983Z > Task :tunnel:buildCMakeRelWithDebInfo[x86_64][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T08:30:32.3232168Z > Task :tunnel:mergeReleaseJniLibFolders
+2026-02-11T08:30:32.5224031Z > Task :tunnel:mergeReleaseNativeLibs
+2026-02-11T08:31:00.3225516Z > Task :ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+2026-02-11T08:31:01.3224684Z > Task :ui:dataBindingMergeDependencyArtifactsRelease
+2026-02-11T08:31:01.3225707Z > Task :ui:extractReleaseSupportedLocales
+2026-02-11T08:31:01.3226280Z > Task :ui:generateReleaseResources
+2026-02-11T08:31:01.3229567Z > Task :ui:dataBindingTriggerRelease
+2026-02-11T08:31:01.4224762Z > Task :ui:generateReleaseBuildConfig
+2026-02-11T08:31:01.4225323Z > Task :ui:extractDeepLinksRelease
+2026-02-11T08:31:02.4225509Z > Task :tunnel:extractReleaseAnnotations
+2026-02-11T08:31:03.9226285Z > Task :ui:createReleaseCompatibleScreenManifests
+2026-02-11T08:31:03.9230645Z > Task :ui:javaPreCompileRelease
+2026-02-11T08:31:03.9236657Z > Task :ui:extractProguardFiles
+2026-02-11T08:31:03.9237084Z > Task :ui:mergeReleaseStartupProfile
+2026-02-11T08:31:03.9237538Z > Task :ui:generateReleaseAssets UP-TO-DATE
+2026-02-11T08:31:04.0224999Z > Task :ui:extractReleaseVersionControlInfo
+2026-02-11T08:31:04.1225331Z > Task :ui:collectReleaseDependencies
+2026-02-11T08:31:04.1226292Z > Task :ui:sdkReleaseDependencyData
+2026-02-11T08:31:04.1227582Z > Task :ui:writeReleaseAppMetadata
+2026-02-11T08:31:04.2224716Z > Task :ui:writeReleaseSigningConfigVersions
+2026-02-11T08:31:08.6252705Z > Task :tunnel:generateReleaseEmptyResourceFiles
+2026-02-11T08:31:08.6253700Z > Task :tunnel:generateReleaseAssets UP-TO-DATE
+2026-02-11T08:31:08.7258837Z > Task :tunnel:mergeReleaseAssets
+2026-02-11T08:31:08.8224506Z > Task :tunnel:javaPreCompileRelease
+2026-02-11T08:31:08.8225089Z > Task :ui:processReleaseNavigationResources
+2026-02-11T08:31:08.8225461Z > Task :tunnel:stripReleaseDebugSymbols
+2026-02-11T08:31:10.0252339Z > Task :ui:compileReleaseNavigationResources
+2026-02-11T08:31:10.1224467Z > Task :ui:mapReleaseSourceSetPaths
+2026-02-11T08:31:11.1224266Z > Task :ui:mergeReleaseAssets
+2026-02-11T08:31:11.1224788Z > Task :ui:compressReleaseAssets
+2026-02-11T08:31:13.6237053Z > Task :tunnel:compileReleaseJavaWithJavac
+2026-02-11T08:31:13.6237702Z > Task :tunnel:mergeReleaseGeneratedProguardFiles
+2026-02-11T08:31:13.7231889Z > Task :tunnel:mergeReleaseConsumerProguardFiles
+2026-02-11T08:31:13.7234238Z > Task :tunnel:prepareLintJarForPublish
+2026-02-11T08:31:13.7239308Z > Task :tunnel:prepareReleaseArtProfile
+2026-02-11T08:31:13.7239938Z > Task :tunnel:processReleaseJavaRes NO-SOURCE
+2026-02-11T08:31:13.7240583Z > Task :tunnel:copyReleaseJniLibsProjectAndLocalJars
+2026-02-11T08:31:13.8234146Z > Task :tunnel:writeReleaseAarMetadata
+2026-02-11T08:31:13.8237062Z > Task :tunnel:processReleaseManifest
+2026-02-11T08:31:13.8237803Z > Task :ui:mergeReleaseArtProfile
+2026-02-11T08:31:13.9235373Z > Task :tunnel:exportReleaseConsumerProguardFiles
+2026-02-11T08:31:13.9236432Z > Task :tunnel:mergeReleaseJavaResource
+2026-02-11T08:31:13.9237011Z > Task :tunnel:bundleLibCompileToJarRelease
+2026-02-11T08:31:14.0225487Z > Task :tunnel:copyReleaseJniLibsProjectOnly
+2026-02-11T08:31:14.0225885Z > Task :tunnel:syncReleaseLibJars
+2026-02-11T08:31:14.9225334Z > Task :tunnel:bundleReleaseAar
+2026-02-11T08:31:14.9226084Z > Task :tunnel:assembleRelease
+2026-02-11T08:31:14.9226510Z > Task :tunnel:extractReleaseSupportedLocales
+2026-02-11T08:31:14.9227532Z > Task :tunnel:bundleLibRuntimeToJarRelease
+2026-02-11T08:31:14.9227918Z > Task :tunnel:extractProguardFiles
+2026-02-11T08:31:15.6243376Z > Task :tunnel:generateReleaseLintVitalModel
+2026-02-11T08:31:15.6244554Z > Task :tunnel:createFullJarRelease
+2026-02-11T08:31:15.7235495Z > Task :tunnel:generateReleaseLintModel
+2026-02-11T08:31:15.7236037Z > Task :tunnel:bundleReleaseLocalLintAar
+2026-02-11T08:31:15.9224545Z > Task :tunnel:writeReleaseLintModelMetadata
+2026-02-11T08:31:19.0230387Z > Task :ui:expandReleaseL8ArtProfileWildcards
+2026-02-11T08:31:19.0230996Z > Task :ui:generateReleaseLocaleConfig
+2026-02-11T08:31:19.1225560Z > Task :ui:mergeReleaseNativeLibs
+2026-02-11T08:31:19.5225081Z > Task :ui:processReleaseMainManifest
+2026-02-11T08:31:19.7225450Z > Task :ui:stripReleaseDebugSymbols
+2026-02-11T08:31:23.3224913Z > Task :ui:packageReleaseResources
+2026-02-11T08:31:24.6225070Z > Task :ui:parseReleaseLocalResources
+2026-02-11T08:31:24.7224155Z > Task :ui:generateReleaseManifestClass
+2026-02-11T08:31:24.8224227Z > Task :ui:generateReleaseRFile
+2026-02-11T08:31:25.2224114Z > Task :ui:checkReleaseAarMetadata
+2026-02-11T08:31:25.5224401Z > Task :ui:processReleaseManifest
+2026-02-11T08:31:25.5225379Z > Task :ui:processReleaseManifestForPackage
+2026-02-11T08:31:25.8225418Z > Task :ui:mergeReleaseResources
+2026-02-11T08:31:26.2242790Z > Task :ui:extractReleaseNativeSymbolTables
+2026-02-11T08:31:26.3234969Z > Task :ui:dataBindingGenBaseClassesRelease
+2026-02-11T08:31:27.4224173Z > Task :ui:mergeReleaseNativeDebugMetadata
+2026-02-11T08:31:29.5224137Z > Task :tunnel:lintVitalAnalyzeRelease
+2026-02-11T08:31:36.9224103Z > Task :ui:processReleaseResources
+2026-02-11T08:31:55.4224310Z > Task :ui:kaptGenerateStubsReleaseKotlin
+2026-02-11T08:32:00.4224043Z > Task :ui:kaptReleaseKotlin
+2026-02-11T08:32:13.9224374Z > Task :ui:compileReleaseKotlin
+2026-02-11T08:32:16.1224767Z > Task :ui:compileReleaseJavaWithJavac
+2026-02-11T08:32:16.3236354Z > Task :ui:mergeReleaseGeneratedProguardFiles
+2026-02-11T08:32:16.3236995Z > Task :ui:processReleaseJavaRes
+2026-02-11T08:32:16.6224083Z > Task :ui:expandReleaseArtProfileWildcards
+2026-02-11T08:32:17.2243222Z > Task :ui:mergeReleaseJavaResource
+2026-02-11T08:32:18.0232228Z > Task :ui:generateReleaseLintVitalReportModel
+2026-02-11T08:32:48.0243046Z > Task :ui:minifyReleaseWithR8
+2026-02-11T08:32:48.4224532Z > Task :ui:lintVitalAnalyzeRelease
+2026-02-11T08:33:20.7232942Z > Task :ui:lintVitalReportRelease
+2026-02-11T08:33:20.7233717Z > Task :ui:lintVitalRelease
+2026-02-11T08:33:39.0224516Z > Task :ui:convertShrunkResourcesToBinaryRelease
+2026-02-11T08:33:39.3254365Z > Task :ui:optimizeReleaseResources
+2026-02-11T08:33:44.8223927Z > Task :ui:l8DexDesugarLibRelease
+2026-02-11T08:33:44.9245629Z > Task :ui:compileReleaseArtProfile
+2026-02-11T08:33:45.3253048Z > Task :ui:packageRelease
+2026-02-11T08:33:45.3253834Z > Task :ui:createReleaseApkListingFileRedirect
+2026-02-11T08:33:45.3257000Z > Task :ui:assembleRelease
+2026-02-11T08:33:45.4222989Z 
+2026-02-11T08:33:45.4233095Z [Incubating] Problems report is available at: file:///home/runner/work/com.wireguard.android/com.wireguard.android/build/reports/problems/problems-report.html
+2026-02-11T08:33:45.4234073Z 
+2026-02-11T08:33:45.4234475Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-02-11T08:33:45.4235009Z 
+2026-02-11T08:33:45.4235625Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-02-11T08:33:45.4236861Z 
+2026-02-11T08:33:45.4237631Z For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-02-11T08:33:45.4238512Z 
+2026-02-11T08:33:45.4238640Z BUILD SUCCESSFUL in 5m 44s
+2026-02-11T08:33:45.4238971Z 99 actionable tasks: 99 executed
+2026-02-11T08:33:45.4239803Z Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.1.0/userguide/configuration_cache_enabling.html
+2026-02-11T08:33:45.7764084Z ##[group]Run r0adkll/sign-android-release@v1
+2026-02-11T08:33:45.7764539Z with:
+2026-02-11T08:33:45.7764893Z   releaseDirectory: ui/build/outputs/apk/release
+2026-02-11T08:33:45.7797454Z   signingKeyBase64: ***
+2026-02-11T08:33:45.7797896Z   alias: ***
+2026-02-11T08:33:45.7798222Z   keyStorePassword: ***
+2026-02-11T08:33:45.7798584Z   keyPassword: ***
+2026-02-11T08:33:45.7798887Z env:
+2026-02-11T08:33:45.7799345Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:45.7800182Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:45.7800865Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T08:33:45.7801593Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T08:33:45.7802050Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T08:33:45.7802743Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T08:33:45.7803597Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T08:33:45.7804116Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T08:33:45.7804529Z   BUILD_TOOLS_VERSION: 35.0.1
+2026-02-11T08:33:45.7804883Z ##[endgroup]
+2026-02-11T08:33:45.8310197Z Preparing to sign key @ ui/build/outputs/apk/release with signing key
+2026-02-11T08:33:45.8317911Z Found 1 release files.
+2026-02-11T08:33:45.8383324Z [command]/usr/local/lib/android/sdk/build-tools/35.0.1/zipalign -c -v 4 ui/build/outputs/apk/release/ui-release-unsigned.apk
+2026-02-11T08:33:46.1636661Z Verifying alignment of ui/build/outputs/apk/release/ui-release-unsigned.apk (4)...
+2026-02-11T08:33:46.1637678Z       87 META-INF/com/android/build/gradle/app-metadata.properties (OK - compressed)
+2026-02-11T08:33:46.1638521Z      209 META-INF/version-control-info.textproto (OK - compressed)
+2026-02-11T08:33:46.1639104Z      384 assets/dexopt/baseline.prof (OK)
+2026-02-11T08:33:46.1639556Z     1816 assets/dexopt/baseline.profm (OK)
+2026-02-11T08:33:46.1640027Z     2084 classes.dex (OK - compressed)
+2026-02-11T08:33:46.1640453Z  1095475 classes2.dex (OK - compressed)
+2026-02-11T08:33:46.1640959Z  1179648 lib/arm64-v8a/libdatastore_shared_counter.so (OK)
+2026-02-11T08:33:46.1641657Z  1245184 lib/arm64-v8a/libwg-go.so (OK)
+2026-02-11T08:33:46.1642069Z  4620288 lib/arm64-v8a/libwg-quick.so (OK)
+2026-02-11T08:33:46.1642491Z  4653056 lib/arm64-v8a/libwg.so (OK)
+2026-02-11T08:33:46.1642982Z  4734976 lib/armeabi-v7a/libdatastore_shared_counter.so (OK)
+2026-02-11T08:33:46.1643538Z  4800512 lib/armeabi-v7a/libwg-go.so (OK)
+2026-02-11T08:33:46.1643980Z  7979008 lib/armeabi-v7a/libwg-quick.so (OK)
+2026-02-11T08:33:46.1644416Z  8011776 lib/armeabi-v7a/libwg.so (OK)
+2026-02-11T08:33:46.1644880Z  8060928 lib/x86/libdatastore_shared_counter.so (OK)
+2026-02-11T08:33:46.1645389Z  8126464 lib/x86/libwg-go.so (OK)
+2026-02-11T08:33:46.1645763Z 11337728 lib/x86/libwg-quick.so (OK)
+2026-02-11T08:33:46.1646157Z 11370496 lib/x86/libwg.so (OK)
+2026-02-11T08:33:46.1646609Z 11452416 lib/x86_64/libdatastore_shared_counter.so (OK)
+2026-02-11T08:33:46.1647105Z 11517952 lib/x86_64/libwg-go.so (OK)
+2026-02-11T08:33:46.1647501Z 15138816 lib/x86_64/libwg-quick.so (OK)
+2026-02-11T08:33:46.1647904Z 15171584 lib/x86_64/libwg.so (OK)
+2026-02-11T08:33:46.1648506Z 15264913 META-INF/androidx/annotation/annotation/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1649401Z 15268561 META-INF/androidx/collection/collection-ktx/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1650281Z 15272205 META-INF/androidx/collection/collection/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1651875Z 15275866 META-INF/androidx/constraintlayout/constraintlayout-core/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1652913Z 15279518 META-INF/androidx/datastore/datastore-core-okio/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1654037Z 15283190 META-INF/androidx/datastore/datastore-preferences-external-protobuf/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1655542Z 15284027 META-INF/androidx/datastore/datastore-preferences-proto/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1656539Z 15287676 META-INF/androidx/lifecycle/lifecycle-common/LICENSE.txt (OK - compressed)
+2026-02-11T08:33:46.1657575Z 15291338 META-INF/services/kotlinx.coroutines.android.AndroidDispatcherFactory (OK - compressed)
+2026-02-11T08:33:46.1658750Z 15291488 META-INF/services/kotlinx.coroutines.android.AndroidExceptionPreHandler (OK - compressed)
+2026-02-11T08:33:46.1659751Z 15291612 kotlin/annotation/annotation.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1660558Z 15292230 kotlin/collections/collections.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1734639Z 15294193 kotlin/concurrent/atomics/atomics.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1735856Z 15295378 kotlin/coroutines/coroutines.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1736635Z 15295566 kotlin/internal/internal.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1737303Z 15295984 kotlin/kotlin.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1737966Z 15301551 kotlin/ranges/ranges.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1738652Z 15302999 kotlin/reflect/reflect.kotlin_builtins (OK - compressed)
+2026-02-11T08:33:46.1739263Z 15304495 AndroidManifest.xml (OK - compressed)
+2026-02-11T08:33:46.1739775Z 15308220 res/-1.xml (OK - compressed)
+2026-02-11T08:33:46.1740178Z 15308603 res/-5.xml (OK - compressed)
+2026-02-11T08:33:46.1740556Z 15308849 res/-7.xml (OK - compressed)
+2026-02-11T08:33:46.1740940Z 15309244 res/-B.png (OK)
+2026-02-11T08:33:46.1741450Z 15309565 res/-B.xml (OK - compressed)
+2026-02-11T08:33:46.1742064Z 15309908 res/-N.png (OK)
+2026-02-11T08:33:46.1742392Z 15310266 res/-x.xml (OK - compressed)
+2026-02-11T08:33:46.1742795Z 15310517 res/0C.xml (OK - compressed)
+2026-02-11T08:33:46.1743185Z 15310938 res/0E.xml (OK - compressed)
+2026-02-11T08:33:46.1743576Z 15311474 res/0K.xml (OK - compressed)
+2026-02-11T08:33:46.1743956Z 15311755 res/0M.xml (OK - compressed)
+2026-02-11T08:33:46.1744341Z 15312134 res/0S.xml (OK - compressed)
+2026-02-11T08:33:46.1744731Z 15313108 res/0c.9.png (OK)
+2026-02-11T08:33:46.1745072Z 15313420 res/0x.9.png (OK)
+2026-02-11T08:33:46.1745385Z 15313672 res/1I.9.png (OK)
+2026-02-11T08:33:46.1745706Z 15316020 res/1J.9.png (OK)
+2026-02-11T08:33:46.1746049Z 15317791 res/1N.xml (OK - compressed)
+2026-02-11T08:33:46.1746436Z 15318042 res/1R.xml (OK - compressed)
+2026-02-11T08:33:46.1746804Z 15318360 res/1e.9.png (OK)
+2026-02-11T08:33:46.1747139Z 15318571 res/1x.xml (OK - compressed)
+2026-02-11T08:33:46.1747527Z 15318872 res/21.xml (OK - compressed)
+2026-02-11T08:33:46.1747922Z 15319225 res/27.xml (OK - compressed)
+2026-02-11T08:33:46.1748303Z 15319565 res/271.xml (OK - compressed)
+2026-02-11T08:33:46.1748858Z 15319779 res/2F.xml (OK - compressed)
+2026-02-11T08:33:46.1749276Z 15320108 res/2K.9.png (OK)
+2026-02-11T08:33:46.1749604Z 15320376 res/2P.png (OK)
+2026-02-11T08:33:46.1749965Z 15320678 res/2R.xml (OK - compressed)
+2026-02-11T08:33:46.1750350Z 15321240 res/2d.png (OK)
+2026-02-11T08:33:46.1750674Z 15321425 res/2f.xml (OK - compressed)
+2026-02-11T08:33:46.1751074Z 15322131 res/2j.xml (OK - compressed)
+2026-02-11T08:33:46.1751627Z 15322976 res/2n.xml (OK - compressed)
+2026-02-11T08:33:46.1752014Z 15323558 res/2w.xml (OK - compressed)
+2026-02-11T08:33:46.1752390Z 15324101 res/2x.xml (OK - compressed)
+2026-02-11T08:33:46.1752763Z 15324508 res/33.9.png (OK)
+2026-02-11T08:33:46.1753102Z 15325089 res/35.xml (OK - compressed)
+2026-02-11T08:33:46.1753491Z 15325399 res/3A.xml (OK - compressed)
+2026-02-11T08:33:46.1753874Z 15325938 res/3W.xml (OK - compressed)
+2026-02-11T08:33:46.1754714Z 15326224 res/3e.xml (OK - compressed)
+2026-02-11T08:33:46.1755126Z 15326686 res/3h.xml (OK - compressed)
+2026-02-11T08:33:46.1755501Z 15327076 res/3u.9.png (OK)
+2026-02-11T08:33:46.1755816Z 15327376 res/42.9.png (OK)
+2026-02-11T08:33:46.1756144Z 15327630 res/46.xml (OK - compressed)
+2026-02-11T08:33:46.1756511Z 15328052 res/49.png (OK)
+2026-02-11T08:33:46.1756840Z 15328687 res/4B.xml (OK - compressed)
+2026-02-11T08:33:46.1757211Z 15328992 res/4F.xml (OK - compressed)
+2026-02-11T08:33:46.1757802Z 15329689 res/4H.xml (OK - compressed)
+2026-02-11T08:33:46.1758196Z 15330042 res/4I.xml (OK - compressed)
+2026-02-11T08:33:46.1758585Z 15330445 res/4P.xml (OK - compressed)
+2026-02-11T08:33:46.1758966Z 15330761 res/4Q.xml (OK - compressed)
+2026-02-11T08:33:46.1759351Z 15331012 res/4S.xml (OK - compressed)
+2026-02-11T08:33:46.1759745Z 15331434 res/4_.xml (OK - compressed)
+2026-02-11T08:33:46.1760114Z 15331856 res/4k.png (OK)
+2026-02-11T08:33:46.1760436Z 15332097 res/4o.xml (OK - compressed)
+2026-02-11T08:33:46.1760837Z 15332460 res/4u.xml (OK - compressed)
+2026-02-11T08:33:46.1761231Z 15332790 res/4x.xml (OK - compressed)
+2026-02-11T08:33:46.1790301Z 15333248 res/51.xml (OK - compressed)
+2026-02-11T08:33:46.1790755Z 15333662 res/59.xml (OK - compressed)
+2026-02-11T08:33:46.1791137Z 15334024 res/5D.9.png (OK)
+2026-02-11T08:33:46.1791716Z 15334336 res/5H.xml (OK - compressed)
+2026-02-11T08:33:46.1792149Z 15334644 res/5T.xml (OK - compressed)
+2026-02-11T08:33:46.1792530Z 15335064 res/5U.png (OK)
+2026-02-11T08:33:46.1792855Z 15335500 res/5c.png (OK)
+2026-02-11T08:33:46.1793174Z 15335678 res/5l.xml (OK - compressed)
+2026-02-11T08:33:46.1793556Z 15336085 res/5z.xml (OK - compressed)
+2026-02-11T08:33:46.1793927Z 15336520 res/61.xml (OK - compressed)
+2026-02-11T08:33:46.1794298Z 15336916 res/62.9.png (OK)
+2026-02-11T08:33:46.1794612Z 15337168 res/65.9.png (OK)
+2026-02-11T08:33:46.1794954Z 15337443 res/66.xml (OK - compressed)
+2026-02-11T08:33:46.1795339Z 15337904 res/68.xml (OK - compressed)
+2026-02-11T08:33:46.1795741Z 15338261 res/6Q.xml (OK - compressed)
+2026-02-11T08:33:46.1796111Z 15338604 res/6t.png (OK)
+2026-02-11T08:33:46.1796459Z 15338871 res/6x.xml (OK - compressed)
+2026-02-11T08:33:46.1796842Z 15339172 res/7C.9.png (OK)
+2026-02-11T08:33:46.1797196Z 15339642 res/7G.xml (OK - compressed)
+2026-02-11T08:33:46.1797584Z 15340207 res/7H.xml (OK - compressed)
+2026-02-11T08:33:46.1797958Z 15340480 res/7I.9.png (OK)
+2026-02-11T08:33:46.1798297Z 15340865 res/7N.xml (OK - compressed)
+2026-02-11T08:33:46.1798692Z 15341090 res/7O.xml (OK - compressed)
+2026-02-11T08:33:46.1799138Z 15341608 res/7_.9.png (OK)
+2026-02-11T08:33:46.1799466Z 15342464 res/7i.png (OK)
+2026-02-11T08:33:46.1799787Z 15342972 res/7o.9.png (OK)
+2026-02-11T08:33:46.1800126Z 15343537 res/7s.xml (OK - compressed)
+2026-02-11T08:33:46.1800521Z 15343861 res/7s1.xml (OK - compressed)
+2026-02-11T08:33:46.1800917Z 15344196 res/80.xml (OK - compressed)
+2026-02-11T08:33:46.1801293Z 15345077 res/8O.xml (OK - compressed)
+2026-02-11T08:33:46.1801883Z 15345865 res/8a.xml (OK - compressed)
+2026-02-11T08:33:46.1802290Z 15346242 res/8a1.xml (OK - compressed)
+2026-02-11T08:33:46.1802679Z 15346532 res/8c.png (OK)
+2026-02-11T08:33:46.1803041Z 15352564 res/8h.9.png (OK)
+2026-02-11T08:33:46.1803399Z 15352812 res/8h.png (OK)
+2026-02-11T08:33:46.1803744Z 15353798 res/8s.xml (OK - compressed)
+2026-02-11T08:33:46.1804138Z 15354181 res/8y.xml (OK - compressed)
+2026-02-11T08:33:46.1804527Z 15354669 res/9H.xml (OK - compressed)
+2026-02-11T08:33:46.1804922Z 15355120 res/9N.9.png (OK)
+2026-02-11T08:33:46.1805262Z 15355347 res/9O.xml (OK - compressed)
+2026-02-11T08:33:46.1805652Z 15355868 res/9P.xml (OK - compressed)
+2026-02-11T08:33:46.1806028Z 15356239 res/9T.xml (OK - compressed)
+2026-02-11T08:33:46.1806424Z 15356674 res/9T1.xml (OK - compressed)
+2026-02-11T08:33:46.1806834Z 15357143 res/9T2.xml (OK - compressed)
+2026-02-11T08:33:46.1807232Z 15357556 res/9V.xml (OK - compressed)
+2026-02-11T08:33:46.1807601Z 15358244 res/9X.9.png (OK)
+2026-02-11T08:33:46.1808357Z 15358476 res/9m.xml (OK - compressed)
+2026-02-11T08:33:46.1808729Z 15358692 res/9n.9.png (OK)
+2026-02-11T08:33:46.1858839Z 15358910 res/9p.xml (OK - compressed)
+2026-02-11T08:33:46.1859307Z 15359212 res/9w.png (OK)
+2026-02-11T08:33:46.1859636Z 15361852 res/9z.png (OK)
+2026-02-11T08:33:46.1859978Z 15362485 res/9z.xml (OK - compressed)
+2026-02-11T08:33:46.1860381Z 15362759 res/A0.xml (OK - compressed)
+2026-02-11T08:33:46.1860766Z 15363466 res/A1.xml (OK - compressed)
+2026-02-11T08:33:46.1861622Z 15363894 res/A2.xml (OK - compressed)
+2026-02-11T08:33:46.1862013Z 15365179 res/A4.xml (OK - compressed)
+2026-02-11T08:33:46.1862396Z 15365520 res/A5.xml (OK - compressed)
+2026-02-11T08:33:46.1862787Z 15366176 res/AB.xml (OK - compressed)
+2026-02-11T08:33:46.1863180Z 15366878 res/Aa.xml (OK - compressed)
+2026-02-11T08:33:46.1863550Z 15367245 res/B6.xml (OK - compressed)
+2026-02-11T08:33:46.1863934Z 15367600 res/BG.9.png (OK)
+2026-02-11T08:33:46.1864282Z 15367830 res/BJ.xml (OK - compressed)
+2026-02-11T08:33:46.1864694Z 15368210 res/BJ1.xml (OK - compressed)
+2026-02-11T08:33:46.1865070Z 15368644 res/BL.9.png (OK)
+2026-02-11T08:33:46.1865396Z 15368916 res/BM.png (OK)
+2026-02-11T08:33:46.1865739Z 15369115 res/BT.xml (OK - compressed)
+2026-02-11T08:33:46.1866135Z 15369467 res/BT1.xml (OK - compressed)
+2026-02-11T08:33:46.1866520Z 15369807 res/BW.xml (OK - compressed)
+2026-02-11T08:33:46.1866952Z 15370088 res/Be.xml (OK - compressed)
+2026-02-11T08:33:46.1867341Z 15370967 res/Bk.xml (OK - compressed)
+2026-02-11T08:33:46.1867744Z 15371384 res/Bl.xml (OK - compressed)
+2026-02-11T08:33:46.1868140Z 15371767 res/By.xml (OK - compressed)
+2026-02-11T08:33:46.1868564Z 15372068 res/CK.9.png (OK)
+2026-02-11T08:33:46.1868949Z 15372352 res/CN.xml (OK - compressed)
+2026-02-11T08:33:46.1869385Z 15372764 res/C_.9.png (OK)
+2026-02-11T08:33:46.1869745Z 15373019 res/Cg.xml (OK - compressed)
+2026-02-11T08:33:46.1870132Z 15373259 res/Ci.xml (OK - compressed)
+2026-02-11T08:33:46.1870533Z 15374118 res/Cz.xml (OK - compressed)
+2026-02-11T08:33:46.1870939Z 15374640 res/D-.xml (OK - compressed)
+2026-02-11T08:33:46.1871597Z 15375405 res/D4.xml (OK - compressed)
+2026-02-11T08:33:46.1872006Z 15375796 res/D5.xml (OK - compressed)
+2026-02-11T08:33:46.1872390Z 15376287 res/D6.xml (OK - compressed)
+2026-02-11T08:33:46.1872772Z 15376644 res/DG.xml (OK - compressed)
+2026-02-11T08:33:46.1873143Z 15377024 res/DL.9.png (OK)
+2026-02-11T08:33:46.1873498Z 15377242 res/DS.xml (OK - compressed)
+2026-02-11T08:33:46.1873883Z 15377498 res/DZ.xml (OK - compressed)
+2026-02-11T08:33:46.1874289Z 15378361 res/DZ1.xml (OK - compressed)
+2026-02-11T08:33:46.1874660Z 15378596 res/D_.9.png (OK)
+2026-02-11T08:33:46.1875000Z 15378814 res/Dt.xml (OK - compressed)
+2026-02-11T08:33:46.1875373Z 15379188 res/E5.ogg (OK)
+2026-02-11T08:33:46.1875701Z 15385632 res/E5.png (OK)
+2026-02-11T08:33:46.1876014Z 15386576 res/EA.9.png (OK)
+2026-02-11T08:33:46.1876343Z 15386816 res/EP.png (OK)
+2026-02-11T08:33:46.1876705Z 15387166 res/Ed.xml (OK - compressed)
+2026-02-11T08:33:46.1877108Z 15388031 res/Eg.xml (OK - compressed)
+2026-02-11T08:33:46.1877490Z 15388622 res/F8.xml (OK - compressed)
+2026-02-11T08:33:46.1877907Z 15389000 res/FS.png (OK)
+2026-02-11T08:33:46.1878223Z 15395266 res/FS.xml (OK - compressed)
+2026-02-11T08:33:46.1878576Z 15395608 res/FW.png (OK)
+2026-02-11T08:33:46.1878896Z 15395955 res/Fu.xml (OK - compressed)
+2026-02-11T08:33:46.1879259Z 15396548 res/G2.9.png (OK)
+2026-02-11T08:33:46.1879585Z 15397831 res/G2.xml (OK - compressed)
+2026-02-11T08:33:46.1879960Z 15398338 res/GC.xml (OK - compressed)
+2026-02-11T08:33:46.1880343Z 15398834 res/GD.xml (OK - compressed)
+2026-02-11T08:33:46.1880724Z 15399428 res/GK.xml (OK - compressed)
+2026-02-11T08:33:46.1881112Z 15399929 res/GQ.xml (OK - compressed)
+2026-02-11T08:33:46.1881679Z 15400307 res/GR.xml (OK - compressed)
+2026-02-11T08:33:46.1882062Z 15400820 res/Gc.png (OK)
+2026-02-11T08:33:46.1882355Z 15421604 res/Gf.png (OK)
+2026-02-11T08:33:46.1882649Z 15422632 res/Gt.9.png (OK)
+2026-02-11T08:33:46.1882973Z 15422874 res/Gt.xml (OK - compressed)
+2026-02-11T08:33:46.1883640Z 15423236 res/H-.png (OK)
+2026-02-11T08:33:46.1883988Z 15423479 res/H-.xml (OK - compressed)
+2026-02-11T08:33:46.1884382Z 15425428 res/H4.xml (OK - compressed)
+2026-02-11T08:33:46.1884763Z 15425764 res/HC.xml (OK - compressed)
+2026-02-11T08:33:46.1885162Z 15426117 res/HQ.xml (OK - compressed)
+2026-02-11T08:33:46.1885556Z 15426577 res/Ha.xml (OK - compressed)
+2026-02-11T08:33:46.1885943Z 15426931 res/Hd.xml (OK - compressed)
+2026-02-11T08:33:46.1886324Z 15427240 res/I3.xml (OK - compressed)
+2026-02-11T08:33:46.1886901Z 15427535 res/IM.xml (OK - compressed)
+2026-02-11T08:33:46.1887304Z 15427959 res/IN.xml (OK - compressed)
+2026-02-11T08:33:46.1887690Z 15428704 res/IX.9.png (OK)
+2026-02-11T08:33:46.1888040Z 15430288 res/Id.xml (OK - compressed)
+2026-02-11T08:33:46.1888493Z 15430583 res/Il.xml (OK - compressed)
+2026-02-11T08:33:46.1888902Z 15431159 res/In.xml (OK - compressed)
+2026-02-11T08:33:46.1889295Z 15431431 res/Iy.xml (OK - compressed)
+2026-02-11T08:33:46.1889691Z 15432352 res/JC.xml (OK - compressed)
+2026-02-11T08:33:46.1890084Z 15432837 res/JD.xml (OK - compressed)
+2026-02-11T08:33:46.1890481Z 15433499 res/JD1.xml (OK - compressed)
+2026-02-11T08:33:46.1890894Z 15433866 res/JF.xml (OK - compressed)
+2026-02-11T08:33:46.1891268Z 15434084 res/JJ.9.png (OK)
+2026-02-11T08:33:46.1891788Z 15434404 res/JP.xml (OK - compressed)
+2026-02-11T08:33:46.1892191Z 15434792 res/JQ.xml (OK - compressed)
+2026-02-11T08:33:46.1892584Z 15435213 res/JT.xml (OK - compressed)
+2026-02-11T08:33:46.1892981Z 15435571 res/JT1.xml (OK - compressed)
+2026-02-11T08:33:46.1893385Z 15436002 res/Jl.xml (OK - compressed)
+2026-02-11T08:33:46.1893777Z 15436273 res/Jw.xml (OK - compressed)
+2026-02-11T08:33:46.1894202Z 15437092 res/K2.xml (OK - compressed)
+2026-02-11T08:33:46.1894629Z 15437337 res/K5.xml (OK - compressed)
+2026-02-11T08:33:46.1895046Z 15438062 res/K51.xml (OK - compressed)
+2026-02-11T08:33:46.1895447Z 15438540 res/KH.9.png (OK)
+2026-02-11T08:33:46.1895796Z 15439200 res/KM.png (OK)
+2026-02-11T08:33:46.1896150Z 15439655 res/KT.xml (OK - compressed)
+2026-02-11T08:33:46.1896543Z 15440012 res/K_.9.png (OK)
+2026-02-11T08:33:46.1896894Z 15440268 res/Ke.xml (OK - compressed)
+2026-02-11T08:33:46.1897292Z 15440968 res/Kt.xml (OK - compressed)
+2026-02-11T08:33:46.1897696Z 15441304 res/Kt1.xml (OK - compressed)
+2026-02-11T08:33:46.1898123Z 15441973 res/L-.xml (OK - compressed)
+2026-02-11T08:33:46.1898513Z 15443026 res/LI.xml (OK - compressed)
+2026-02-11T08:33:46.1898912Z 15443682 res/LJ.xml (OK - compressed)
+2026-02-11T08:33:46.1899388Z 15444002 res/LT.xml (OK - compressed)
+2026-02-11T08:33:46.1899779Z 15444359 res/LW.xml (OK - compressed)
+2026-02-11T08:33:46.1900172Z 15444706 res/L_.xml (OK - compressed)
+2026-02-11T08:33:46.1900567Z 15445085 res/Lf.xml (OK - compressed)
+2026-02-11T08:33:46.1900955Z 15445548 res/Li.9.png (OK)
+2026-02-11T08:33:46.1901300Z 15447367 res/Lt.xml (OK - compressed)
+2026-02-11T08:33:46.1902089Z 15447724 res/Lv.xml (OK - compressed)
+2026-02-11T08:33:46.1902488Z 15447839 res/M2.xml (OK - compressed)
+2026-02-11T08:33:46.1902892Z 15448182 res/M7.xml (OK - compressed)
+2026-02-11T08:33:46.1903265Z 15448624 res/MF.9.png (OK)
+2026-02-11T08:33:46.1903612Z 15451480 res/MH.xml (OK - compressed)
+2026-02-11T08:33:46.1904004Z 15452678 res/MO.xml (OK - compressed)
+2026-02-11T08:33:46.1904383Z 15452920 res/MQ.png (OK)
+2026-02-11T08:33:46.1904721Z 15453473 res/MU.xml (OK - compressed)
+2026-02-11T08:33:46.1905123Z 15453813 res/MZ.xml (OK - compressed)
+2026-02-11T08:33:46.1905498Z 15454168 res/Ma.9.png (OK)
+2026-02-11T08:33:46.1905857Z 15454455 res/Mp.xml (OK - compressed)
+2026-02-11T08:33:46.1906233Z 15454871 res/Mt.xml (OK - compressed)
+2026-02-11T08:33:46.1906618Z 15455429 res/N0.xml (OK - compressed)
+2026-02-11T08:33:46.1906994Z 15455796 res/NA.9.png (OK)
+2026-02-11T08:33:46.1907333Z 15458341 res/NA.xml (OK - compressed)
+2026-02-11T08:33:46.1907699Z 15458805 res/NF.xml (OK - compressed)
+2026-02-11T08:33:46.1908065Z 15459036 res/NG.png (OK)
+2026-02-11T08:33:46.1908397Z 15459398 res/NM.xml (OK - compressed)
+2026-02-11T08:33:46.1914326Z 15459665 res/NN.xml (OK - compressed)
+2026-02-11T08:33:46.1914740Z 15460120 res/NZ.9.png (OK)
+2026-02-11T08:33:46.1915078Z 15460344 res/Nk.9.png (OK)
+2026-02-11T08:33:46.1915418Z 15461164 res/No.9.png (OK)
+2026-02-11T08:33:46.1915769Z 15461403 res/Nu.xml (OK - compressed)
+2026-02-11T08:33:46.1916154Z 15462146 res/Ny.xml (OK - compressed)
+2026-02-11T08:33:46.1916529Z 15462481 res/OX.xml (OK - compressed)
+2026-02-11T08:33:46.1916916Z 15462838 res/OZ.xml (OK - compressed)
+2026-02-11T08:33:46.1917515Z 15463611 res/Oi.xml (OK - compressed)
+2026-02-11T08:33:46.1917890Z 15464677 res/Ol.xml (OK - compressed)
+2026-02-11T08:33:46.1918266Z 15465395 res/Ox.xml (OK - compressed)
+2026-02-11T08:33:46.1918641Z 15465720 res/PL.png (OK)
+2026-02-11T08:33:46.1918997Z 15466932 res/PQ.xml (OK - compressed)
+2026-02-11T08:33:46.1919393Z 15467283 res/PV.xml (OK - compressed)
+2026-02-11T08:33:46.1919796Z 15467785 res/PX.xml (OK - compressed)
+2026-02-11T08:33:46.1920183Z 15468208 res/Pa.9.png (OK)
+2026-02-11T08:33:46.1920541Z 15468988 res/Pb.png (OK)
+2026-02-11T08:33:46.1920868Z 15469664 res/Pg.9.png (OK)
+2026-02-11T08:33:46.1921223Z 15469911 res/QD.xml (OK - compressed)
+2026-02-11T08:33:46.1922513Z 15470276 res/QH.xml (OK - compressed)
+2026-02-11T08:33:46.1922919Z 15470604 res/QJ.9.png (OK)
+2026-02-11T08:33:46.1923261Z 15470833 res/QN.xml (OK - compressed)
+2026-02-11T08:33:46.1923645Z 15471184 res/QN1.xml (OK - compressed)
+2026-02-11T08:33:46.1924049Z 15471507 res/QP.xml (OK - compressed)
+2026-02-11T08:33:46.1924446Z 15471845 res/QZ.xml (OK - compressed)
+2026-02-11T08:33:46.1924826Z 15472229 res/QZ1.xml (OK - compressed)
+2026-02-11T08:33:46.1925213Z 15472337 res/Qd.xml (OK - compressed)
+2026-02-11T08:33:46.1925595Z 15472812 res/Qp.xml (OK - compressed)
+2026-02-11T08:33:46.1925977Z 15473167 res/Qr.xml (OK - compressed)
+2026-02-11T08:33:46.1926355Z 15475585 res/Qt.xml (OK - compressed)
+2026-02-11T08:33:46.1926724Z 15476139 res/Qu.xml (OK - compressed)
+2026-02-11T08:33:46.1927105Z 15476652 res/Qy.xml (OK - compressed)
+2026-02-11T08:33:46.1927497Z 15476903 res/R2.xml (OK - compressed)
+2026-02-11T08:33:46.1927881Z 15477260 res/R8.xml (OK - compressed)
+2026-02-11T08:33:46.1928252Z 15477808 res/RH.xml (OK - compressed)
+2026-02-11T08:33:46.1928633Z 15478242 res/RI.xml (OK - compressed)
+2026-02-11T08:33:46.1929016Z 15478524 res/RJ.png (OK)
+2026-02-11T08:33:46.1929358Z 15490341 res/RL.xml (OK - compressed)
+2026-02-11T08:33:46.1929744Z 15490595 res/RM.xml (OK - compressed)
+2026-02-11T08:33:46.1930107Z 15490980 res/RV.png (OK)
+2026-02-11T08:33:46.1930457Z 15491583 res/Ro.xml (OK - compressed)
+2026-02-11T08:33:46.1930835Z 15492142 res/S6.xml (OK - compressed)
+2026-02-11T08:33:46.1931217Z 15492494 res/S8.xml (OK - compressed)
+2026-02-11T08:33:46.1931836Z 15493021 res/SG.xml (OK - compressed)
+2026-02-11T08:33:46.1932221Z 15493296 res/SV.9.png (OK)
+2026-02-11T08:33:46.1932561Z 15493547 res/Sc.xml (OK - compressed)
+2026-02-11T08:33:46.1932928Z 15493976 res/Sq.png (OK)
+2026-02-11T08:33:46.1933262Z 15494581 res/Sr.xml (OK - compressed)
+2026-02-11T08:33:46.1933643Z 15495036 res/Su.9.png (OK)
+2026-02-11T08:33:46.1933988Z 15495254 res/T4.xml (OK - compressed)
+2026-02-11T08:33:46.1934367Z 15495806 res/TH.xml (OK - compressed)
+2026-02-11T08:33:46.1934758Z 15496108 res/TJ.xml (OK - compressed)
+2026-02-11T08:33:46.1935132Z 15496621 res/TP.xml (OK - compressed)
+2026-02-11T08:33:46.1935515Z 15497151 res/Tf.xml (OK - compressed)
+2026-02-11T08:33:46.1935873Z 15497492 res/Th.png (OK)
+2026-02-11T08:33:46.1936189Z 15498320 res/Tj.9.png (OK)
+2026-02-11T08:33:46.1936539Z 15498687 res/Tn.xml (OK - compressed)
+2026-02-11T08:33:46.1936939Z 15499124 res/U-.9.png (OK)
+2026-02-11T08:33:46.1937256Z 15499387 res/U0.xml (OK - compressed)
+2026-02-11T08:33:46.1937632Z 15499493 res/U8.xml (OK - compressed)
+2026-02-11T08:33:46.1937999Z 15500368 res/UE.9.png (OK)
+2026-02-11T08:33:46.1938341Z 15500630 res/UE.xml (OK - compressed)
+2026-02-11T08:33:46.1938717Z 15501000 res/UP.xml (OK - compressed)
+2026-02-11T08:33:46.1939069Z 15501444 res/UR.png (OK)
+2026-02-11T08:33:46.1939640Z 15501906 res/UX.xml (OK - compressed)
+2026-02-11T08:33:46.1939985Z 15502205 res/Uf.xml (OK - compressed)
+2026-02-11T08:33:46.1940363Z 15502855 res/Uj.xml (OK - compressed)
+2026-02-11T08:33:46.1940723Z 15503367 res/V1.xml (OK - compressed)
+2026-02-11T08:33:46.1941097Z 15503854 res/V3.xml (OK - compressed)
+2026-02-11T08:33:46.1941643Z 15504228 res/V7.xml (OK - compressed)
+2026-02-11T08:33:46.1942016Z 15504442 res/VM.xml (OK - compressed)
+2026-02-11T08:33:46.1942393Z 15504672 res/VN.xml (OK - compressed)
+2026-02-11T08:33:46.1942954Z 15505071 res/VT.xml (OK - compressed)
+2026-02-11T08:33:46.1943355Z 15505461 res/Vs.xml (OK - compressed)
+2026-02-11T08:33:46.1943736Z 15505940 res/W4.9.png (OK)
+2026-02-11T08:33:46.1944067Z 15506197 res/WC.xml (OK - compressed)
+2026-02-11T08:33:46.1944458Z 15506448 res/WK.xml (OK - compressed)
+2026-02-11T08:33:46.1944855Z 15506862 res/WP.xml (OK - compressed)
+2026-02-11T08:33:46.1945260Z 15507113 res/Wd.xml (OK - compressed)
+2026-02-11T08:33:46.1945629Z 15507968 res/Wh.png (OK)
+2026-02-11T08:33:46.1945968Z 15508180 res/Wr.png (OK)
+2026-02-11T08:33:46.1946296Z 15508555 res/Ws.xml (OK - compressed)
+2026-02-11T08:33:46.1946667Z 15509068 res/Wz.png (OK)
+2026-02-11T08:33:46.1946982Z 15509308 res/X3.9.png (OK)
+2026-02-11T08:33:46.1947312Z 15509572 res/X4.9.png (OK)
+2026-02-11T08:33:46.1947646Z 15509799 res/X5.xml (OK - compressed)
+2026-02-11T08:33:46.1948037Z 15510196 res/X6.xml (OK - compressed)
+2026-02-11T08:33:46.1948418Z 15510761 res/XK.xml (OK - compressed)
+2026-02-11T08:33:46.1948824Z 15511042 res/XW.xml (OK - compressed)
+2026-02-11T08:33:46.1949219Z 15511150 res/XY.xml (OK - compressed)
+2026-02-11T08:33:46.1949607Z 15511342 res/Xf.xml (OK - compressed)
+2026-02-11T08:33:46.1949987Z 15511716 res/Xl.xml (OK - compressed)
+2026-02-11T08:33:46.1950385Z 15511967 res/Xp.xml (OK - compressed)
+2026-02-11T08:33:46.1950772Z 15512384 res/Xx.xml (OK - compressed)
+2026-02-11T08:33:46.1951166Z 15512668 res/Xz.xml (OK - compressed)
+2026-02-11T08:33:46.1951696Z 15512976 res/Y7.9.png (OK)
+2026-02-11T08:33:46.1952031Z 15513232 res/YG.9.png (OK)
+2026-02-11T08:33:46.1952370Z 15513475 res/YG.xml (OK - compressed)
+2026-02-11T08:33:46.1952763Z 15513884 res/YN.xml (OK - compressed)
+2026-02-11T08:33:46.1953144Z 15514234 res/YW.xml (OK - compressed)
+2026-02-11T08:33:46.1953538Z 15514460 res/YW1.xml (OK - compressed)
+2026-02-11T08:33:46.1953943Z 15514818 res/Yo.xml (OK - compressed)
+2026-02-11T08:33:46.1954319Z 15515620 res/Yt.9.png (OK)
+2026-02-11T08:33:46.1954639Z 15515872 res/Yw.9.png (OK)
+2026-02-11T08:33:46.1954992Z 15516100 res/Z8.png (OK)
+2026-02-11T08:33:46.1955325Z 15516560 res/ZC.xml (OK - compressed)
+2026-02-11T08:33:46.1955723Z 15516910 res/ZL.xml (OK - compressed)
+2026-02-11T08:33:46.1956105Z 15517355 res/ZM.xml (OK - compressed)
+2026-02-11T08:33:46.1956483Z 15517844 res/ZN.9.png (OK)
+2026-02-11T08:33:46.1956824Z 15518113 res/ZN.xml (OK - compressed)
+2026-02-11T08:33:46.1957206Z 15518644 res/ZW.xml (OK - compressed)
+2026-02-11T08:33:46.1957587Z 15519562 res/Zd.xml (OK - compressed)
+2026-02-11T08:33:46.1957975Z 15519920 res/Zg.png (OK)
+2026-02-11T08:33:46.1958306Z 15528547 res/Zg.xml (OK - compressed)
+2026-02-11T08:33:46.1958701Z 15528967 res/_G.xml (OK - compressed)
+2026-02-11T08:33:46.1959070Z 15529236 res/_U.png (OK)
+2026-02-11T08:33:46.1959403Z 15529707 res/_o.xml (OK - compressed)
+2026-02-11T08:33:46.1959776Z 15529936 res/_q.png (OK)
+2026-02-11T08:33:46.1960113Z 15530149 res/a0.xml (OK - compressed)
+2026-02-11T08:33:46.1960488Z 15530729 res/a1.xml (OK - compressed)
+2026-02-11T08:33:46.1960884Z 15531404 res/a5.xml (OK - compressed)
+2026-02-11T08:33:46.1961271Z 15531762 res/a7.xml (OK - compressed)
+2026-02-11T08:33:46.1961807Z 15532312 res/aG.xml (OK - compressed)
+2026-02-11T08:33:46.1962198Z 15532640 res/aJ.xml (OK - compressed)
+2026-02-11T08:33:46.1962580Z 15532896 res/aM.xml (OK - compressed)
+2026-02-11T08:33:46.1962965Z 15533312 res/aT.xml (OK - compressed)
+2026-02-11T08:33:46.1963344Z 15533788 res/aU.9.png (OK)
+2026-02-11T08:33:46.1963690Z 15534276 res/aW.xml (OK - compressed)
+2026-02-11T08:33:46.1964284Z 15534384 res/ai.xml (OK - compressed)
+2026-02-11T08:33:46.1964678Z 15534592 res/ak.xml (OK - compressed)
+2026-02-11T08:33:46.1965057Z 15535616 res/ar.png (OK)
+2026-02-11T08:33:46.1965391Z 15536047 res/bL.xml (OK - compressed)
+2026-02-11T08:33:46.1965775Z 15536510 res/bP.xml (OK - compressed)
+2026-02-11T08:33:46.1966165Z 15536900 res/bT.xml (OK - compressed)
+2026-02-11T08:33:46.1966546Z 15537360 res/bX.9.png (OK)
+2026-02-11T08:33:46.1966888Z 15537644 res/bb.xml (OK - compressed)
+2026-02-11T08:33:46.1967445Z 15537930 res/bm.xml (OK - compressed)
+2026-02-11T08:33:46.1967844Z 15538294 res/bt.xml (OK - compressed)
+2026-02-11T08:33:46.1968229Z 15538759 res/c0.xml (OK - compressed)
+2026-02-11T08:33:46.1968622Z 15539006 res/c2.xml (OK - compressed)
+2026-02-11T08:33:46.1969002Z 15539379 res/c5.xml (OK - compressed)
+2026-02-11T08:33:46.1969391Z 15539606 res/c6.xml (OK - compressed)
+2026-02-11T08:33:46.1969776Z 15539832 res/cA.xml (OK - compressed)
+2026-02-11T08:33:46.1970171Z 15540141 res/cA1.xml (OK - compressed)
+2026-02-11T08:33:46.1970580Z 15540740 res/cL.xml (OK - compressed)
+2026-02-11T08:33:46.1970966Z 15541141 res/cV.xml (OK - compressed)
+2026-02-11T08:33:46.1971501Z 15541443 res/cc.xml (OK - compressed)
+2026-02-11T08:33:46.1971901Z 15541827 res/cm.xml (OK - compressed)
+2026-02-11T08:33:46.1972543Z 15542384 res/color-night-v8/material_timepicker_button_stroke.xml (OK - compressed)
+2026-02-11T08:33:46.1973441Z 15542672 res/color-night-v8/material_timepicker_clockface.xml (OK - compressed)
+2026-02-11T08:33:46.1979081Z 15542965 res/color-night-v8/material_timepicker_modebutton_tint.xml (OK - compressed)
+2026-02-11T08:33:46.1980009Z 15543221 res/color-v23/abc_color_highlight_material.xml (OK - compressed)
+2026-02-11T08:33:46.1980786Z 15543549 res/color-v23/abc_tint_btn_checkable.xml (OK - compressed)
+2026-02-11T08:33:46.1981621Z 15543886 res/color-v23/abc_tint_default.xml (OK - compressed)
+2026-02-11T08:33:46.1982261Z 15544319 res/color-v23/abc_tint_edittext.xml (OK - compressed)
+2026-02-11T08:33:46.1982916Z 15544669 res/color-v23/abc_tint_seek_thumb.xml (OK - compressed)
+2026-02-11T08:33:46.1983570Z 15544974 res/color-v23/abc_tint_spinner.xml (OK - compressed)
+2026-02-11T08:33:46.1984228Z 15545326 res/color-v23/abc_tint_switch_track.xml (OK - compressed)
+2026-02-11T08:33:46.1984917Z 15545676 res/color-v26/biometric_error_color.xml (OK - compressed)
+2026-02-11T08:33:46.1985714Z 15545992 res/color-v31/m3_dynamic_dark_default_color_primary_text.xml (OK - compressed)
+2026-02-11T08:33:46.1986643Z 15546324 res/color-v31/m3_dynamic_dark_default_color_secondary_text.xml (OK - compressed)
+2026-02-11T08:33:46.1987509Z 15546646 res/color-v31/m3_dynamic_dark_highlighted_text.xml (OK - compressed)
+2026-02-11T08:33:46.1988290Z 15546927 res/color-v31/m3_dynamic_dark_hint_foreground.xml (OK - compressed)
+2026-02-11T08:33:46.1989123Z 15547275 res/color-v31/m3_dynamic_dark_primary_text_disable_only.xml (OK - compressed)
+2026-02-11T08:33:46.1990000Z 15547600 res/color-v31/m3_dynamic_default_color_primary_text.xml (OK - compressed)
+2026-02-11T08:33:46.1990831Z 15547927 res/color-v31/m3_dynamic_default_color_secondary_text.xml (OK - compressed)
+2026-02-11T08:33:46.1991759Z 15548245 res/color-v31/m3_dynamic_highlighted_text.xml (OK - compressed)
+2026-02-11T08:33:46.1992479Z 15548522 res/color-v31/m3_dynamic_hint_foreground.xml (OK - compressed)
+2026-02-11T08:33:46.1993251Z 15548865 res/color-v31/m3_dynamic_primary_text_disable_only.xml (OK - compressed)
+2026-02-11T08:33:46.1994134Z 15549194 res/color-v31/m3_ref_palette_dynamic_neutral_variant12.xml (OK - compressed)
+2026-02-11T08:33:46.1995018Z 15549483 res/color-v31/m3_ref_palette_dynamic_neutral_variant17.xml (OK - compressed)
+2026-02-11T08:33:46.1995878Z 15549772 res/color-v31/m3_ref_palette_dynamic_neutral_variant22.xml (OK - compressed)
+2026-02-11T08:33:46.1996753Z 15550061 res/color-v31/m3_ref_palette_dynamic_neutral_variant24.xml (OK - compressed)
+2026-02-11T08:33:46.1997628Z 15550350 res/color-v31/m3_ref_palette_dynamic_neutral_variant4.xml (OK - compressed)
+2026-02-11T08:33:46.1998795Z 15550637 res/color-v31/m3_ref_palette_dynamic_neutral_variant6.xml (OK - compressed)
+2026-02-11T08:33:46.1999714Z 15550927 res/color-v31/m3_ref_palette_dynamic_neutral_variant87.xml (OK - compressed)
+2026-02-11T08:33:46.2000554Z 15551216 res/color-v31/m3_ref_palette_dynamic_neutral_variant92.xml (OK - compressed)
+2026-02-11T08:33:46.2001583Z 15551506 res/color-v31/m3_ref_palette_dynamic_neutral_variant94.xml (OK - compressed)
+2026-02-11T08:33:46.2002825Z 15551796 res/color-v31/m3_ref_palette_dynamic_neutral_variant96.xml (OK - compressed)
+2026-02-11T08:33:46.2003712Z 15552086 res/color-v31/m3_ref_palette_dynamic_neutral_variant98.xml (OK - compressed)
+2026-02-11T08:33:46.2004689Z 15552380 res/color/abc_background_cache_hint_selector_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2005695Z 15552704 res/color/abc_background_cache_hint_selector_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2006581Z 15553012 res/color/abc_hint_foreground_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2007385Z 15553350 res/color/abc_hint_foreground_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2008237Z 15553696 res/color/abc_primary_text_disable_only_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2009158Z 15554012 res/color/abc_primary_text_disable_only_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2009995Z 15554314 res/color/abc_primary_text_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2010763Z 15554619 res/color/abc_primary_text_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2011631Z 15554912 res/color/abc_search_url_text.xml (OK - compressed)
+2026-02-11T08:33:46.2012339Z 15555238 res/color/abc_secondary_text_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2013119Z 15555545 res/color/abc_secondary_text_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2013843Z 15555842 res/color/design_box_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2014460Z 15556184 res/color/design_error.xml (OK - compressed)
+2026-02-11T08:33:46.2015039Z 15556472 res/color/design_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2015683Z 15556753 res/color/m3_assist_chip_icon_tint_color.xml (OK - compressed)
+2026-02-11T08:33:46.2016398Z 15557073 res/color/m3_bottom_sheet_drag_handle_color.xml (OK - compressed)
+2026-02-11T08:33:46.2017159Z 15557333 res/color/m3_button_background_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2017919Z 15557716 res/color/m3_button_foreground_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2018682Z 15558096 res/color/m3_button_outline_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2019407Z 15558420 res/color/m3_button_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2020126Z 15558937 res/color/m3_calendar_item_disabled_text.xml (OK - compressed)
+2026-02-11T08:33:46.2020831Z 15559215 res/color/m3_calendar_item_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2021666Z 15559566 res/color/m3_card_foreground_color.xml (OK - compressed)
+2026-02-11T08:33:46.2022319Z 15559943 res/color/m3_card_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2022951Z 15560410 res/color/m3_card_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2023586Z 15560891 res/color/m3_checkbox_button_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2024254Z 15561302 res/color/m3_checkbox_button_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2024903Z 15561737 res/color/m3_chip_assist_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2025546Z 15562044 res/color/m3_chip_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2026173Z 15562387 res/color/m3_chip_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2026763Z 15562859 res/color/m3_chip_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2027357Z 15563253 res/color/m3_chip_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2028029Z 15563605 res/color/m3_dark_default_color_primary_text.xml (OK - compressed)
+2026-02-11T08:33:46.2028799Z 15563925 res/color/m3_dark_default_color_secondary_text.xml (OK - compressed)
+2026-02-11T08:33:46.2029735Z 15564235 res/color/m3_dark_highlighted_text.xml (OK - compressed)
+2026-02-11T08:33:46.2030383Z 15564503 res/color/m3_dark_hint_foreground.xml (OK - compressed)
+2026-02-11T08:33:46.2031073Z 15564839 res/color/m3_dark_primary_text_disable_only.xml (OK - compressed)
+2026-02-11T08:33:46.2031962Z 15565151 res/color/m3_default_color_primary_text.xml (OK - compressed)
+2026-02-11T08:33:46.2032688Z 15565466 res/color/m3_default_color_secondary_text.xml (OK - compressed)
+2026-02-11T08:33:46.2033592Z 15565782 res/color/m3_efab_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2034359Z 15566166 res/color/m3_fab_efab_background_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2035138Z 15566487 res/color/m3_fab_efab_foreground_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2035887Z 15566799 res/color/m3_fab_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2036685Z 15567190 res/color/m3_filled_icon_button_container_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2037487Z 15567543 res/color/m3_highlighted_text.xml (OK - compressed)
+2026-02-11T08:33:46.2038115Z 15567806 res/color/m3_hint_foreground.xml (OK - compressed)
+2026-02-11T08:33:46.2038800Z 15568143 res/color/m3_icon_button_icon_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2039623Z 15568522 res/color/m3_navigation_bar_item_with_indicator_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2040539Z 15568954 res/color/m3_navigation_bar_item_with_indicator_label_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2041554Z 15569372 res/color/m3_navigation_bar_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2042344Z 15569810 res/color/m3_navigation_item_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2043080Z 15570137 res/color/m3_navigation_item_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2043796Z 15570595 res/color/m3_navigation_item_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2044518Z 15571048 res/color/m3_navigation_item_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2045357Z 15571523 res/color/m3_navigation_rail_item_with_indicator_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2046291Z 15571844 res/color/m3_navigation_rail_item_with_indicator_label_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2047193Z 15572156 res/color/m3_navigation_rail_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2047961Z 15572590 res/color/m3_primary_text_disable_only.xml (OK - compressed)
+2026-02-11T08:33:46.2048676Z 15572900 res/color/m3_radiobutton_button_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2049358Z 15573372 res/color/m3_radiobutton_ripple_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2050150Z 15573839 res/color/m3_selection_control_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2050941Z 15574287 res/color/m3_simple_item_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2051811Z 15574664 res/color/m3_slider_active_tick_marks_color.xml (OK - compressed)
+2026-02-11T08:33:46.2052519Z 15574979 res/color/m3_slider_active_track_color.xml (OK - compressed)
+2026-02-11T08:33:46.2053264Z 15575300 res/color/m3_slider_inactive_tick_marks_color.xml (OK - compressed)
+2026-02-11T08:33:46.2054020Z 15575619 res/color/m3_slider_inactive_track_color.xml (OK - compressed)
+2026-02-11T08:33:46.2054701Z 15575926 res/color/m3_slider_thumb_color.xml (OK - compressed)
+2026-02-11T08:33:46.2055457Z 15576260 res/color/m3_standard_toolbar_button_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2056458Z 15576774 res/color/m3_standard_toolbar_icon_button_container_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2057375Z 15577140 res/color/m3_standard_toolbar_icon_button_icon_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2058365Z 15577651 res/color/m3_standard_toolbar_icon_button_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2059199Z 15578100 res/color/m3_switch_thumb_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2059827Z 15578419 res/color/m3_switch_track_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2060664Z 15578753 res/color/m3_tabs_icon_color.xml (OK - compressed)
+2026-02-11T08:33:46.2061499Z 15579100 res/color/m3_tabs_icon_color_secondary.xml (OK - compressed)
+2026-02-11T08:33:46.2062180Z 15579436 res/color/m3_tabs_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2062914Z 15579894 res/color/m3_tabs_ripple_color_secondary.xml (OK - compressed)
+2026-02-11T08:33:46.2063583Z 15580330 res/color/m3_tabs_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2064398Z 15580677 res/color/m3_tabs_text_color_secondary.xml (OK - compressed)
+2026-02-11T08:33:46.2065197Z 15581033 res/color/m3_text_button_background_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2066045Z 15581357 res/color/m3_text_button_foreground_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2066874Z 15581741 res/color/m3_text_button_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2067695Z 15582266 res/color/m3_textfield_filled_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2068561Z 15582585 res/color/m3_textfield_indicator_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2069350Z 15582999 res/color/m3_textfield_input_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2070063Z 15583371 res/color/m3_textfield_label_color.xml (OK - compressed)
+2026-02-11T08:33:46.2070751Z 15583718 res/color/m3_textfield_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2071678Z 15584105 res/color/m3_timepicker_button_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2072511Z 15584430 res/color/m3_timepicker_button_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2073274Z 15584901 res/color/m3_timepicker_button_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2074044Z 15585277 res/color/m3_timepicker_clock_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2074844Z 15585585 res/color/m3_timepicker_display_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2075681Z 15585891 res/color/m3_timepicker_display_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2076461Z 15586340 res/color/m3_timepicker_display_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2077334Z 15586706 res/color/m3_timepicker_secondary_text_button_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2078275Z 15587098 res/color/m3_timepicker_secondary_text_button_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2079151Z 15587427 res/color/m3_timepicker_time_input_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2079956Z 15587739 res/color/m3_tonal_button_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2080814Z 15588130 res/color/m3_vibrant_toolbar_button_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2081918Z 15588641 res/color/m3_vibrant_toolbar_icon_button_container_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2082904Z 15589007 res/color/m3_vibrant_toolbar_icon_button_icon_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2083865Z 15589516 res/color/m3_vibrant_toolbar_icon_button_ripple_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2084692Z 15589967 res/color/material_divider_color.xml (OK - compressed)
+2026-02-11T08:33:46.2085369Z 15590244 res/color/material_on_surface_disabled.xml (OK - compressed)
+2026-02-11T08:33:46.2086151Z 15590527 res/color/material_on_surface_emphasis_high_type.xml (OK - compressed)
+2026-02-11T08:33:46.2086943Z 15590807 res/color/material_on_surface_emphasis_medium.xml (OK - compressed)
+2026-02-11T08:33:46.2087751Z 15591090 res/color/material_slider_active_tick_marks_color.xml (OK - compressed)
+2026-02-11T08:33:46.2088553Z 15591421 res/color/material_slider_active_track_color.xml (OK - compressed)
+2026-02-11T08:33:46.2089277Z 15591737 res/color/material_slider_halo_color.xml (OK - compressed)
+2026-02-11T08:33:46.2090026Z 15592074 res/color/material_slider_inactive_tick_marks_color.xml (OK - compressed)
+2026-02-11T08:33:46.2090850Z 15592411 res/color/material_slider_inactive_track_color.xml (OK - compressed)
+2026-02-11T08:33:46.2091738Z 15592736 res/color/material_slider_thumb_color.xml (OK - compressed)
+2026-02-11T08:33:46.2092694Z 15593065 res/color/material_timepicker_button_background.xml (OK - compressed)
+2026-02-11T08:33:46.2093484Z 15593392 res/color/material_timepicker_button_stroke.xml (OK - compressed)
+2026-02-11T08:33:46.2094285Z 15593678 res/color/material_timepicker_clock_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2095073Z 15593978 res/color/material_timepicker_clockface.xml (OK - compressed)
+2026-02-11T08:33:46.2095821Z 15594261 res/color/material_timepicker_modebutton_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2096749Z 15594534 res/color/mtrl_btn_bg_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2097427Z 15594846 res/color/mtrl_btn_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2098111Z 15595241 res/color/mtrl_btn_stroke_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2098862Z 15595572 res/color/mtrl_btn_text_btn_bg_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2099682Z 15595896 res/color/mtrl_btn_text_btn_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2100397Z 15596289 res/color/mtrl_btn_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2101123Z 15596611 res/color/mtrl_calendar_item_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2101984Z 15596999 res/color/mtrl_calendar_selected_range.xml (OK - compressed)
+2026-02-11T08:33:46.2102660Z 15597274 res/color/mtrl_card_view_foreground.xml (OK - compressed)
+2026-02-11T08:33:46.2103305Z 15597648 res/color/mtrl_card_view_ripple.xml (OK - compressed)
+2026-02-11T08:33:46.2103970Z 15598032 res/color/mtrl_chip_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2104633Z 15598416 res/color/mtrl_chip_close_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2105271Z 15598832 res/color/mtrl_chip_surface_color.xml (OK - compressed)
+2026-02-11T08:33:46.2106667Z 15599076 res/color/mtrl_chip_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2107353Z 15599409 res/color/mtrl_choice_chip_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2108082Z 15599799 res/color/mtrl_choice_chip_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2108802Z 15600194 res/color/mtrl_choice_chip_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2113602Z 15600558 res/color/mtrl_error.xml (OK - compressed)
+2026-02-11T08:33:46.2114241Z 15600855 res/color/mtrl_fab_bg_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2114976Z 15601179 res/color/mtrl_fab_icon_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2115671Z 15601491 res/color/mtrl_fab_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2116348Z 15601884 res/color/mtrl_filled_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2117033Z 15602259 res/color/mtrl_filled_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2117677Z 15602614 res/color/mtrl_filled_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2118337Z 15603004 res/color/mtrl_indicator_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2119025Z 15603329 res/color/mtrl_navigation_bar_item_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2119773Z 15603655 res/color/mtrl_navigation_bar_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2120574Z 15604155 res/color/mtrl_navigation_item_background_color.xml (OK - compressed)
+2026-02-11T08:33:46.2121535Z 15604508 res/color/mtrl_navigation_item_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2122303Z 15604863 res/color/mtrl_navigation_item_text_color.xml (OK - compressed)
+2026-02-11T08:33:46.2123128Z 15605231 res/color/mtrl_on_primary_text_btn_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2123969Z 15605546 res/color/mtrl_on_surface_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2124645Z 15605914 res/color/mtrl_outlined_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2125316Z 15606271 res/color/mtrl_outlined_stroke_color.xml (OK - compressed)
+2026-02-11T08:33:46.2126027Z 15606664 res/color/mtrl_popupmenu_overlay_color.xml (OK - compressed)
+2026-02-11T08:33:46.2126737Z 15606942 res/color/mtrl_switch_thumb_icon_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2127398Z 15607383 res/color/mtrl_switch_thumb_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2128385Z 15607797 res/color/mtrl_switch_track_decoration_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2129072Z 15608140 res/color/mtrl_switch_track_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2129738Z 15608584 res/color/mtrl_tabs_icon_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2130433Z 15608908 res/color/mtrl_tabs_legacy_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2131495Z 15609202 res/color/mtrl_tabs_ripple_color.xml (OK - compressed)
+2026-02-11T08:33:46.2132225Z 15609698 res/color/mtrl_text_btn_text_color_selector.xml (OK - compressed)
+2026-02-11T08:33:46.2132971Z 15610092 res/color/switch_thumb_material_dark.xml (OK - compressed)
+2026-02-11T08:33:46.2133684Z 15610393 res/color/switch_thumb_material_light.xml (OK - compressed)
+2026-02-11T08:33:46.2134346Z 15610684 res/color/tv_list_item_tint.xml (OK - compressed)
+2026-02-11T08:33:46.2134860Z 15611029 res/cs.xml (OK - compressed)
+2026-02-11T08:33:46.2135283Z 15611368 res/cy.xml (OK - compressed)
+2026-02-11T08:33:46.2135686Z 15611726 res/d2.xml (OK - compressed)
+2026-02-11T08:33:46.2136078Z 15611976 res/d3.png (OK)
+2026-02-11T08:33:46.2136412Z 15612452 res/d5.9.png (OK)
+2026-02-11T08:33:46.2136834Z 15613343 res/dC.xml (OK - compressed)
+2026-02-11T08:33:46.2137240Z 15613698 res/dO.xml (OK - compressed)
+2026-02-11T08:33:46.2137624Z 15614842 res/dS.xml (OK - compressed)
+2026-02-11T08:33:46.2137994Z 15615500 res/dW.png (OK)
+2026-02-11T08:33:46.2138312Z 15615808 res/dY.png (OK)
+2026-02-11T08:33:46.2138658Z 15616252 res/df.xml (OK - compressed)
+2026-02-11T08:33:46.2139051Z 15616546 res/dj.xml (OK - compressed)
+2026-02-11T08:33:46.2139450Z 15616906 res/dw.xml (OK - compressed)
+2026-02-11T08:33:46.2139844Z 15617570 res/e-.xml (OK - compressed)
+2026-02-11T08:33:46.2140232Z 15617870 res/e0.xml (OK - compressed)
+2026-02-11T08:33:46.2140617Z 15618231 res/eA.xml (OK - compressed)
+2026-02-11T08:33:46.2141002Z 15618979 res/eH.xml (OK - compressed)
+2026-02-11T08:33:46.2141554Z 15619405 res/eH1.xml (OK - compressed)
+2026-02-11T08:33:46.2141966Z 15619808 res/eK.xml (OK - compressed)
+2026-02-11T08:33:46.2142374Z 15620160 res/eR.png (OK)
+2026-02-11T08:33:46.2142757Z 15620560 res/eT.9.png (OK)
+2026-02-11T08:33:46.2143146Z 15620918 res/eW.xml (OK - compressed)
+2026-02-11T08:33:46.2143553Z 15621343 res/eZ.xml (OK - compressed)
+2026-02-11T08:33:46.2143933Z 15621680 res/ej.9.png (OK)
+2026-02-11T08:33:46.2144271Z 15621887 res/ej.xml (OK - compressed)
+2026-02-11T08:33:46.2144658Z 15622184 res/ev.9.png (OK)
+2026-02-11T08:33:46.2145012Z 15622452 res/f0.xml (OK - compressed)
+2026-02-11T08:33:46.2145412Z 15622848 res/f6.xml (OK - compressed)
+2026-02-11T08:33:46.2145794Z 15623188 res/fM.9.png (OK)
+2026-02-11T08:33:46.2146123Z 15624056 res/fO.png (OK)
+2026-02-11T08:33:46.2146462Z 15639545 res/fS.xml (OK - compressed)
+2026-02-11T08:33:46.2146856Z 15639885 res/fW.xml (OK - compressed)
+2026-02-11T08:33:46.2147242Z 15640292 res/f_.xml (OK - compressed)
+2026-02-11T08:33:46.2147638Z 15640656 res/fd.xml (OK - compressed)
+2026-02-11T08:33:46.2148040Z 15641049 res/fg.xml (OK - compressed)
+2026-02-11T08:33:46.2148438Z 15641433 res/fp.xml (OK - compressed)
+2026-02-11T08:33:46.2148805Z 15641688 res/g-.png (OK)
+2026-02-11T08:33:46.2149144Z 15642313 res/g3.xml (OK - compressed)
+2026-02-11T08:33:46.2149536Z 15642530 res/gC.xml (OK - compressed)
+2026-02-11T08:33:46.2149928Z 15642928 res/gD.xml (OK - compressed)
+2026-02-11T08:33:46.2150303Z 15643212 res/gE.png (OK)
+2026-02-11T08:33:46.2150640Z 15644736 res/gG.xml (OK - compressed)
+2026-02-11T08:33:46.2151034Z 15645300 res/gK.9.png (OK)
+2026-02-11T08:33:46.2151701Z 15645555 res/gR.xml (OK - compressed)
+2026-02-11T08:33:46.2152086Z 15645813 res/gV.xml (OK - compressed)
+2026-02-11T08:33:46.2152459Z 15646452 res/gZ.9.png (OK)
+2026-02-11T08:33:46.2152800Z 15647016 res/gc.xml (OK - compressed)
+2026-02-11T08:33:46.2153202Z 15647461 res/gi.xml (OK - compressed)
+2026-02-11T08:33:46.2153571Z 15647800 res/gj.9.png (OK)
+2026-02-11T08:33:46.2153911Z 15648080 res/gt.9.png (OK)
+2026-02-11T08:33:46.2154450Z 15648325 res/h4.xml (OK - compressed)
+2026-02-11T08:33:46.2154823Z 15649008 res/h7.9.png (OK)
+2026-02-11T08:33:46.2155161Z 15650144 res/hP.xml (OK - compressed)
+2026-02-11T08:33:46.2155550Z 15650632 res/hP1.xml (OK - compressed)
+2026-02-11T08:33:46.2155922Z 15651288 res/hZ.9.png (OK)
+2026-02-11T08:33:46.2156252Z 15651495 res/hb.xml (OK - compressed)
+2026-02-11T08:33:46.2156620Z 15651954 res/hc.xml (OK - compressed)
+2026-02-11T08:33:46.2156988Z 15652316 res/hh.9.png (OK)
+2026-02-11T08:33:46.2157508Z 15652568 res/hm.xml (OK - compressed)
+2026-02-11T08:33:46.2157883Z 15653361 res/hq.xml (OK - compressed)
+2026-02-11T08:33:46.2158255Z 15653734 res/hu.xml (OK - compressed)
+2026-02-11T08:33:46.2158628Z 15654140 res/hv.xml (OK - compressed)
+2026-02-11T08:33:46.2159006Z 15654590 res/hz.xml (OK - compressed)
+2026-02-11T08:33:46.2159365Z 15656056 res/i6.9.png (OK)
+2026-02-11T08:33:46.2159687Z 15656282 res/iI.xml (OK - compressed)
+2026-02-11T08:33:46.2160047Z 15656508 res/iO.png (OK)
+2026-02-11T08:33:46.2160380Z 15656776 res/iQ.xml (OK - compressed)
+2026-02-11T08:33:46.2160748Z 15657240 res/iR.9.png (OK)
+2026-02-11T08:33:46.2161081Z 15657764 res/iZ.xml (OK - compressed)
+2026-02-11T08:33:46.2161613Z 15658718 res/iZ1.xml (OK - compressed)
+2026-02-11T08:33:46.2161981Z 15659168 res/io.9.png (OK)
+2026-02-11T08:33:46.2162342Z 15660734 res/iu.xml (OK - compressed)
+2026-02-11T08:33:46.2162722Z 15661318 res/j3.xml (OK - compressed)
+2026-02-11T08:33:46.2163077Z 15661712 res/j4.png (OK)
+2026-02-11T08:33:46.2163394Z 15662540 res/jS.9.png (OK)
+2026-02-11T08:33:46.2163706Z 15662820 res/jS1.9.png (OK)
+2026-02-11T08:33:46.2164034Z 15663028 res/jW.png (OK)
+2026-02-11T08:33:46.2164341Z 15663824 res/je.9.png (OK)
+2026-02-11T08:33:46.2164665Z 15664076 res/k8.xml (OK - compressed)
+2026-02-11T08:33:46.2165036Z 15664769 res/k9.xml (OK - compressed)
+2026-02-11T08:33:46.2165408Z 15665096 res/kJ.9.png (OK)
+2026-02-11T08:33:46.2165726Z 15665344 res/kN.xml (OK - compressed)
+2026-02-11T08:33:46.2166144Z 15665609 res/k_.xml (OK - compressed)
+2026-02-11T08:33:46.2166526Z 15665907 res/kg.xml (OK - compressed)
+2026-02-11T08:33:46.2166905Z 15666384 res/kh.xml (OK - compressed)
+2026-02-11T08:33:46.2167276Z 15666653 res/kj.xml (OK - compressed)
+2026-02-11T08:33:46.2167663Z 15666940 res/kj1.xml (OK - compressed)
+2026-02-11T08:33:46.2168048Z 15667711 res/kn.xml (OK - compressed)
+2026-02-11T08:33:46.2168415Z 15668092 res/kp.png (OK)
+2026-02-11T08:33:46.2168737Z 15668356 res/lN.xml (OK - compressed)
+2026-02-11T08:33:46.2169104Z 15668588 res/lP.9.png (OK)
+2026-02-11T08:33:46.2169816Z 15668822 res/lR.xml (OK - compressed)
+2026-02-11T08:33:46.2170201Z 15669122 res/lv.xml (OK - compressed)
+2026-02-11T08:33:46.2170572Z 15669460 res/ly.png (OK)
+2026-02-11T08:33:46.2170892Z 15669772 res/m0.png (OK)
+2026-02-11T08:33:46.2171223Z 15670079 res/m8.xml (OK - compressed)
+2026-02-11T08:33:46.2171767Z 15676331 res/mA.xml (OK - compressed)
+2026-02-11T08:33:46.2172142Z 15676860 res/mm.9.png (OK)
+2026-02-11T08:33:46.2172471Z 15677245 res/mx.xml (OK - compressed)
+2026-02-11T08:33:46.2172865Z 15677592 res/n0.xml (OK - compressed)
+2026-02-11T08:33:46.2173231Z 15677916 res/nI.9.png (OK)
+2026-02-11T08:33:46.2173567Z 15678163 res/nL.xml (OK - compressed)
+2026-02-11T08:33:46.2173956Z 15678450 res/nP.xml (OK - compressed)
+2026-02-11T08:33:46.2174338Z 15679115 res/nT.xml (OK - compressed)
+2026-02-11T08:33:46.2174719Z 15679564 res/nf.png (OK)
+2026-02-11T08:33:46.2175045Z 15680812 res/nl.xml (OK - compressed)
+2026-02-11T08:33:46.2175423Z 15681392 res/nm.xml (OK - compressed)
+2026-02-11T08:33:46.2175817Z 15681744 res/nu.xml (OK - compressed)
+2026-02-11T08:33:46.2176211Z 15682086 res/nu1.xml (OK - compressed)
+2026-02-11T08:33:46.2176591Z 15682627 res/nz.xml (OK - compressed)
+2026-02-11T08:33:46.2176959Z 15682924 res/o-.png (OK)
+2026-02-11T08:33:46.2177274Z 15698996 res/o9.9.png (OK)
+2026-02-11T08:33:46.2177606Z 15699296 res/oP.xml (OK - compressed)
+2026-02-11T08:33:46.2177980Z 15699678 res/oY.xml (OK - compressed)
+2026-02-11T08:33:46.2178346Z 15700348 res/o_.9.png (OK)
+2026-02-11T08:33:46.2178877Z 15700640 res/o_.png (OK)
+2026-02-11T08:33:46.2179207Z 15701331 res/oa.xml (OK - compressed)
+2026-02-11T08:33:46.2179580Z 15701720 res/op.9.png (OK)
+2026-02-11T08:33:46.2179914Z 15702046 res/p0.xml (OK - compressed)
+2026-02-11T08:33:46.2180299Z 15702770 res/pF.xml (OK - compressed)
+2026-02-11T08:33:46.2180681Z 15703186 res/pM.xml (OK - compressed)
+2026-02-11T08:33:46.2181054Z 15703874 res/pU.xml (OK - compressed)
+2026-02-11T08:33:46.2181719Z 15704132 res/pV.xml (OK - compressed)
+2026-02-11T08:33:46.2182275Z 15704456 res/pY.png (OK)
+2026-02-11T08:33:46.2182596Z 15704604 res/pk.png (OK)
+2026-02-11T08:33:46.2182908Z 15704919 res/pn.xml (OK - compressed)
+2026-02-11T08:33:46.2183269Z 15705280 res/ps.9.png (OK)
+2026-02-11T08:33:46.2183587Z 15705500 res/pu.png (OK)
+2026-02-11T08:33:46.2183920Z 15706449 res/pw.xml (OK - compressed)
+2026-02-11T08:33:46.2184339Z 15706996 res/py.9.png (OK)
+2026-02-11T08:33:46.2184773Z 15707253 res/q6.xml (OK - compressed)
+2026-02-11T08:33:46.2185156Z 15707688 res/qA.xml (OK - compressed)
+2026-02-11T08:33:46.2185541Z 15707996 res/qD.9.png (OK)
+2026-02-11T08:33:46.2185852Z 15710872 res/qp.png (OK)
+2026-02-11T08:33:46.2186174Z 15711109 res/qx.xml (OK - compressed)
+2026-02-11T08:33:46.2186550Z 15711891 res/qz.xml (OK - compressed)
+2026-02-11T08:33:46.2186926Z 15712361 res/rI.xml (OK - compressed)
+2026-02-11T08:33:46.2187317Z 15712784 res/rI1.xml (OK - compressed)
+2026-02-11T08:33:46.2187693Z 15713123 res/rR.xml (OK - compressed)
+2026-02-11T08:33:46.2188081Z 15713467 res/rR1.xml (OK - compressed)
+2026-02-11T08:33:46.2188466Z 15714989 res/rW.xml (OK - compressed)
+2026-02-11T08:33:46.2188840Z 15715333 res/rY.xml (OK - compressed)
+2026-02-11T08:33:46.2189210Z 15715670 res/rd.xml (OK - compressed)
+2026-02-11T08:33:46.2189581Z 15716016 res/rj.9.png (OK)
+2026-02-11T08:33:46.2189919Z 15717154 res/rx.xml (OK - compressed)
+2026-02-11T08:33:46.2190280Z 15717496 res/s0.png (OK)
+2026-02-11T08:33:46.2190583Z 15717944 res/s3.9.png (OK)
+2026-02-11T08:33:46.2190900Z 15718232 res/s4.png (OK)
+2026-02-11T08:33:46.2191554Z 15718372 res/sA.9.png (OK)
+2026-02-11T08:33:46.2191879Z 15718624 res/sA.xml (OK - compressed)
+2026-02-11T08:33:46.2192248Z 15718894 res/sO.xml (OK - compressed)
+2026-02-11T08:33:46.2192627Z 15719298 res/sX.xml (OK - compressed)
+2026-02-11T08:33:46.2192996Z 15719624 res/sg.9.png (OK)
+2026-02-11T08:33:46.2193322Z 15719890 res/sl.xml (OK - compressed)
+2026-02-11T08:33:46.2193697Z 15720365 res/sn.xml (OK - compressed)
+2026-02-11T08:33:46.2194080Z 15720619 res/t1.xml (OK - compressed)
+2026-02-11T08:33:46.2194465Z 15721754 res/t8.xml (OK - compressed)
+2026-02-11T08:33:46.2194821Z 15722116 res/tG.png (OK)
+2026-02-11T08:33:46.2195134Z 15722632 res/tI.xml (OK - compressed)
+2026-02-11T08:33:46.2195519Z 15722927 res/tL.xml (OK - compressed)
+2026-02-11T08:33:46.2195892Z 15723292 res/tS.png (OK)
+2026-02-11T08:33:46.2196214Z 15723653 res/tS.xml (OK - compressed)
+2026-02-11T08:33:46.2196581Z 15723996 res/tU.9.png (OK)
+2026-02-11T08:33:46.2196904Z 15724248 res/tZ.9.png (OK)
+2026-02-11T08:33:46.2197235Z 15724488 res/te.png (OK)
+2026-02-11T08:33:46.2197562Z 15724806 res/tk.xml (OK - compressed)
+2026-02-11T08:33:46.2197943Z 15725065 res/tp.xml (OK - compressed)
+2026-02-11T08:33:46.2198341Z 15725359 res/u0.xml (OK - compressed)
+2026-02-11T08:33:46.2198709Z 15725796 res/u3.png (OK)
+2026-02-11T08:33:46.2199048Z 15726349 res/uJ.xml (OK - compressed)
+2026-02-11T08:33:46.2199500Z 15726824 res/uL.9.png (OK)
+2026-02-11T08:33:46.2199837Z 15727830 res/uR.xml (OK - compressed)
+2026-02-11T08:33:46.2200207Z 15728396 res/uj.9.png (OK)
+2026-02-11T08:33:46.2200552Z 15728632 res/up.xml (OK - compressed)
+2026-02-11T08:33:46.2200925Z 15728888 res/ut.9.png (OK)
+2026-02-11T08:33:46.2201235Z 15729684 res/uu.9.png (OK)
+2026-02-11T08:33:46.2201772Z 15729928 res/v-.xml (OK - compressed)
+2026-02-11T08:33:46.2202156Z 15730444 res/v4.9.png (OK)
+2026-02-11T08:33:46.2202515Z 15730692 res/vG.xml (OK - compressed)
+2026-02-11T08:33:46.2202923Z 15731329 res/vH.xml (OK - compressed)
+2026-02-11T08:33:46.2203307Z 15731663 res/vJ.xml (OK - compressed)
+2026-02-11T08:33:46.2203894Z 15731992 res/vL.9.png (OK)
+2026-02-11T08:33:46.2204239Z 15732255 res/vT.xml (OK - compressed)
+2026-02-11T08:33:46.2204638Z 15732483 res/vZ.xml (OK - compressed)
+2026-02-11T08:33:46.2204998Z 15732740 res/vd.xml (OK - compressed)
+2026-02-11T08:33:46.2205368Z 15734090 res/vf.xml (OK - compressed)
+2026-02-11T08:33:46.2205750Z 15734417 res/vl.xml (OK - compressed)
+2026-02-11T08:33:46.2206108Z 15734990 res/vn.xml (OK - compressed)
+2026-02-11T08:33:46.2206626Z 15735343 res/vq.xml (OK - compressed)
+2026-02-11T08:33:46.2206987Z 15735924 res/vz.9.png (OK)
+2026-02-11T08:33:46.2207319Z 15736145 res/w9.xml (OK - compressed)
+2026-02-11T08:33:46.2207686Z 15736420 res/wL.9.png (OK)
+2026-02-11T08:33:46.2208010Z 15736900 res/wN.9.png (OK)
+2026-02-11T08:33:46.2208333Z 15737165 res/wP.xml (OK - compressed)
+2026-02-11T08:33:46.2208716Z 15737520 res/w_.png (OK)
+2026-02-11T08:33:46.2209044Z 15737776 res/wb.png (OK)
+2026-02-11T08:33:46.2209369Z 15745764 res/x3.9.png (OK)
+2026-02-11T08:33:46.2209728Z 15746016 res/x6.xml (OK - compressed)
+2026-02-11T08:33:46.2210097Z 15748000 res/x7.png (OK)
+2026-02-11T08:33:46.2210411Z 15749964 res/xH.png (OK)
+2026-02-11T08:33:46.2210745Z 15750190 res/xN.xml (OK - compressed)
+2026-02-11T08:33:46.2211130Z 15751024 res/xR.9.png (OK)
+2026-02-11T08:33:46.2211632Z 15751260 res/xa.9.png (OK)
+2026-02-11T08:33:46.2211972Z 15751521 res/xa.xml (OK - compressed)
+2026-02-11T08:33:46.2212366Z 15752083 res/xd.xml (OK - compressed)
+2026-02-11T08:33:46.2212765Z 15752796 res/xj.xml (OK - compressed)
+2026-02-11T08:33:46.2213176Z 15753088 res/xm.xml (OK - compressed)
+2026-02-11T08:33:46.2213589Z 15753496 res/yH.9.png (OK)
+2026-02-11T08:33:46.2213966Z 15753720 res/yS.xml (OK - compressed)
+2026-02-11T08:33:46.2214358Z 15753971 res/yT.xml (OK - compressed)
+2026-02-11T08:33:46.2214747Z 15754294 res/yV.xml (OK - compressed)
+2026-02-11T08:33:46.2215116Z 15754636 res/yY.9.png (OK)
+2026-02-11T08:33:46.2215463Z 15754862 res/ya.xml (OK - compressed)
+2026-02-11T08:33:46.2215835Z 15755224 res/yg.9.png (OK)
+2026-02-11T08:33:46.2216170Z 15755660 res/yn.png (OK)
+2026-02-11T08:33:46.2216489Z 15760692 res/z-.9.png (OK)
+2026-02-11T08:33:46.2216817Z 15760956 res/z9.9.png (OK)
+2026-02-11T08:33:46.2217138Z 15761416 res/zE.png (OK)
+2026-02-11T08:33:46.2217478Z 15761780 res/zG.xml (OK - compressed)
+2026-02-11T08:33:46.2217848Z 15762100 res/zR.png (OK)
+2026-02-11T08:33:46.2218178Z 15765272 res/zR.xml (OK - compressed)
+2026-02-11T08:33:46.2218554Z 15765760 res/zV.9.png (OK)
+2026-02-11T08:33:46.2218906Z 15768263 res/zc.xml (OK - compressed)
+2026-02-11T08:33:46.2219325Z 15768713 res/zq.xml (OK - compressed)
+2026-02-11T08:33:46.2219769Z 15769028 resources.arsc (OK)
+2026-02-11T08:33:46.2220143Z Verification succesful
+2026-02-11T08:33:46.2221126Z [command]/usr/bin/cp ui/build/outputs/apk/release/ui-release-unsigned.apk ui/build/outputs/apk/release/ui-release-unsigned-aligned.apk
+2026-02-11T08:33:46.2225010Z [command]/usr/local/lib/android/sdk/build-tools/35.0.1/apksigner sign --ks ui/build/outputs/apk/release/signingKey.jks --ks-key-alias *** --ks-pass pass:*** --out ui/build/outputs/apk/release/ui-release-unsigned-signed.apk --key-pass pass:*** ui/build/outputs/apk/release/ui-release-unsigned-aligned.apk
+2026-02-11T08:33:47.6465730Z [command]/usr/local/lib/android/sdk/build-tools/35.0.1/apksigner verify ui/build/outputs/apk/release/ui-release-unsigned-signed.apk
+2026-02-11T08:33:48.0293793Z ##[warning]The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+2026-02-11T08:33:48.0321272Z Releases signed!
+2026-02-11T08:33:48.0448731Z ##[group]Run actions/upload-artifact@v4
+2026-02-11T08:33:48.0449197Z with:
+2026-02-11T08:33:48.0449491Z   name: reports-arm64-v8a-api31
+2026-02-11T08:33:48.0449887Z   path: ui/build/reports/*
+2026-02-11T08:33:48.0450246Z   if-no-files-found: warn
+2026-02-11T08:33:48.0450597Z   compression-level: 6
+2026-02-11T08:33:48.0451511Z   overwrite: false
+2026-02-11T08:33:48.0451827Z   include-hidden-files: false
+2026-02-11T08:33:48.0452168Z env:
+2026-02-11T08:33:48.0452617Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:48.0453430Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:48.0454109Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T08:33:48.0454584Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T08:33:48.0455040Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T08:33:48.0455727Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T08:33:48.0456577Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T08:33:48.0457083Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T08:33:48.0457744Z   SIGNED_RELEASE_FILE: ui/build/outputs/apk/release/ui-release-unsigned-signed.apk
+2026-02-11T08:33:48.0458373Z ##[endgroup]
+2026-02-11T08:33:48.3677426Z ##[warning]No files were found with the provided path: ui/build/reports/*. No artifacts will be uploaded.
+2026-02-11T08:33:48.3848290Z ##[group]Run actions/upload-artifact@v4
+2026-02-11T08:33:48.3848699Z with:
+2026-02-11T08:33:48.3849004Z   name: wireguard-android-arm64-v8a-api31
+2026-02-11T08:33:48.3849559Z   path: ui/build/outputs/apk/release/ui-release-unsigned-signed.apk
+2026-02-11T08:33:48.3850111Z   if-no-files-found: warn
+2026-02-11T08:33:48.3850452Z   compression-level: 6
+2026-02-11T08:33:48.3850765Z   overwrite: false
+2026-02-11T08:33:48.3851060Z   include-hidden-files: false
+2026-02-11T08:33:48.3851554Z env:
+2026-02-11T08:33:48.3851977Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:48.3852691Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T08:33:48.3853304Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T08:33:48.3853754Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T08:33:48.3854169Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T08:33:48.3854919Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T08:33:48.3855691Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T08:33:48.3856203Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T08:33:48.3856844Z   SIGNED_RELEASE_FILE: ui/build/outputs/apk/release/ui-release-unsigned-signed.apk
+2026-02-11T08:33:48.3857467Z ##[endgroup]
+2026-02-11T08:33:48.7142420Z With the provided path, there will be 1 file uploaded
+2026-02-11T08:33:48.7144165Z Artifact name is valid!
+2026-02-11T08:33:48.7144567Z Root directory input is valid!
+2026-02-11T08:33:48.8664201Z Beginning upload of artifact content to blob storage
+2026-02-11T08:33:50.0811639Z Uploaded bytes 7944883
+2026-02-11T08:33:50.1190644Z Finished uploading artifact content to blob storage!
+2026-02-11T08:33:50.1195200Z SHA256 digest of uploaded artifact zip is bd33d5191d05393a86c691de8bac45ce4cd957f93304d30d48b0a98df1ab8862
+2026-02-11T08:33:50.1198782Z Finalizing artifact upload
+2026-02-11T08:33:50.2254697Z Artifact wireguard-android-arm64-v8a-api31.zip successfully finalized. Artifact ID 5462063582
+2026-02-11T08:33:50.2256614Z Artifact wireguard-android-arm64-v8a-api31 has been successfully uploaded! Final size is 7944883 bytes. Artifact ID is 5462063582
+2026-02-11T08:33:50.2264314Z Artifact download URL: https://github.com/vomw/com.wireguard.android/actions/runs/21897844659/artifacts/5462063582
+2026-02-11T08:33:50.2538421Z Post job cleanup.
+2026-02-11T08:33:50.6082941Z In post-action step
+2026-02-11T08:33:50.6083553Z Stopping all Gradle daemons before saving Gradle User Home state
+2026-02-11T08:33:50.6084777Z Stopping Gradle daemons for /home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0
+2026-02-11T08:33:50.6104834Z [command]/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0/bin/gradle --stop
+2026-02-11T08:33:51.3818432Z Stopping Daemon(s)
+2026-02-11T08:33:51.3820223Z 1 Daemon stopped
+2026-02-11T08:33:51.3943321Z ##[group]Caching Gradle state
+2026-02-11T08:33:51.4251080Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and cache key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3
+2026-02-11T08:33:51.4275499Z Caching wrapper-zips with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and cache key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87
+2026-02-11T08:33:51.4442091Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:51.4480635Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:52.0705764Z Caching dependencies with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f
+2026-02-11T08:33:52.0948930Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*/' and cache key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7
+2026-02-11T08:33:52.1426256Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:52.1583715Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+2026-02-11T08:33:52.1585144Z /home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and cache key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d
+2026-02-11T08:33:52.2926763Z Caching groovy-dsl with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and cache key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0
+2026-02-11T08:33:52.3435716Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*/' and key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08D6MaQAAAAASvOACQK++QK8odc86Y9DeQ0hJMzBFREdFMDMxMABFZGdl
+2026-02-11T08:33:52.3676363Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:52.3874064Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:52.3968464Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08D6MaQAAAAClHU5BXWBdSLQZD5p9VbjbQ0hJMzBFREdFMDExMABFZGdl
+2026-02-11T08:33:52.4340273Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08D6MaQAAAACozKiJFY0oQLw3Q3Q6BDviQ0hHRURHRTE3MTcARWRnZQ==
+2026-02-11T08:33:52.5072950Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08D6MaQAAAABr0o6+yKf4R5YSwHiWVbHiQ0hJMzBFREdFMDQxMgBFZGdl
+2026-02-11T08:33:52.5174116Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+/home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08D6MaQAAAABIA/6P8dsRRYxEgjL0dhDNQ0hJMzBFREdFMDIxMABFZGdl
+2026-02-11T08:33:52.9085991Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:53.1136977Z Caching transforms with path '/home/runner/.gradle/caches/transforms-4/*/
+2026-02-11T08:33:53.1138222Z /home/runner/.gradle/caches/*/transforms/*/' and cache key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58
+2026-02-11T08:33:53.9256500Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:54.0138069Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08T6MaQAAAABikFuqQDURS7U8tW6+g/nEQ0hHRURHRTE3MTAARWRnZQ==
+2026-02-11T08:33:55.2137045Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/transforms-4/*/
+/home/runner/.gradle/caches/*/transforms/*/' and key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>08z6MaQAAAACNha4dyX9ASLO5b10LLcWoQ0hHRURHRTE3MTgARWRnZQ==
+2026-02-11T08:33:55.9177016Z Caching Gradle User Home with cache key: gradle-home-v1|Linux|build[b21053e1a6834cafdcbe1d34ef8105aa]-21785234286bce7b5792edd05970be2489f8a2e7
+2026-02-11T08:33:55.9280313Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T08:33:56.2452704Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.setup-gradle' and key: gradle-home-v1|Linux|build[b21053e1a6834cafdcbe1d34ef8105aa]-21785234286bce7b5792edd05970be2489f8a2e7: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>09D6MaQAAAACT7HByWRkERKG3VJmVddKrQ0hHRURHRTE4MDUARWRnZQ==
+2026-02-11T08:33:56.2455529Z ##[endgroup]
+2026-02-11T08:33:56.2457525Z Generating Job Summary
+2026-02-11T08:33:56.2473758Z Completed post-action step
+2026-02-11T08:33:56.2722412Z Post job cleanup.
+2026-02-11T08:33:56.4557183Z Post job cleanup.
+2026-02-11T08:33:56.5555070Z [command]/usr/bin/git version
+2026-02-11T08:33:56.5597470Z git version 2.52.0
+2026-02-11T08:33:56.5640903Z Temporarily overriding HOME='/home/runner/work/_temp/b978bcf9-5dc9-4928-b970-753df6cc0cb7' before making global git config changes
+2026-02-11T08:33:56.5642394Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T08:33:56.5648054Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T08:33:56.5697517Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T08:33:56.5737708Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T08:33:56.5981978Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:33:56.6027746Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:33:56.6098057Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T08:33:56.6127067Z http.https://github.com/.extraheader
+2026-02-11T08:33:56.6139747Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-11T08:33:56.6175104Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T08:33:56.6416804Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:33:56.6442403Z http.https://github.com/.extraheader
+2026-02-11T08:33:56.6481632Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:33:56.6509146Z http.https://github.com/.extraheader
+2026-02-11T08:33:56.6567131Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T08:33:56.6607479Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T08:33:56.6854495Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T08:33:56.6873899Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
+2026-02-11T08:33:56.6895035Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T08:33:56.6922678Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
+2026-02-11T08:33:56.6966473Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T08:33:56.7007064Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T08:33:56.7173831Z Cleaning up orphan processes
