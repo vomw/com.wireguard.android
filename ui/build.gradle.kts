@@ -13,35 +13,34 @@ plugins {
 
 android {
     compileSdk = 36
-    buildFeatures {
-        buildConfig = true
-        dataBinding = true
-        viewBinding = true
-    }
-    namespace = pkg
+    val targetAbi: String? = project.findProperty("targetAbi")?.toString()
+    val targetMinSdk: String? = project.findProperty("targetMinSdk")?.toString()
+
     defaultConfig {
         applicationId = pkg
         val baseMinSdk = 24
-        minSdk = (project.findProperty("targetMinSdk") as String?)?.toInt() ?: baseMinSdk
+        minSdk = targetMinSdk?.toInt() ?: baseMinSdk
         targetSdk = 36
         val baseVersionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
         versionName = providers.gradleProperty("wireguardVersionName").get()
         buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
 
-        project.findProperty("targetAbi")?.toString()?.let { abi ->
-            versionCode = baseVersionCode * 10 + when (abi) {
-                "x86" -> 1
-                "x86_64" -> 2
-                "armeabi-v7a" -> 3
-                "arm64-v8a" -> 4
-                else -> 0
-            }
+        versionCode = baseVersionCode * 10 + when (targetAbi) {
+            "x86" -> 1
+            "x86_64" -> 2
+            "armeabi-v7a" -> 3
+            "arm64-v8a" -> 4
+            else -> 0
+        }
+
+        if (targetAbi != null) {
             ndk {
-                abiFilters.clear()
-                abiFilters.add(abi)
+                abiFilters.set(listOf(targetAbi))
             }
         }
     }
+
+    buildFeatures {
 
     packaging {
         resources {
@@ -52,7 +51,11 @@ android {
         jniLibs {
             project.findProperty("targetAbi")?.toString()?.let { abi ->
                 val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                excludes.addAll(allAbis.filter { it != abi }.map { "lib/$it/*" })
+                allAbis.forEach { 
+                    if (it != abi) {
+                        excludes += "**/lib/$it/**"
+                    }
+                }
             }
         }
     }

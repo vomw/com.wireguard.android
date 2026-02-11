@@ -13,6 +13,16 @@ plugins {
 
 android {
     compileSdk = 36
+    val targetAbi: String? = project.findProperty("targetAbi")?.toString()
+
+    if (targetAbi != null) {
+        defaultConfig {
+            ndk {
+                abiFilters.set(listOf(targetAbi))
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -46,11 +56,6 @@ android {
                     targets("libwg-go.so", "libwg.so", "libwg-quick.so")
                     arguments("-DGRADLE_USER_HOME=${project.gradle.gradleUserHomeDir}")
                     arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
-
-                    project.findProperty("targetAbi")?.toString()?.let { abi ->
-                        abiFilters.clear()
-                        abiFilters.add(abi)
-                    }
                 }
             }
         }
