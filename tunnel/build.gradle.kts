@@ -19,18 +19,15 @@ android {
     defaultConfig {
         minSdk = 24
 
-        if (targetAbi != null) {
+        project.findProperty("targetAbi")?.toString()?.let { abi ->
             ndk {
-                abiFilters.clear()
-                abiFilters.add(targetAbi)
+                abiFilters.add(abi)
             }
-        }
-    }
-
-    if (targetAbi != null) {
-        ndk {
-            abiFilters.clear()
-            abiFilters.add(targetAbi)
+            externalNativeBuild {
+                cmake {
+                    abiFilters.add(abi)
+                }
+            }
         }
     }
 
