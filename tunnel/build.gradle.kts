@@ -20,6 +20,13 @@ android {
     namespace = "${pkg}.tunnel"
     defaultConfig {
         minSdk = 24
+
+        val targetAbi: String? by project
+        if (targetAbi != null) {
+            ndk {
+                abiFilters.add(targetAbi)
+            }
+        }
     }
     externalNativeBuild {
         cmake {

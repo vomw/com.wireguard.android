@@ -1,0 +1,482 @@
+﻿2026-02-11T02:58:06.5390666Z Current runner version: '2.331.0'
+2026-02-11T02:58:06.5414169Z ##[group]Runner Image Provisioner
+2026-02-11T02:58:06.5415065Z Hosted Compute Agent
+2026-02-11T02:58:06.5415880Z Version: 20260123.484
+2026-02-11T02:58:06.5416531Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+2026-02-11T02:58:06.5417196Z Build Date: 2026-01-23T19:41:17Z
+2026-02-11T02:58:06.5417889Z Worker ID: {c74874e0-3073-4070-8a52-5565b59f01a6}
+2026-02-11T02:58:06.5418623Z Azure Region: westus
+2026-02-11T02:58:06.5419201Z ##[endgroup]
+2026-02-11T02:58:06.5420590Z ##[group]Operating System
+2026-02-11T02:58:06.5421214Z Ubuntu
+2026-02-11T02:58:06.5421693Z 24.04.3
+2026-02-11T02:58:06.5422274Z LTS
+2026-02-11T02:58:06.5422776Z ##[endgroup]
+2026-02-11T02:58:06.5423281Z ##[group]Runner Image
+2026-02-11T02:58:06.5423906Z Image: ubuntu-24.04
+2026-02-11T02:58:06.5424444Z Version: 20260201.15.1
+2026-02-11T02:58:06.5426022Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+2026-02-11T02:58:06.5427559Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+2026-02-11T02:58:06.5428562Z ##[endgroup]
+2026-02-11T02:58:06.5431308Z ##[group]GITHUB_TOKEN Permissions
+2026-02-11T02:58:06.5433706Z Actions: write
+2026-02-11T02:58:06.5434390Z ArtifactMetadata: write
+2026-02-11T02:58:06.5434971Z Attestations: write
+2026-02-11T02:58:06.5435618Z Checks: write
+2026-02-11T02:58:06.5436232Z Contents: write
+2026-02-11T02:58:06.5436796Z Deployments: write
+2026-02-11T02:58:06.5437369Z Discussions: write
+2026-02-11T02:58:06.5437883Z Issues: write
+2026-02-11T02:58:06.5438402Z Metadata: read
+2026-02-11T02:58:06.5438944Z Models: read
+2026-02-11T02:58:06.5439481Z Packages: write
+2026-02-11T02:58:06.5440003Z Pages: write
+2026-02-11T02:58:06.5440656Z PullRequests: write
+2026-02-11T02:58:06.5441249Z RepositoryProjects: write
+2026-02-11T02:58:06.5441849Z SecurityEvents: write
+2026-02-11T02:58:06.5442445Z Statuses: write
+2026-02-11T02:58:06.5442940Z ##[endgroup]
+2026-02-11T02:58:06.5444972Z Secret source: Actions
+2026-02-11T02:58:06.5446103Z Prepare workflow directory
+2026-02-11T02:58:06.5759419Z Prepare all required actions
+2026-02-11T02:58:06.5809883Z Getting action download info
+2026-02-11T02:58:07.0871601Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-02-11T02:58:07.1743067Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+2026-02-11T02:58:08.2934315Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+2026-02-11T02:58:09.7781335Z Download action repository 'r0adkll/sign-android-release@v1' (SHA:349ebdef58775b1e0d8099458af0816dc79b6407)
+2026-02-11T02:58:12.7363066Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-02-11T02:58:12.9715675Z Complete job name: build (x86_64, 31)
+2026-02-11T02:58:13.0371517Z ##[group]Run actions/checkout@v4
+2026-02-11T02:58:13.0372108Z with:
+2026-02-11T02:58:13.0372370Z   repository: WireGuard/wireguard-android
+2026-02-11T02:58:13.0372666Z   submodules: recursive
+2026-02-11T02:58:13.0373062Z   token: ***
+2026-02-11T02:58:13.0373263Z   ssh-strict: true
+2026-02-11T02:58:13.0373467Z   ssh-user: git
+2026-02-11T02:58:13.0373677Z   persist-credentials: true
+2026-02-11T02:58:13.0373908Z   clean: true
+2026-02-11T02:58:13.0374131Z   sparse-checkout-cone-mode: true
+2026-02-11T02:58:13.0374397Z   fetch-depth: 1
+2026-02-11T02:58:13.0374604Z   fetch-tags: false
+2026-02-11T02:58:13.0374822Z   show-progress: true
+2026-02-11T02:58:13.0375044Z   lfs: false
+2026-02-11T02:58:13.0375247Z   set-safe-directory: true
+2026-02-11T02:58:13.0376125Z ##[endgroup]
+2026-02-11T02:58:13.1474346Z Syncing repository: WireGuard/wireguard-android
+2026-02-11T02:58:13.1476150Z ##[group]Getting Git version info
+2026-02-11T02:58:13.1476727Z Working directory is '/home/runner/work/com.wireguard.android/com.wireguard.android'
+2026-02-11T02:58:13.1477389Z [command]/usr/bin/git version
+2026-02-11T02:58:13.1543889Z git version 2.52.0
+2026-02-11T02:58:13.1570431Z ##[endgroup]
+2026-02-11T02:58:13.1585054Z Temporarily overriding HOME='/home/runner/work/_temp/fcf5be76-1de5-4f62-95d1-b140a536733d' before making global git config changes
+2026-02-11T02:58:13.1586655Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T02:58:13.1598847Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T02:58:13.1638216Z Deleting the contents of '/home/runner/work/com.wireguard.android/com.wireguard.android'
+2026-02-11T02:58:13.1641611Z ##[group]Initializing the repository
+2026-02-11T02:58:13.1645840Z [command]/usr/bin/git init /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T02:58:13.1745660Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-02-11T02:58:13.1746886Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-02-11T02:58:13.1748022Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-02-11T02:58:13.1748886Z hint: call:
+2026-02-11T02:58:13.1749188Z hint:
+2026-02-11T02:58:13.1749629Z hint: 	git config --global init.defaultBranch <name>
+2026-02-11T02:58:13.1750304Z hint:
+2026-02-11T02:58:13.1750955Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-02-11T02:58:13.1751787Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-02-11T02:58:13.1752329Z hint:
+2026-02-11T02:58:13.1752586Z hint: 	git branch -m <name>
+2026-02-11T02:58:13.1752889Z hint:
+2026-02-11T02:58:13.1753318Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-02-11T02:58:13.1754212Z Initialized empty Git repository in /home/runner/work/com.wireguard.android/com.wireguard.android/.git/
+2026-02-11T02:58:13.1761208Z [command]/usr/bin/git remote add origin https://github.com/WireGuard/wireguard-android
+2026-02-11T02:58:13.1794105Z ##[endgroup]
+2026-02-11T02:58:13.1794688Z ##[group]Disabling automatic garbage collection
+2026-02-11T02:58:13.1798666Z [command]/usr/bin/git config --local gc.auto 0
+2026-02-11T02:58:13.1832921Z ##[endgroup]
+2026-02-11T02:58:13.1833526Z ##[group]Setting up auth
+2026-02-11T02:58:13.1833946Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T02:58:13.1862680Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T02:58:13.2210245Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T02:58:13.2240056Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T02:58:13.2467330Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T02:58:13.2499554Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T02:58:13.2732327Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-11T02:58:13.2767921Z ##[endgroup]
+2026-02-11T02:58:13.2768897Z ##[group]Determining the default branch
+2026-02-11T02:58:13.2772161Z Retrieving the default branch name
+2026-02-11T02:58:13.7175240Z Default branch 'master'
+2026-02-11T02:58:13.7176793Z ##[endgroup]
+2026-02-11T02:58:13.7177513Z ##[group]Fetching the repository
+2026-02-11T02:58:13.7183028Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+2026-02-11T02:58:14.5181953Z From https://github.com/WireGuard/wireguard-android
+2026-02-11T02:58:14.5183358Z  * [new branch]      master     -> origin/master
+2026-02-11T02:58:14.5217646Z ##[endgroup]
+2026-02-11T02:58:14.5218605Z ##[group]Determining the checkout info
+2026-02-11T02:58:14.5219895Z ##[endgroup]
+2026-02-11T02:58:14.5226018Z [command]/usr/bin/git sparse-checkout disable
+2026-02-11T02:58:14.5271853Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-02-11T02:58:14.5300806Z ##[group]Checking out the ref
+2026-02-11T02:58:14.5305296Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-02-11T02:58:14.5515122Z Reset branch 'master'
+2026-02-11T02:58:14.5517387Z branch 'master' set up to track 'origin/master'.
+2026-02-11T02:58:14.5525437Z ##[endgroup]
+2026-02-11T02:58:14.5526520Z ##[group]Setting up auth for fetching submodules
+2026-02-11T02:58:14.5532376Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-02-11T02:58:14.5573766Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-02-11T02:58:14.5606739Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-02-11T02:58:14.5638623Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-22770640@github.com:
+2026-02-11T02:58:14.5665042Z ##[endgroup]
+2026-02-11T02:58:14.5665656Z ##[group]Fetching submodules
+2026-02-11T02:58:14.5669843Z [command]/usr/bin/git submodule sync --recursive
+2026-02-11T02:58:14.5901570Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-02-11T02:58:14.6122277Z Submodule 'tunnel/tools/elf-cleaner' (https://github.com/termux/termux-elf-cleaner) registered for path 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:14.6124672Z Submodule 'tunnel/tools/wireguard-tools' (https://git.zx2c4.com/wireguard-tools) registered for path 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:14.6151775Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/elf-cleaner'...
+2026-02-11T02:58:15.6701754Z Cloning into '/home/runner/work/com.wireguard.android/com.wireguard.android/tunnel/tools/wireguard-tools'...
+2026-02-11T02:58:18.2247727Z From https://github.com/termux/termux-elf-cleaner
+2026-02-11T02:58:18.2248736Z  * branch            7efc05090675ec6161b7def862728086a26c3b1f -> FETCH_HEAD
+2026-02-11T02:58:18.3404446Z Submodule path 'tunnel/tools/elf-cleaner': checked out '7efc05090675ec6161b7def862728086a26c3b1f'
+2026-02-11T02:58:21.0852263Z From https://git.zx2c4.com/wireguard-tools
+2026-02-11T02:58:21.0853746Z  * branch            e2ecaaa739144997ccff89d6ad6ec81698ea6ced -> FETCH_HEAD
+2026-02-11T02:58:21.0982335Z Submodule path 'tunnel/tools/wireguard-tools': checked out 'e2ecaaa739144997ccff89d6ad6ec81698ea6ced'
+2026-02-11T02:58:21.1023857Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-02-11T02:58:21.1255605Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:21.1293868Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:21.1339929Z ##[endgroup]
+2026-02-11T02:58:21.1340388Z ##[group]Persisting credentials for submodules
+2026-02-11T02:58:21.1351600Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-02-11T02:58:21.1571262Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:21.1613827Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:21.1669468Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-02-11T02:58:21.1877108Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:21.1916555Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
+2026-02-11T02:58:21.1935069Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:21.1973542Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
+2026-02-11T02:58:21.2022339Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-02-11T02:58:21.2243515Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:21.2282929Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:21.2334884Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-22770640@github.com:'
+2026-02-11T02:58:21.2582304Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T02:58:21.2619417Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T02:58:21.2666252Z ##[endgroup]
+2026-02-11T02:58:21.2703368Z [command]/usr/bin/git log -1 --format=%H
+2026-02-11T02:58:21.2726533Z 09b75c2bd37f749e2a8c85876394854113c74be7
+2026-02-11T02:58:21.2896662Z ##[group]Run echo $GITHUB_ENV
+2026-02-11T02:58:21.2897030Z [36;1mecho $GITHUB_ENV[0m
+2026-02-11T02:58:21.2931341Z shell: /usr/bin/bash -e {0}
+2026-02-11T02:58:21.2931692Z ##[endgroup]
+2026-02-11T02:58:21.3006040Z /home/runner/work/_temp/_runner_file_commands/set_env_bbaea13b-cfa1-439d-a907-2a2aa0923094
+2026-02-11T02:58:21.3118695Z ##[group]Run actions/setup-java@v4
+2026-02-11T02:58:21.3118987Z with:
+2026-02-11T02:58:21.3119181Z   java-version: 17
+2026-02-11T02:58:21.3119401Z   distribution: temurin
+2026-02-11T02:58:21.3119635Z   java-package: jdk
+2026-02-11T02:58:21.3119860Z   check-latest: false
+2026-02-11T02:58:21.3120078Z   server-id: github
+2026-02-11T02:58:21.3120300Z   server-username: GITHUB_ACTOR
+2026-02-11T02:58:21.3120571Z   server-password: GITHUB_TOKEN
+2026-02-11T02:58:21.3120837Z   overwrite-settings: true
+2026-02-11T02:58:21.3121075Z   job-status: success
+2026-02-11T02:58:21.3121418Z   token: ***
+2026-02-11T02:58:21.3121621Z ##[endgroup]
+2026-02-11T02:58:21.5163213Z ##[group]Installed distributions
+2026-02-11T02:58:21.5231186Z Resolved Java 17.0.18+8 from tool-cache
+2026-02-11T02:58:21.5232092Z Setting Java 17.0.18+8 as the default
+2026-02-11T02:58:21.5244990Z Creating toolchains.xml for JDK version 17 from temurin
+2026-02-11T02:58:21.5322030Z Writing to /home/runner/.m2/toolchains.xml
+2026-02-11T02:58:21.5322871Z 
+2026-02-11T02:58:21.5323165Z Java configuration:
+2026-02-11T02:58:21.5324035Z   Distribution: temurin
+2026-02-11T02:58:21.5324792Z   Version: 17.0.18+8
+2026-02-11T02:58:21.5325860Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T02:58:21.5326699Z 
+2026-02-11T02:58:21.5327384Z ##[endgroup]
+2026-02-11T02:58:21.5348843Z Creating settings.xml with server-id: github
+2026-02-11T02:58:21.5352073Z Writing to /home/runner/.m2/settings.xml
+2026-02-11T02:58:21.5601175Z ##[group]Run gradle/actions/setup-gradle@v3
+2026-02-11T02:58:21.5601483Z with:
+2026-02-11T02:58:21.5601675Z   cache-disabled: false
+2026-02-11T02:58:21.5601899Z   cache-read-only: false
+2026-02-11T02:58:21.5602117Z   cache-write-only: false
+2026-02-11T02:58:21.5602345Z   cache-overwrite-existing: false
+2026-02-11T02:58:21.5602661Z   gradle-home-cache-includes: caches
+notifications
+
+2026-02-11T02:58:21.5602983Z   gradle-home-cache-cleanup: false
+2026-02-11T02:58:21.5603229Z   add-job-summary: always
+2026-02-11T02:58:21.5603468Z   add-job-summary-as-pr-comment: never
+2026-02-11T02:58:21.5603731Z   dependency-graph: disabled
+2026-02-11T02:58:21.5603996Z   dependency-graph-continue-on-failure: true
+2026-02-11T02:58:21.5604277Z   build-scan-publish: false
+2026-02-11T02:58:21.5604515Z   validate-wrappers: false
+2026-02-11T02:58:21.5604750Z   generate-job-summary: true
+2026-02-11T02:58:21.5605000Z   gradle-home-cache-strict-match: false
+2026-02-11T02:58:21.5605366Z   workflow-job-context: {
+  "abi": "x86_64",
+  "minSdk": 31
+}
+2026-02-11T02:58:21.5606029Z   github-token: ***
+2026-02-11T02:58:21.5606222Z env:
+2026-02-11T02:58:21.5606503Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T02:58:21.5606969Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T02:58:21.5607536Z ##[endgroup]
+2026-02-11T02:58:21.9499660Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2026-02-11T02:58:21.9503045Z ##[group]Restore Gradle state from cache
+2026-02-11T02:58:22.0331851Z ##[warning]Failed to restore gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1: Error: Cache service responded with 400
+2026-02-11T02:58:22.0383892Z Gradle User Home cache not found. Will initialize empty.
+2026-02-11T02:58:22.0384822Z ##[endgroup]
+2026-02-11T02:58:22.0517162Z ##[group]Run ./gradlew assembleRelease -PtargetAbi=x86_64 -PtargetMinSdk=31
+2026-02-11T02:58:22.0517921Z [36;1m./gradlew assembleRelease -PtargetAbi=x86_64 -PtargetMinSdk=31[0m
+2026-02-11T02:58:22.0550167Z shell: /usr/bin/bash -e {0}
+2026-02-11T02:58:22.0550480Z env:
+2026-02-11T02:58:22.0550955Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T02:58:22.0551629Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T02:58:22.0552190Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T02:58:22.0552619Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T02:58:22.0553040Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T02:58:22.0553602Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T02:58:22.0554260Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T02:58:22.0554694Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T02:58:22.0579638Z ##[endgroup]
+2026-02-11T02:58:22.2664129Z Downloading https://services.gradle.org/distributions/gradle-9.1.0-bin.zip
+2026-02-11T02:58:24.5831991Z ............10%.............20%.............30%.............40%.............50%............60%.............70%.............80%.............90%.............100%
+2026-02-11T02:58:26.1348061Z 
+2026-02-11T02:58:26.1349450Z Welcome to Gradle 9.1.0!
+2026-02-11T02:58:26.1349786Z 
+2026-02-11T02:58:26.1350740Z Here are the highlights of this release:
+2026-02-11T02:58:26.1357630Z  - Full Java 25 support
+2026-02-11T02:58:26.1358099Z  - Native task graph visualization
+2026-02-11T02:58:26.1358542Z  - Enhanced console output
+2026-02-11T02:58:26.1358726Z 
+2026-02-11T02:58:26.1358965Z For more details see https://docs.gradle.org/9.1.0/release-notes.html
+2026-02-11T02:58:26.1359491Z 
+2026-02-11T02:58:26.2340715Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-02-11T02:58:28.0345331Z Configuration on demand is an incubating feature.
+2026-02-11T02:59:35.8345109Z 
+2026-02-11T02:59:35.8355780Z > Configure project :tunnel
+2026-02-11T02:59:35.8357289Z Checking the license for package NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/licenses
+2026-02-11T02:59:35.8358537Z License for package NDK (Side by side) 27.0.12077973 accepted.
+2026-02-11T02:59:35.8360264Z Preparing "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973".
+2026-02-11T02:59:52.3340832Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" ready.
+2026-02-11T02:59:52.3342342Z Installing NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/ndk/27.0.12077973
+2026-02-11T02:59:52.3344075Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" complete.
+2026-02-11T02:59:52.6369380Z "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" finished.
+2026-02-11T02:59:57.3339446Z 
+2026-02-11T02:59:57.3348445Z > Task :tunnel:preBuild UP-TO-DATE
+2026-02-11T02:59:57.3376026Z > Task :ui:preBuild UP-TO-DATE
+2026-02-11T02:59:57.3377108Z > Task :ui:preReleaseBuild UP-TO-DATE
+2026-02-11T02:59:57.3377963Z > Task :tunnel:preReleaseBuild UP-TO-DATE
+2026-02-11T02:59:57.5342067Z > Task :ui:mergeReleaseJniLibFolders
+2026-02-11T02:59:57.5342631Z > Task :ui:buildKotlinToolingMetadata
+2026-02-11T03:00:00.8339704Z > Task :tunnel:checkReleaseAarMetadata
+2026-02-11T03:00:02.4343412Z 
+2026-02-11T03:00:02.4344806Z > Task :tunnel:configureCMakeRelWithDebInfo[arm64-v8a]
+2026-02-11T03:00:02.4347929Z Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+2026-02-11T03:00:02.4349651Z License for package CMake 3.22.1 accepted.
+2026-02-11T03:00:02.4350473Z Preparing "Install CMake 3.22.1 v.3.22.1".
+2026-02-11T03:00:02.4351666Z "Install CMake 3.22.1 v.3.22.1" ready.
+2026-02-11T03:00:02.4352562Z Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+2026-02-11T03:00:02.4354740Z "Install CMake 3.22.1 v.3.22.1" complete.
+2026-02-11T03:00:02.4355237Z "Install CMake 3.22.1 v.3.22.1" finished.
+2026-02-11T03:00:13.8338902Z 
+2026-02-11T03:00:13.8340795Z > Task :tunnel:buildCMakeRelWithDebInfo[arm64-v8a][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T03:00:14.0340870Z > Task :tunnel:configureCMakeRelWithDebInfo[armeabi-v7a]
+2026-02-11T03:00:22.6340901Z > Task :tunnel:buildCMakeRelWithDebInfo[armeabi-v7a][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T03:00:22.8367340Z > Task :tunnel:configureCMakeRelWithDebInfo[x86]
+2026-02-11T03:00:26.6342761Z > Task :ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+2026-02-11T03:00:26.7354420Z > Task :ui:checkReleaseDuplicateClasses
+2026-02-11T03:00:29.1348570Z > Task :ui:dataBindingMergeDependencyArtifactsRelease
+2026-02-11T03:00:29.2365977Z > Task :ui:extractReleaseSupportedLocales
+2026-02-11T03:00:29.2367065Z > Task :ui:generateReleaseResources
+2026-02-11T03:00:29.2371256Z > Task :ui:dataBindingTriggerRelease
+2026-02-11T03:00:29.3340409Z > Task :ui:generateReleaseBuildConfig
+2026-02-11T03:00:29.3342451Z > Task :ui:extractDeepLinksRelease
+2026-02-11T03:00:31.6340051Z > Task :ui:javaPreCompileRelease
+2026-02-11T03:00:31.6400177Z > Task :ui:createReleaseCompatibleScreenManifests
+2026-02-11T03:00:31.6404335Z > Task :ui:extractProguardFiles
+2026-02-11T03:00:31.6405089Z > Task :ui:mergeReleaseStartupProfile
+2026-02-11T03:00:31.6405951Z > Task :ui:generateReleaseAssets UP-TO-DATE
+2026-02-11T03:00:31.7340275Z > Task :ui:extractReleaseVersionControlInfo
+2026-02-11T03:00:31.8350434Z > Task :ui:collectReleaseDependencies
+2026-02-11T03:00:32.0340210Z > Task :ui:sdkReleaseDependencyData
+2026-02-11T03:00:32.0350051Z > Task :ui:writeReleaseAppMetadata
+2026-02-11T03:00:32.1369130Z > Task :ui:writeReleaseSigningConfigVersions
+2026-02-11T03:00:33.5339945Z > Task :tunnel:buildCMakeRelWithDebInfo[x86][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T03:00:33.7359810Z > Task :tunnel:configureCMakeRelWithDebInfo[x86_64]
+2026-02-11T03:00:42.4341325Z > Task :tunnel:buildCMakeRelWithDebInfo[x86_64][libwg-go.so,libwg-quick.so,etc]
+2026-02-11T03:00:42.4343156Z > Task :tunnel:mergeReleaseJniLibFolders
+2026-02-11T03:00:42.6339648Z > Task :tunnel:mergeReleaseNativeLibs
+2026-02-11T03:00:49.6352360Z > Task :tunnel:extractReleaseAnnotations
+2026-02-11T03:00:49.7341959Z > Task :tunnel:generateReleaseEmptyResourceFiles
+2026-02-11T03:00:49.7344090Z > Task :tunnel:generateReleaseAssets UP-TO-DATE
+2026-02-11T03:00:49.7359826Z > Task :tunnel:mergeReleaseAssets
+2026-02-11T03:00:49.8361373Z > Task :tunnel:javaPreCompileRelease
+2026-02-11T03:00:49.8362282Z > Task :tunnel:prepareLintJarForPublish
+2026-02-11T03:00:49.8363512Z > Task :tunnel:prepareReleaseArtProfile
+2026-02-11T03:00:49.8364243Z > Task :ui:processReleaseNavigationResources
+2026-02-11T03:00:49.9348932Z > Task :tunnel:stripReleaseDebugSymbols
+2026-02-11T03:00:50.0341362Z > Task :ui:mergeReleaseArtProfile
+2026-02-11T03:00:50.3340036Z > Task :ui:compileReleaseNavigationResources
+2026-02-11T03:00:55.9340876Z > Task :ui:mapReleaseSourceSetPaths
+2026-02-11T03:00:56.0344746Z > Task :tunnel:compileReleaseJavaWithJavac
+2026-02-11T03:00:56.0345367Z > Task :ui:expandReleaseL8ArtProfileWildcards
+2026-02-11T03:00:56.1348553Z > Task :tunnel:mergeReleaseGeneratedProguardFiles
+2026-02-11T03:00:56.1349705Z > Task :tunnel:mergeReleaseConsumerProguardFiles
+2026-02-11T03:00:56.1350563Z > Task :ui:mergeReleaseAssets
+2026-02-11T03:00:56.1351046Z > Task :ui:compressReleaseAssets
+2026-02-11T03:00:56.1351557Z > Task :tunnel:processReleaseJavaRes NO-SOURCE
+2026-02-11T03:00:56.1352090Z > Task :tunnel:writeReleaseAarMetadata
+2026-02-11T03:00:56.1352627Z > Task :tunnel:copyReleaseJniLibsProjectAndLocalJars
+2026-02-11T03:00:56.2340622Z > Task :tunnel:exportReleaseConsumerProguardFiles
+2026-02-11T03:00:56.2342255Z > Task :tunnel:bundleLibCompileToJarRelease
+2026-02-11T03:00:56.2353134Z > Task :tunnel:copyReleaseJniLibsProjectOnly
+2026-02-11T03:00:56.2357966Z > Task :tunnel:mergeReleaseJavaResource
+2026-02-11T03:00:56.2362102Z > Task :tunnel:bundleLibRuntimeToJarRelease
+2026-02-11T03:00:56.3369885Z > Task :tunnel:processReleaseManifest
+2026-02-11T03:00:56.3370903Z > Task :tunnel:syncReleaseLibJars
+2026-02-11T03:00:56.4339945Z > Task :ui:checkReleaseAarMetadata
+2026-02-11T03:00:56.7346451Z > Task :ui:mergeReleaseNativeLibs
+2026-02-11T03:00:56.9363593Z > Task :ui:processReleaseMainManifest
+2026-02-11T03:00:57.0339659Z > Task :ui:generateReleaseManifestClass
+2026-02-11T03:00:57.1339557Z > Task :ui:stripReleaseDebugSymbols
+2026-02-11T03:00:57.2339716Z > Task :ui:processReleaseManifest
+2026-02-11T03:00:57.3349930Z > Task :ui:processReleaseManifestForPackage
+2026-02-11T03:00:57.5343652Z > Task :tunnel:bundleReleaseAar
+2026-02-11T03:00:57.5402680Z > Task :tunnel:assembleRelease
+2026-02-11T03:00:57.5403267Z > Task :tunnel:extractReleaseSupportedLocales
+2026-02-11T03:00:57.5403819Z > Task :tunnel:extractProguardFiles
+2026-02-11T03:00:57.5404309Z > Task :ui:generateReleaseLocaleConfig
+2026-02-11T03:00:57.7339454Z > Task :tunnel:generateReleaseLintVitalModel
+2026-02-11T03:00:57.8361056Z > Task :tunnel:createFullJarRelease
+2026-02-11T03:00:57.8361640Z > Task :tunnel:generateReleaseLintModel
+2026-02-11T03:00:57.9349762Z > Task :tunnel:bundleReleaseLocalLintAar
+2026-02-11T03:00:58.0339496Z > Task :tunnel:writeReleaseLintModelMetadata
+2026-02-11T03:00:58.6339323Z > Task :ui:extractReleaseNativeSymbolTables
+2026-02-11T03:01:03.0366689Z > Task :ui:packageReleaseResources
+2026-02-11T03:01:03.3339258Z > Task :ui:parseReleaseLocalResources
+2026-02-11T03:01:03.5339239Z > Task :ui:generateReleaseRFile
+2026-02-11T03:01:03.9339705Z > Task :ui:mergeReleaseNativeDebugMetadata
+2026-02-11T03:01:04.1339618Z > Task :ui:mergeReleaseResources
+2026-02-11T03:01:04.6340883Z > Task :ui:dataBindingGenBaseClassesRelease
+2026-02-11T03:01:09.1339332Z > Task :tunnel:lintVitalAnalyzeRelease
+2026-02-11T03:01:13.5339449Z > Task :ui:processReleaseResources
+2026-02-11T03:01:33.2339245Z > Task :ui:kaptGenerateStubsReleaseKotlin
+2026-02-11T03:01:38.0340076Z > Task :ui:kaptReleaseKotlin
+2026-02-11T03:01:51.3339285Z > Task :ui:compileReleaseKotlin
+2026-02-11T03:01:53.9339371Z > Task :ui:compileReleaseJavaWithJavac
+2026-02-11T03:01:54.0369718Z > Task :ui:mergeReleaseGeneratedProguardFiles
+2026-02-11T03:01:54.1339327Z > Task :ui:processReleaseJavaRes
+2026-02-11T03:01:54.3339532Z > Task :ui:expandReleaseArtProfileWildcards
+2026-02-11T03:01:54.8366966Z > Task :ui:mergeReleaseJavaResource
+2026-02-11T03:01:55.9368525Z > Task :ui:generateReleaseLintVitalReportModel
+2026-02-11T03:02:25.9339647Z > Task :ui:minifyReleaseWithR8
+2026-02-11T03:02:26.2339784Z > Task :ui:lintVitalAnalyzeRelease
+2026-02-11T03:02:51.7366658Z > Task :ui:lintVitalReportRelease
+2026-02-11T03:02:51.7367561Z > Task :ui:lintVitalRelease
+2026-02-11T03:03:15.8341010Z > Task :ui:convertShrunkResourcesToBinaryRelease
+2026-02-11T03:03:16.1341074Z > Task :ui:optimizeReleaseResources
+2026-02-11T03:03:22.7345222Z > Task :ui:l8DexDesugarLibRelease
+2026-02-11T03:03:22.9352809Z > Task :ui:compileReleaseArtProfile
+2026-02-11T03:03:23.2339975Z > Task :ui:packageRelease
+2026-02-11T03:03:23.2344355Z > Task :ui:createReleaseApkListingFileRedirect
+2026-02-11T03:03:23.2348749Z > Task :ui:assembleRelease
+2026-02-11T03:03:23.3346148Z 
+2026-02-11T03:03:23.3351192Z [Incubating] Problems report is available at: file:///home/runner/work/com.wireguard.android/com.wireguard.android/build/reports/problems/problems-report.html
+2026-02-11T03:03:23.3353887Z 
+2026-02-11T03:03:23.3356188Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+2026-02-11T03:03:23.3358039Z 
+2026-02-11T03:03:23.3359806Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2026-02-11T03:03:23.3364451Z 
+2026-02-11T03:03:23.3366727Z For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+2026-02-11T03:03:23.3369193Z 
+2026-02-11T03:03:23.3370885Z BUILD SUCCESSFUL in 5m 1s
+2026-02-11T03:03:23.3373125Z 99 actionable tasks: 99 executed
+2026-02-11T03:03:23.3376078Z Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.1.0/userguide/configuration_cache_enabling.html
+2026-02-11T03:03:23.7618164Z ##[group]Run r0adkll/sign-android-release@v1
+2026-02-11T03:03:23.7618661Z with:
+2026-02-11T03:03:23.7619025Z   releaseDirectory: ui/build/outputs/apk/release
+2026-02-11T03:03:23.7653871Z   signingKeyBase64: ***
+2026-02-11T03:03:23.7654291Z   alias: ***
+2026-02-11T03:03:23.7654638Z   keyStorePassword: ***
+2026-02-11T03:03:23.7655021Z   keyPassword: ***
+2026-02-11T03:03:23.7655338Z env:
+2026-02-11T03:03:23.7655941Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T03:03:23.7656804Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.18-8/x64
+2026-02-11T03:03:23.7657515Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-02-11T03:03:23.7658034Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-02-11T03:03:23.7658536Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-02-11T03:03:23.7659292Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-02-11T03:03:23.7660241Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-02-11T03:03:23.7660806Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-02-11T03:03:23.7661242Z ##[endgroup]
+2026-02-11T03:03:23.8148174Z Preparing to sign key @ ui/build/outputs/apk/release with signing key
+2026-02-11T03:03:23.8149008Z Found 1 release files.
+2026-02-11T03:03:23.8161137Z ##[error]Couldnt find the Android build tools @ /usr/local/lib/android/sdk/build-tools/29.0.3
+2026-02-11T03:03:23.8180236Z ##[error]Unable to locate executable file: /usr/local/lib/android/sdk/build-tools/29.0.3/zipalign. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also check the file mode to verify the file is executable.
+2026-02-11T03:03:23.8392166Z Post job cleanup.
+2026-02-11T03:03:24.0991031Z In post-action step
+2026-02-11T03:03:24.1000274Z Stopping all Gradle daemons before saving Gradle User Home state
+2026-02-11T03:03:24.1002896Z Stopping Gradle daemons for /home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0
+2026-02-11T03:03:24.1022043Z [command]/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0/bin/gradle --stop
+2026-02-11T03:03:25.2629658Z Stopping Daemon(s)
+2026-02-11T03:03:25.2633939Z 1 Daemon stopped
+2026-02-11T03:03:25.2814276Z ##[group]Caching Gradle state
+2026-02-11T03:03:25.3167603Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and cache key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3
+2026-02-11T03:03:25.3206802Z Caching wrapper-zips with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and cache key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87
+2026-02-11T03:03:25.3386894Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:25.3425762Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:26.0042407Z Caching dependencies with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f
+2026-02-11T03:03:26.0196896Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*/' and cache key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7
+2026-02-11T03:03:26.0818287Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:26.0944979Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+2026-02-11T03:03:26.0946618Z /home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and cache key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d
+2026-02-11T03:03:26.2079929Z Caching groovy-dsl with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and cache key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0
+2026-02-11T03:03:26.2143874Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*/' and key: gradle-instrumented-jars-v1-025a474eb531209c131d75c14344e3d7: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAAD2IsK9e6d2TJNOi4ytJ1l3UEFPRURHRTA1MTQARWRnZQ==
+2026-02-11T03:03:26.2751737Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:26.2764804Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3' and key: gradle-wrapper-zips-v1-511d710227dd87ed615189e24c183c87: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAAC9Rx3ewlBzS7fGphRCe1E9UEFPRURHRTA1MTEARWRnZQ==
+2026-02-11T03:03:26.3231649Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/9.1.0/generated-gradle-jars/gradle-api-9.1.0.jar' and key: gradle-generated-gradle-jars-v1-8ae09625009e808ae7ed926e39624fd3: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAABY3nkqt7f5ToLGqrW/Cje7UEFPRURHRTA1MTUARWRnZQ==
+2026-02-11T03:03:26.3619176Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:26.4124762Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/groovy-dsl/*/' and key: gradle-groovy-dsl-v1-df17ef4b8f78c92c6f3bb60d4b9ef0d0: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAADjVxK+Ea9jQJE1R0RDrvrPUEFPRURHRTA1MTAARWRnZQ==
+2026-02-11T03:03:26.4350146Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+/home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and key: gradle-kotlin-dsl-v1-59162ef6bcacabc9d34ed1e5f8c9178d: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0fvGLaQAAAACvqm4AT+QESZRVGuzfiqXuUEFPRURHRTA1MTIARWRnZQ==
+2026-02-11T03:03:26.8453563Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:27.0418905Z Caching transforms with path '/home/runner/.gradle/caches/transforms-4/*/
+2026-02-11T03:03:27.0420097Z /home/runner/.gradle/caches/*/transforms/*/' and cache key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58
+2026-02-11T03:03:27.7483419Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:28.1031739Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and key: gradle-dependencies-v1-461e18d95587f2762d3228a1a1545b2f: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gPGLaQAAAADLHvQpbGnySoZLkg/Bu6fEUEFPRURHRTA2MjEARWRnZQ==
+2026-02-11T03:03:28.9861317Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/transforms-4/*/
+/home/runner/.gradle/caches/*/transforms/*/' and key: gradle-transforms-v1-8bccf91413dda2ec8fb794cdd3b4ca58: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gPGLaQAAAABT7bsnvuiEQI0rH3jO3+WBUEFPRURHRTA2MTUARWRnZQ==
+2026-02-11T03:03:29.6977048Z Caching Gradle User Home with cache key: gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1
+2026-02-11T03:03:29.7070766Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/com.wireguard.android/com.wireguard.android --files-from manifest.txt --use-compress-program zstdmt
+2026-02-11T03:03:29.9922201Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.setup-gradle' and key: gradle-home-v1|Linux|build[d3643b4d2f2d4d071757b245039e7fd9]-ef034888f4ac8d550900df8ca5796d62246ed5c1: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0gfGLaQAAAAALpr+zugr2RqD5khO7Y5KiUEFPRURHRTA2MTMARWRnZQ==
+2026-02-11T03:03:29.9927990Z ##[endgroup]
+2026-02-11T03:03:29.9928338Z Generating Job Summary
+2026-02-11T03:03:29.9936899Z Completed post-action step
+2026-02-11T03:03:30.0150962Z Post job cleanup.
+2026-02-11T03:03:30.1949017Z Post job cleanup.
+2026-02-11T03:03:30.2942876Z [command]/usr/bin/git version
+2026-02-11T03:03:30.2980392Z git version 2.52.0
+2026-02-11T03:03:30.3023992Z Temporarily overriding HOME='/home/runner/work/_temp/70b7a243-3a96-488f-85c7-5cb110bd13b0' before making global git config changes
+2026-02-11T03:03:30.3025768Z Adding repository directory to the temporary git global config as a safe directory
+2026-02-11T03:03:30.3029778Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/com.wireguard.android/com.wireguard.android
+2026-02-11T03:03:30.3067767Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-02-11T03:03:30.3103376Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-02-11T03:03:30.3324024Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T03:03:30.3368584Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T03:03:30.3433516Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-02-11T03:03:30.3457138Z http.https://github.com/.extraheader
+2026-02-11T03:03:30.3468906Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-02-11T03:03:30.3500394Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-02-11T03:03:30.3705366Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T03:03:30.3729692Z http.https://github.com/.extraheader
+2026-02-11T03:03:30.3763466Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T03:03:30.3787434Z http.https://github.com/.extraheader
+2026-02-11T03:03:30.3836037Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T03:03:30.3867663Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-02-11T03:03:30.4078853Z Entering 'tunnel/tools/elf-cleaner'
+2026-02-11T03:03:30.4098918Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config	remote.origin.url
+2026-02-11T03:03:30.4117630Z Entering 'tunnel/tools/wireguard-tools'
+2026-02-11T03:03:30.4137577Z file:/home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config	remote.origin.url
+2026-02-11T03:03:30.4172575Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/elf-cleaner/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T03:03:30.4206453Z [command]/usr/bin/git config --file /home/runner/work/com.wireguard.android/com.wireguard.android/.git/modules/tunnel/tools/wireguard-tools/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-02-11T03:03:30.4355063Z Cleaning up orphan processes

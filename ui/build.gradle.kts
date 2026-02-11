@@ -39,8 +39,7 @@ android {
 
         if (targetAbi != null) {
             ndk {
-                abiFilters.clear()
-                abiFilters.add(targetAbi)
+                abiFilters.set(listOf(targetAbi))
             }
         }
     }
