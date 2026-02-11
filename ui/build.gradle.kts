@@ -59,15 +59,40 @@ android {
                     excludes += "kotlin-tooling-metadata.json"
                     excludes += "META-INF/*.version"
                 }
+                jniLibs {
+                    val targetAbi: String? by project
+                    if (targetAbi != null) {
+                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
+                    }
+                }
             }
         }
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
+            packaging {
+                jniLibs {
+                    val targetAbi: String? by project
+                    if (targetAbi != null) {
+                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
+                    }
+                }
+            }
         }
         create("googleplay") {
             initWith(getByName("release"))
             matchingFallbacks += "release"
+            packaging {
+                jniLibs {
+                    val targetAbi: String? by project
+                    if (targetAbi != null) {
+                        val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+                        excludes += allAbis.filter { it != targetAbi }.map { "lib/$it/*" }
+                    }
+                }
+            }
         }
     }
     androidResources {
