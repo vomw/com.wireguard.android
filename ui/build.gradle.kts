@@ -21,11 +21,28 @@ android {
     namespace = pkg
     defaultConfig {
         applicationId = pkg
-        minSdk = 24
+        val baseMinSdk = 24
+        minSdk = (project.findProperty("targetMinSdk") as String?)?.toInt() ?: baseMinSdk
         targetSdk = 36
-        versionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
+        val baseVersionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
         versionName = providers.gradleProperty("wireguardVersionName").get()
         buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
+
+        val targetAbi: String? by project
+        versionCode = baseVersionCode * 10 + when (targetAbi) {
+            "x86" -> 1
+            "x86_64" -> 2
+            "armeabi-v7a" -> 3
+            "arm64-v8a" -> 4
+            else -> 0
+        }
+
+        if (targetAbi != null) {
+            ndk {
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
+            }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
