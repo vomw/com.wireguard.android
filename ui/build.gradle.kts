@@ -15,6 +15,7 @@ android {
     compileSdk = 36
     val targetAbi: String? = project.findProperty("targetAbi")?.toString()
 
+    namespace = pkg
     defaultConfig {
         applicationId = pkg
         minSdk = 24
@@ -33,12 +34,24 @@ android {
 
         if (targetAbi != null) {
             ndk {
-                abiFilters.set(listOf(targetAbi))
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
             }
         }
     }
 
+    if (targetAbi != null) {
+        ndk {
+            abiFilters.clear()
+            abiFilters.add(targetAbi)
+        }
+    }
+
     buildFeatures {
+        buildConfig = true
+        dataBinding = true
+        viewBinding = true
+    }
 
     packaging {
         resources {
@@ -47,11 +60,11 @@ android {
             excludes += "META-INF/*.version"
         }
         jniLibs {
-            project.findProperty("targetAbi")?.toString()?.let { abi ->
+            if (targetAbi != null) {
                 val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                allAbis.forEach { 
-                    if (it != abi) {
-                        excludes += "**/lib/$it/**"
+                allAbis.forEach { abi ->
+                    if (abi != targetAbi) {
+                        excludes += "lib/$abi/**"
                     }
                 }
             }

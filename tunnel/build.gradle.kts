@@ -15,28 +15,28 @@ android {
     compileSdk = 36
     val targetAbi: String? = project.findProperty("targetAbi")?.toString()
 
-    if (targetAbi != null) {
-        defaultConfig {
+    namespace = "${pkg}.tunnel"
+    defaultConfig {
+        minSdk = 24
+
+        if (targetAbi != null) {
             ndk {
-                abiFilters.set(listOf(targetAbi))
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
             }
+        }
+    }
+
+    if (targetAbi != null) {
+        ndk {
+            abiFilters.clear()
+            abiFilters.add(targetAbi)
         }
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-    namespace = "${pkg}.tunnel"
-    defaultConfig {
-        minSdk = 24
-
-        project.findProperty("targetAbi")?.toString()?.let { abi ->
-            ndk {
-                abiFilters.clear()
-                abiFilters.add(abi)
-            }
-        }
     }
 
     externalNativeBuild {
