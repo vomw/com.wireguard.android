@@ -14,12 +14,10 @@ plugins {
 android {
     compileSdk = 36
     val targetAbi: String? = project.findProperty("targetAbi")?.toString()
-    val targetMinSdk: String? = project.findProperty("targetMinSdk")?.toString()
 
     defaultConfig {
         applicationId = pkg
-        val baseMinSdk = 24
-        minSdk = targetMinSdk?.toInt() ?: baseMinSdk
+        minSdk = 24
         targetSdk = 36
         val baseVersionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
         versionName = providers.gradleProperty("wireguardVersionName").get()

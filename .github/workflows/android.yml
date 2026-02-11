@@ -12,7 +12,6 @@ jobs:
     strategy:
       matrix:
         abi: [armeabi-v7a, arm64-v8a, x86, x86_64]
-        minSdk: [24, 31]
 
     steps:
     - name: Checkout
@@ -34,7 +33,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Build with Gradle
-      run: ./gradlew assembleRelease -PtargetAbi=${{ matrix.abi }} -PtargetMinSdk=${{ matrix.minSdk }}
+      run: ./gradlew assembleRelease -PtargetAbi=${{ matrix.abi }}
 
     - name: Sign APK
       uses: r0adkll/sign-android-release@v1
@@ -45,17 +44,16 @@ jobs:
         alias: ${{ secrets.ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
-      env:
-        BUILD_TOOLS_VERSION: '35.0.1'
+        buildToolsVersion: 35.0.0
 
     - name: Upload report
       uses: actions/upload-artifact@v4
       with:
-        name: reports-${{ matrix.abi }}-api${{ matrix.minSdk }}
+        name: reports-${{ matrix.abi }}
         path: ui/build/reports/*
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: wireguard-android-${{ matrix.abi }}-api${{ matrix.minSdk }}
+        name: wireguard-android-${{ matrix.abi }}
         path: ${{ steps.sign_app.outputs.signedReleaseFile }}
