@@ -13,11 +13,23 @@ plugins {
 
 android {
     compileSdk = 36
-    val targetAbi: String? = project.findProperty("targetAbi")?.toString()
+    val targetAbi = providers.gradleProperty("targetAbi").orNull
 
     namespace = "${pkg}.tunnel"
     defaultConfig {
         minSdk = 24
+        if (targetAbi != null) {
+            ndk {
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
+            }
+            externalNativeBuild {
+                cmake {
+                    abiFilters.clear()
+                    abiFilters.add(targetAbi)
+                }
+            }
+        }
     }
 
     compileOptions {
@@ -42,15 +54,6 @@ android {
                     targets("libwg-go.so", "libwg.so", "libwg-quick.so")
                     arguments("-DGRADLE_USER_HOME=${project.gradle.gradleUserHomeDir}")
                     arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
-
-                    project.findProperty("targetAbi")?.toString()?.let { abi ->
-                        abiFilters.set(listOf(abi))
-                    }
-                }
-            }
-            project.findProperty("targetAbi")?.toString()?.let { abi ->
-                ndk {
-                    abiFilters.set(listOf(abi))
                 }
             }
         }

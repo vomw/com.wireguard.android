@@ -13,7 +13,7 @@ plugins {
 
 android {
     compileSdk = 36
-    val targetAbi: String? = project.findProperty("targetAbi")?.toString()
+    val targetAbi = providers.gradleProperty("targetAbi").orNull
 
     namespace = pkg
     defaultConfig {
@@ -34,7 +34,8 @@ android {
 
         if (targetAbi != null) {
             ndk {
-                abiFilters.set(listOf(targetAbi))
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
             }
         }
     }
@@ -53,12 +54,10 @@ android {
         }
         jniLibs {
             if (targetAbi != null) {
-                val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-                allAbis.forEach { a ->
-                    if (a != targetAbi) {
-                        excludes.add("lib/$a/**")
-                        excludes.add("$a/**")
-                        excludes.add("**/$a/**")
+                listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64").forEach { abi ->
+                    if (abi != targetAbi) {
+                        excludes.add("lib/$abi/**")
+                        excludes.add("**/$abi/**")
                     }
                 }
             }
