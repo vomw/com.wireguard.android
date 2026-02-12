@@ -31,9 +31,9 @@ jobs:
 
     - name: Extract Metadata
       run: |
-        echo "PKG=$(grep 'wireguardPackageName=' gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
-        echo "VERSION_NAME=$(grep 'wireguardVersionName=' gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
-        echo "BASE_VERSION_CODE=$(grep 'wireguardVersionCode=' gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
+        echo "PKG=$(grep 'wireguardPackageName=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
+        echo "VERSION_NAME=$(grep 'wireguardVersionName=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
+        echo "BASE_VERSION_CODE=$(grep 'wireguardVersionCode=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
 
     # sequential Build for arm64-v8a
     - name: Build arm64-v8a
