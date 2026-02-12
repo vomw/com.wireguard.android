@@ -24,21 +24,35 @@ android {
         versionName = providers.gradleProperty("wireguardVersionName").get()
         buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
 
-        project.findProperty("targetAbi")?.toString()?.let { abi ->
-            versionCode = baseVersionCode * 10 + when (abi) {
-                "x86" -> 1
-                "x86_64" -> 2
-                "armeabi-v7a" -> 3
-                "arm64-v8a" -> 4
-                else -> 0
-            }
+        versionCode = baseVersionCode * 10 + when (targetAbi) {
+            "x86" -> 1
+            "x86_64" -> 2
+            "armeabi-v7a" -> 3
+            "arm64-v8a" -> 4
+            else -> 0
+        }
+
+        if (targetAbi != null) {
             ndk {
-                abiFilters.add(abi)
+                abiFilters.clear()
+                abiFilters.add(targetAbi)
             }
             externalNativeBuild {
                 cmake {
-                    abiFilters.add(abi)
+                    abiFilters.clear()
+                    abiFilters.add(targetAbi)
                 }
+            }
+        }
+    }
+
+    if (targetAbi != null) {
+        splits {
+            abi {
+                enable = true
+                reset()
+                include(targetAbi)
+                isUniversalApk = false
             }
         }
     }
@@ -56,11 +70,12 @@ android {
             excludes += "META-INF/*.version"
         }
         jniLibs {
-            project.findProperty("targetAbi")?.toString()?.let { abi ->
+            if (targetAbi != null) {
                 val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
                 allAbis.forEach { a ->
-                    if (a != abi) {
-                        excludes += "**/lib/$a/**"
+                    if (a != targetAbi) {
+                        excludes += "lib/$a/**"
+                        excludes += "$a/**"
                     }
                 }
             }

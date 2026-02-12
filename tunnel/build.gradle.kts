@@ -21,10 +21,12 @@ android {
 
         project.findProperty("targetAbi")?.toString()?.let { abi ->
             ndk {
+                abiFilters.clear()
                 abiFilters.add(abi)
             }
             externalNativeBuild {
                 cmake {
+                    abiFilters.clear()
                     abiFilters.add(abi)
                 }
             }
