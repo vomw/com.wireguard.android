@@ -18,19 +18,6 @@ android {
     namespace = "${pkg}.tunnel"
     defaultConfig {
         minSdk = 24
-
-        project.findProperty("targetAbi")?.toString()?.let { abi ->
-            ndk {
-                abiFilters.clear()
-                abiFilters.add(abi)
-            }
-            externalNativeBuild {
-                cmake {
-                    abiFilters.clear()
-                    abiFilters.add(abi)
-                }
-            }
-        }
     }
 
     compileOptions {
@@ -55,6 +42,15 @@ android {
                     targets("libwg-go.so", "libwg.so", "libwg-quick.so")
                     arguments("-DGRADLE_USER_HOME=${project.gradle.gradleUserHomeDir}")
                     arguments("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
+
+                    project.findProperty("targetAbi")?.toString()?.let { abi ->
+                        abiFilters.set(listOf(abi))
+                    }
+                }
+            }
+            project.findProperty("targetAbi")?.toString()?.let { abi ->
+                ndk {
+                    abiFilters.set(listOf(abi))
                 }
             }
         }

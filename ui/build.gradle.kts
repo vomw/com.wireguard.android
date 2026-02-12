@@ -34,25 +34,7 @@ android {
 
         if (targetAbi != null) {
             ndk {
-                abiFilters.clear()
-                abiFilters.add(targetAbi)
-            }
-            externalNativeBuild {
-                cmake {
-                    abiFilters.clear()
-                    abiFilters.add(targetAbi)
-                }
-            }
-        }
-    }
-
-    if (targetAbi != null) {
-        splits {
-            abi {
-                enable = true
-                reset()
-                include(targetAbi)
-                isUniversalApk = false
+                abiFilters.set(listOf(targetAbi))
             }
         }
     }
@@ -74,8 +56,9 @@ android {
                 val allAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
                 allAbis.forEach { a ->
                     if (a != targetAbi) {
-                        excludes += "lib/$a/**"
-                        excludes += "$a/**"
+                        excludes.add("lib/$a/**")
+                        excludes.add("$a/**")
+                        excludes.add("**/$a/**")
                     }
                 }
             }
