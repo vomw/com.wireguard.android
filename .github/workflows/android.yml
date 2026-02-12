@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -34,6 +36,7 @@ jobs:
         echo "PKG=$(grep 'wireguardPackageName=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
         echo "VERSION_NAME=$(grep 'wireguardVersionName=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
         echo "BASE_VERSION_CODE=$(grep 'wireguardVersionCode=' gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
+        mkdir -p dist
 
     # sequential Build for arm64-v8a
     - name: Build arm64-v8a
@@ -53,13 +56,13 @@ jobs:
       run: |
         VC=$((BASE_VERSION_CODE * 10 + 4))
         APK_NAME="${PKG}-${VERSION_NAME}-${VC}-arm64-v8a.apk"
-        mv "${{ steps.sign_arm64.outputs.signedReleaseFile }}" "ui/build/outputs/apk/release/${APK_NAME}"
+        mv "${{ steps.sign_arm64.outputs.signedReleaseFile }}" "dist/${APK_NAME}"
         echo "APK_NAME_ARM64=${APK_NAME}" >> $GITHUB_ENV
     - name: Upload arm64-v8a APK
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.APK_NAME_ARM64 }}
-        path: ui/build/outputs/apk/release/${{ env.APK_NAME_ARM64 }}
+        path: dist/${{ env.APK_NAME_ARM64 }}
     - name: Clean build for next ABI
       run: ./gradlew clean
 
@@ -81,13 +84,13 @@ jobs:
       run: |
         VC=$((BASE_VERSION_CODE * 10 + 3))
         APK_NAME="${PKG}-${VERSION_NAME}-${VC}-armeabi-v7a.apk"
-        mv "${{ steps.sign_armv7.outputs.signedReleaseFile }}" "ui/build/outputs/apk/release/${APK_NAME}"
+        mv "${{ steps.sign_armv7.outputs.signedReleaseFile }}" "dist/${APK_NAME}"
         echo "APK_NAME_ARMV7=${APK_NAME}" >> $GITHUB_ENV
     - name: Upload armeabi-v7a APK
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.APK_NAME_ARMV7 }}
-        path: ui/build/outputs/apk/release/${{ env.APK_NAME_ARMV7 }}
+        path: dist/${{ env.APK_NAME_ARMV7 }}
     - name: Clean build for next ABI
       run: ./gradlew clean
 
@@ -109,13 +112,13 @@ jobs:
       run: |
         VC=$((BASE_VERSION_CODE * 10 + 1))
         APK_NAME="${PKG}-${VERSION_NAME}-${VC}-x86.apk"
-        mv "${{ steps.sign_x86.outputs.signedReleaseFile }}" "ui/build/outputs/apk/release/${APK_NAME}"
+        mv "${{ steps.sign_x86.outputs.signedReleaseFile }}" "dist/${APK_NAME}"
         echo "APK_NAME_X86=${APK_NAME}" >> $GITHUB_ENV
     - name: Upload x86 APK
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.APK_NAME_X86 }}
-        path: ui/build/outputs/apk/release/${{ env.APK_NAME_X86 }}
+        path: dist/${{ env.APK_NAME_X86 }}
     - name: Clean build for next ABI
       run: ./gradlew clean
 
@@ -137,10 +140,21 @@ jobs:
       run: |
         VC=$((BASE_VERSION_CODE * 10 + 2))
         APK_NAME="${PKG}-${VERSION_NAME}-${VC}-x86_64.apk"
-        mv "${{ steps.sign_x86_64.outputs.signedReleaseFile }}" "ui/build/outputs/apk/release/${APK_NAME}"
+        mv "${{ steps.sign_x86_64.outputs.signedReleaseFile }}" "dist/${APK_NAME}"
         echo "APK_NAME_X86_64=${APK_NAME}" >> $GITHUB_ENV
     - name: Upload x86_64 APK
       uses: actions/upload-artifact@v4
       with:
         name: ${{ env.APK_NAME_X86_64 }}
-        path: ui/build/outputs/apk/release/${{ env.APK_NAME_X86_64 }}
+        path: dist/${{ env.APK_NAME_X86_64 }}
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ env.VERSION_NAME }}
+        name: Release ${{ env.VERSION_NAME }}
+        files: dist/*.apk
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
